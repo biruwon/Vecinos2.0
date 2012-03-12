@@ -1,3 +1,33 @@
+MensajeBundle:
+    resource: "@MensajeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ReservaBundle:
+    resource: "@ReservaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+EspacioBundle:
+    resource: "@EspacioBundle/Resources/config/routing.yml"
+    prefix:   /
+
+IncidenciaBundle:
+    resource: "@IncidenciaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+JuntaBundle:
+    resource: "@JuntaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+InmuebleBundle:
+    resource: "@InmuebleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+UsuarioBundle:
+    resource: "@UsuarioBundle/Resources/config/routing.yml"
+    prefix:   /
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

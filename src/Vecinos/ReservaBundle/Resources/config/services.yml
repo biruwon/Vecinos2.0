@@ -1,0 +1,7 @@
+parameters:
+#    reserva.example.class: Vecinos\ReservaBundle\Example
+
+services:
+#    reserva.example:
+#        class: %reserva.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,7 @@
+parameters:
+#    usuario.example.class: Vecinos\UsuarioBundle\Example
+
+services:
+#    usuario.example:
+#        class: %usuario.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

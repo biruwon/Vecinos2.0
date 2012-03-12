@@ -1,0 +1,7 @@
+parameters:
+#    incidencia.example.class: Vecinos\IncidenciaBundle\Example
+
+services:
+#    incidencia.example:
+#        class: %incidencia.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
