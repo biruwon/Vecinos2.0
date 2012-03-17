@@ -19,11 +19,12 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Vecinos\UsuarioBundle\UsuarioBundle(),
             new Vecinos\InmuebleBundle\InmuebleBundle(),
-            new Vecinos\JuntaBundle\JuntaBundle(),
-            new Vecinos\IncidenciaBundle\IncidenciaBundle(),
             new Vecinos\EspacioBundle\EspacioBundle(),
             new Vecinos\ReservaBundle\ReservaBundle(),
             new Vecinos\MensajeBundle\MensajeBundle(),
+            new Vecinos\JuntaBundle\JuntaBundle(),
+            new Vecinos\IncidenciaBundle\IncidenciaBundle(),
+            new Vecinos\BackendBundle\BackendBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

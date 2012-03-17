@@ -1,6 +1,6 @@
 <?php
 
-namespace Vecinos\UsuarioBundle\Tests\Controller;
+namespace Vecinos\BackendBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

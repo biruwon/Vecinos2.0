@@ -1,3 +1,11 @@
+BackendBundle:
+    resource: "@BackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+IncidenciaBundle:
+    resource: "@IncidenciaBundle/Resources/config/routing.yml"
+    prefix:   /
+
 MensajeBundle:
     resource: "@MensajeBundle/Resources/config/routing.yml"
     prefix:   /
@@ -10,14 +18,8 @@ EspacioBundle:
     resource: "@EspacioBundle/Resources/config/routing.yml"
     prefix:   /
 
-IncidenciaBundle:
-    resource: "@IncidenciaBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 JuntaBundle:
-    resource: "@JuntaBundle/Controller/"
-    type:     annotation
+    resource: "@JuntaBundle/Resources/config/routing.yml"
     prefix:   /
 
 InmuebleBundle:
