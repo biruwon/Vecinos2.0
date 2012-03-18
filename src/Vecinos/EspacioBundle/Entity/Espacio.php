@@ -111,7 +111,7 @@ class Espacio
     /**
      * Set reservas
      *
-     * @param Comunidad\UsersBundle\Entity\Reserva $reservas
+     * @param @param Vecinos\ReservaBundle\Entity\Reserva $reservas
      */
     public function setReservas($reservas)
     {
