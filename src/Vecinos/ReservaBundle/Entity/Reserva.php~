@@ -1,0 +1,64 @@
+<?php
+
+namespace Vecinos\ReservaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Vecinos\ReservaBundle\Entity\Reserva
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Vecinos\ReservaBundle\Entity\ReservaRepository")
+ */
+class Reserva
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string $horainicio
+     *
+     * @ORM\Column(name="horainicio", type="time")
+     */
+    
+    private $horainicio;
+    
+    /**
+     * @var string $horafin
+     *
+     * @ORM\Column(name="horafin", type="time")
+     */
+    
+    
+    private $horafin;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Usuario", mappedBy="Reserva")
+     */
+    
+    private $usuario;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Espacio", inversedBy="reservas", cascade={"remove"})
+     * @ORM\JoinColumn(name="espacio_id", referencedColumnName="id")
+     */
+
+    private $espacio;
+    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

@@ -93,11 +93,16 @@ class Usuario
     private $ciudad;
 
     /**
-     * 
-     *
      * @ORM\ManyToMany(targetEntity="Inmueble", mappedBy="usuarios", cascade={"persist"})
      */
     private $inmuebles;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Reserva", inversedBy="usuario")
+     * @ORM\JoinColumn(name="reserva_id", referencedColumnName="id")
+     */
+    
+    private $reserva;
 
     public function __construct()
     {

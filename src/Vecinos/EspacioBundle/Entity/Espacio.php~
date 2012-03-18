@@ -3,7 +3,6 @@
 namespace Vecinos\EspacioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Vecinos\EspacioBundle\Entity\Espacio
@@ -56,76 +55,44 @@ class Espacio
         return $this->id;
     }
     
+     /**
+     * Add ponencias
+     *
+     * @param Desymfony\DesymfonyBundle\Entity\Ponencia $ponencias
+     */
+    
+    
+    
+    
+    
     
     public function __construct()
     {
-      $this->reservas = new ArrayCollection();
+      $this->reservas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function __toString()
     {
         return $this->getNombre();
     }    
-     
-
-    /**
-     * Set descripcion
-     *
-     * @param text $descripcion
-     */
-    public function setDescripcion($descripcion)
+    
+    
+    
+    public function addPonencias(\Desymfony\DesymfonyBundle\Entity\Ponencia $ponencias)
     {
-        $this->descripcion = $descripcion;
+        $this->ponencias[] = $ponencias;
     }
 
     /**
-     * Get descripcion
+     * Get ponencias
      *
-     * @return text 
+     * @return Doctrine\Common\Collections\Collection $ponencias
      */
-    public function getDescripcion()
+    public function getPonencias()
     {
-        return $this->descripcion;
+        return $this->ponencias;
     }
-
-    /**
-     * Set nombre
-     *
-     * @param string $nombre
-     */
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
-    }
-
-    /**
-     * Get nombre
-     *
-     * @return string 
-     */
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
-
-    /**
-     * Set reservas
-     *
-     * @param Comunidad\UsersBundle\Entity\Reserva $reservas
-     */
-    public function setReservas($reservas)
-    {
-        $this->reservas = $reservas;
-    }
-
-
-    /**
-     * Get reservas
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getReservas()
-    {
-        return $this->reservas;
-    }
+    
+    
+    
 }
