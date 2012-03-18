@@ -21,6 +21,18 @@ class Usuario
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="usuario")
+     */
+    
+    private $incidencias;
+    
+    /**
+    * @ORM\ManyToMany(targetEntity="Junta", mappedBy="usuarios")
+    */
+    
+    private $juntas;
 
     /**
      * @var string $nombre
@@ -107,6 +119,8 @@ class Usuario
     public function __construct()
     {
         $this->usuarios = new ArrayCollection();
+        $this->incidencias = new ArrayCollection();
+        $this->juntas= new ArrayCollection();
     }
     
     public function __toString()
