@@ -22,6 +22,16 @@ class Mensaje
     private $id;
 
 
+    private $emisor;
+    
+    private $receptor;
+    
+    private $texto;
+
+
+    
+    
+    
     /**
      * Get id
      *

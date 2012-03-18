@@ -21,7 +21,7 @@ class Junta
      */
     private $id;
 
-
+    private $apuntarse;
     /**
      * Get id
      *
