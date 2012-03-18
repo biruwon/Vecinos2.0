@@ -1,0 +1,81 @@
+<?php
+
+namespace Vecinos\IncidenciaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Vecinos\IncidenciaBundle\Entity\Incidencia
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Vecinos\IncidenciaBundle\Entity\IncidenciaRepository")
+ */
+class Incidencia
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $titulo;
+    
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $descripcion;
+    
+    /**
+     * @ORM\Column(type="date")
+     */
+    protected $fecha;
+    
+    /**
+     * @ORM\Column(type="time")
+     */
+    protected $hora;
+    
+      /**
+     * @var boolean $resuelta
+     *
+     * @ORM\Column(name="resuelta", type="boolean")
+     */
+    private $resuelta;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="incidencias")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     */
+    
+    private $usuario;
+
+    
+    
+    public function __construct()
+    {
+        $this->usuario = new ArrayCollection();
+    }
+    
+    public function __toString()
+    {
+        return $this->getTitulo();
+    }
+    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
