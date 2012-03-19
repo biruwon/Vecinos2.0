@@ -3,6 +3,7 @@
 namespace Vecinos\IncidenciaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Vecinos\IncidenciaBundle\Entity\Incidencia
@@ -182,7 +183,7 @@ class Incidencia
     /**
      * Set usuario
      *
-     * @param Vecinos\IncidenciaBundle\Entity\Usuario $usuario
+     * @param Vecinos\UsuarioBundle\Entity\Usuario $usuario
      */
     public function setUsuario($usuario)
     {
@@ -192,7 +193,7 @@ class Incidencia
     /**
      * Get usuario
      *
-     * @return Vecinos\IncidenciaBundle\Entity\Usuario 
+     * @return Doctrine\Common\Collections\Collection $usuario 
      */
     public function getUsuario()
     {

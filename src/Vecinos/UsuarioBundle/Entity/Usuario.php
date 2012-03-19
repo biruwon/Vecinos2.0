@@ -341,7 +341,7 @@ class Usuario
     /**
      * Set inmuebles
      *
-     * @param Vecinos\UsuarioBundle\Entity\Inmueble $inmuebles
+     * @param Vecinos\InmuebleBundle\Entity\Inmueble $inmuebles
      */
 
     public function setInmuebles($inmuebles)
@@ -357,6 +357,46 @@ class Usuario
     public function getInmuebles()
     {
         return $this->inmuebles;
+    }
+    
+    /**
+     * Set incidencias
+     *
+     * @param Vecinos\IncidenciaBundle\Entity\Incidencia $incidencias
+     */
+    public function setIncidencias($incidencias)
+    {
+        $this->incidencias = $incidencias;
+    }
+
+    /**
+     * Get incidencias
+     *
+     * @return Doctrine\Common\Collections\Collection $incidencias
+     */
+    public function getIncidencias()
+    {
+        return $this->incidencias;
+    }
+    
+    /**
+     * Get juntas
+     *
+     * @param Vecinos\JuntaBundle\Entity\Junta $juntas 
+     */
+    public function setJuntas()
+    {
+        $this->juntas = $juntas;
+    }
+
+    /**
+     * Get juntas
+     *
+     * @return Doctrine\Common\Collections\Collection $juntas
+     */
+    public function getJuntas()
+    {
+        return $this->ponencias;
     }
 
 }
