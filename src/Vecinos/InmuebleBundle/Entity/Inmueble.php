@@ -95,7 +95,7 @@ class Inmueble
     /**
      * 
      *
-     * @ORM\ManyToMany(targetEntity="Usuario", inversedBy="inmuebles", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="inmuebles", cascade={"persist"})
      * @ORM\JoinTable(name="inmueble_usuario",
      *		joinColumns={@ORM\JoinColumn(name="inmueble_id", referencedColumnName="id")},
      *		inverseJoinColumns={@ORM\JoinColumn(name="usuario_id", referencedColumnName="id")}
@@ -321,7 +321,7 @@ class Inmueble
     /**
      * Set usuarios
      *
-     * @param Vecinos\InmuebleBundle\Usuario $usuarios
+     * @param Vecinos\UsuarioBundle\Entity\Usuario $usuarios
      */
     public function setUsuarios($usuarios)
     {
@@ -331,7 +331,7 @@ class Inmueble
     /**
      * Get usuarios
      *
-     * @return Doctrine\Common\Collections\Collection $usuarios
+     * @return Doctrine\Common\Collections\Collection 
      */
     public function getUsuarios()
     {

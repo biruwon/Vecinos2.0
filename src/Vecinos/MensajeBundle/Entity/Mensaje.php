@@ -21,10 +21,18 @@ class Mensaje
      */
     private $id;
 
-
-    //private $nombreemisor;
+    /**
+     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="mensaje_enviado")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     */
+    private $emisor;
     
-    //private $nombrereceptor;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="mensaje_recibido")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     */
+    private $receptor;
     
     
     /**
@@ -41,9 +49,7 @@ class Mensaje
      * @ORM\Column(type="time")
      */
     protected $hora;
-    
-    /**
-     * @ORM\Column(type="integer")
+
 
 
     
@@ -118,4 +124,48 @@ class Mensaje
     {
         return $this->texto;
     }
+    
+    
+    /**
+     * Set emisor
+     *
+     * @param Vecinos\UsuarioBundle\Entity\Usuario $emisor
+     */
+    public function setEmisor($emisor)
+    {
+        $this->emisor = $emisor;
+    }
+
+    /**
+     * Get emisor
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getEmisor()
+    {
+        return $this->emisor;
+    }
+    
+    /**
+     * Set receptor
+     *
+     * @param Vecinos\UsuarioBundle\Entity\Usuario $receptor
+     */
+    public function setReceptor($receptor)
+    {
+        $this->receptor = $receptor;
+    }
+
+    /**
+     * Get receptor
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getReceptor()
+    {
+        return $this->receptor;
+    }
+    
+    
+    
 }

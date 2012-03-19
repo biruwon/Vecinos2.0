@@ -27,7 +27,7 @@ class Junta
     /**
      * 
      *
-     * @ORM\ManyToMany(targetEntity="Usuario", inversedBy="juntas", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="juntas", cascade={"persist"})
      * @ORM\JoinTable(name="junta_usuario",
      *		joinColumns={@ORM\JoinColumn(name="junta_id", referencedColumnName="id")},
      *		inverseJoinColumns={@ORM\JoinColumn(name="usuario_id", referencedColumnName="id")}
@@ -190,7 +190,7 @@ class Junta
     /**
      * Set usuarios
      *
-     * @param Vecinos\JuntaBundle\Entity\Usuario $usuarios
+     * @param Vecinos\UsuarioBundle\Entity\Usuario $usuarios
      */
     public function setUsuarios($usuarios)
     {
@@ -200,7 +200,7 @@ class Junta
     /**
      * Get usuarios
      *
-     * @return Vecinos\JuntaBundle\Entity\Usuario 
+     * @return Doctrine\Common\Collections\Collection 
      */
     public function getUsuarios()
     {
