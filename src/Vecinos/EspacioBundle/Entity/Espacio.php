@@ -39,7 +39,7 @@ class Espacio
     
     
     /**
-     * @ORM\OneToMany(targetEntity="Reserva", mappedBy="espacio")
+     * @ORM\OneToMany(targetEntity="Vecinos\ReservaBundle\Entity\Reserva", mappedBy="espacio")
      */
     
     

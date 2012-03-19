@@ -40,13 +40,13 @@ class Reserva
     private $horafin;
     
     /**
-     * @ORM\OneToOne(targetEntity="Usuario", mappedBy="Reserva")
+     * @ORM\OneToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", mappedBy="reserva")
      */
     
     private $usuario;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Espacio", inversedBy="reservas", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="Vecinos\EspacioBundle\Entity\Espacio", inversedBy="reservas", cascade={"remove"})
      * @ORM\JoinColumn(name="espacio_id", referencedColumnName="id")
      */
 
@@ -113,7 +113,7 @@ class Reserva
     /**
      * Set usuario
      *
-     * @param Vecinos\ReservaBundle\Entity\Usuario $usuario
+     * @param Vecinos\UsuarioBundle\Entity\Usuario $usuario
      */
     public function setUsuario($usuario)
     {
@@ -123,7 +123,7 @@ class Reserva
     /**
      * Get usuario
      *
-     * @return Vecinos\ReservaBundle\Entity\Usuario 
+     * @return Vecinos\UsuarioBundle\Entity\Usuario 
      */
     public function getUsuario()
     {
@@ -133,7 +133,7 @@ class Reserva
     /**
      * Set espacio
      *
-     * @param Vecinos\ReservaBundle\Entity\Espacio $espacio
+     * @param Vecinos\EspacioBundle\Entity\Espacio $espacio
      */
     public function setEspacio($espacio)
     {
@@ -143,7 +143,7 @@ class Reserva
     /**
      * Get espacio
      *
-     * @return Vecinos\ReservaBundle\Entity\Espacio 
+     * @return Vecinos\EspacioBundle\Entity\Espacio 
      */
     public function getEspacio()
     {

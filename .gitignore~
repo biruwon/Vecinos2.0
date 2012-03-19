@@ -1,0 +1,19 @@
+app/bootstrap.php.cache
+app/bootstrap_cache.php.cache
+app/cache/*
+app/logs/*
+app/config/parameters.ini
+
+vendor/*
+
+web/bundles/*
+web/css/*
+web/js/*
+
+# ignorar archivos de Eclipse, Zend Studio, Netbeans, PHPStorm y TextMate2
+.buildpath
+.project
+.settings
+nbproject
+.idea
+.tm_properties

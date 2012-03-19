@@ -23,13 +23,13 @@ class Usuario
     private $id;
     
     /**
-     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="usuario")
+     * @ORM\OneToMany(targetEntity="Vecinos\IncidenciaBundle\Entity\Incidencia", mappedBy="usuario")
      */
     
     private $incidencias;
     
     /**
-    * @ORM\ManyToMany(targetEntity="Junta", mappedBy="usuarios")
+    * @ORM\ManyToMany(targetEntity="Vecinos\JuntaBundle\Entity\Junta", mappedBy="usuarios")
     */
     
     private $juntas;
@@ -105,17 +105,30 @@ class Usuario
     private $ciudad;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Inmueble", mappedBy="usuarios", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Vecinos\InmuebleBundle\Entity\Inmueble", mappedBy="usuarios", cascade={"persist"})
      */
     private $inmuebles;
     
     /**
-     * @ORM\OneToOne(targetEntity="Reserva", inversedBy="usuario")
+     * @ORM\OneToOne(targetEntity="Vecinos\ReservaBundle\Entity\Reserva", inversedBy="usuario")
      * @ORM\JoinColumn(name="reserva_id", referencedColumnName="id")
      */
     
     private $reserva;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Vecinos\MensajeBundle\Entity\Mensaje", mappedBy="emisor")
+     */
+ 
+    private $mensaje_enviado;
 
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Vecinos\MensajeBundle\Entity\Mensaje", mappedBy="receptor")
+     */
+ 
+    private $mensaje_recibido;
+    
     public function __construct()
     {
         $this->usuarios = new ArrayCollection();
@@ -352,7 +365,7 @@ class Usuario
     /**
      * Get inmuebles
      *
-     * @return Doctrine\Common\Collections\Collection $inmuebles
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getInmuebles()
     {
@@ -372,7 +385,7 @@ class Usuario
     /**
      * Get incidencias
      *
-     * @return Doctrine\Common\Collections\Collection $incidencias
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getIncidencias()
     {
@@ -392,11 +405,52 @@ class Usuario
     /**
      * Get juntas
      *
-     * @return Doctrine\Common\Collections\Collection $juntas
+     * @return Doctrine\Common\Collections\Collection 
      */
     public function getJuntas()
     {
         return $this->ponencias;
     }
+    
+    /**
+     * Get mensaje_enviado
+     *
+     * @param Vecinos\MensajeBundle\Entity\Mensaje $mensaje_enviado 
+     */
+    public function setMensaje_enviado()
+    {
+        $this->mensaje_enviado = $mensaje_enviado;
+    }
+
+    /**
+     * Get mensaje_enviado
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getMensaje_enviado()
+    {
+        return $this->mensaje_enviado;
+    }
+    
+    /**
+     * Get mensaje_recibido
+     *
+     * @param Vecinos\MensajeBundle\Entity\Mensaje $mensaje_recibido 
+     */
+    public function setMensaje_recibido()
+    {
+        $this->mensaje_recibido = $mensaje_recibido;
+    }
+
+    /**
+     * Get mensaje_recibido
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getMensaje_recibido()
+    {
+        return $this->mensaje_recibido;
+    }
+    
 
 }
