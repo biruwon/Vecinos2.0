@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Vecinos\JuntaBundle\JuntaBundle(),
             new Vecinos\IncidenciaBundle\IncidenciaBundle(),
             new Vecinos\BackendBundle\BackendBundle(),
+            new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
