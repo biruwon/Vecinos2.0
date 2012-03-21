@@ -397,7 +397,7 @@ class Usuario
      *
      * @param Vecinos\JuntaBundle\Entity\Junta $juntas 
      */
-    public function setJuntas()
+    public function setJuntas($juntas)
     {
         $this->juntas = $juntas;
     }
@@ -417,7 +417,7 @@ class Usuario
      *
      * @param Vecinos\MensajeBundle\Entity\Mensaje $mensaje_enviado 
      */
-    public function setMensaje_enviado()
+    public function setMensaje_enviado($mensaje_enviado)
     {
         $this->mensaje_enviado = $mensaje_enviado;
     }
@@ -437,7 +437,7 @@ class Usuario
      *
      * @param Vecinos\MensajeBundle\Entity\Mensaje $mensaje_recibido 
      */
-    public function setMensaje_recibido()
+    public function setMensaje_recibido($mensaje_recibido)
     {
         $this->mensaje_recibido = $mensaje_recibido;
     }
@@ -457,7 +457,7 @@ class Usuario
      *
      * @param Vecinos\ReservaBundle\Entity\Reserva $reservas 
      */
-    public function setReservas()
+    public function setReservas($reservas)
     {
         $this->reservas = $reservas;
     }

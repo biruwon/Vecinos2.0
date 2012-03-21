@@ -23,6 +23,7 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface
     {
         $reservas = $manager->getRepository('ReservaBundle:Reserva')->findAll(); 
         
+        
         for($i = 0; $i < 20; $i++){
             
             $usuario = new Usuario();
@@ -36,13 +37,24 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface
             $usuario->setPassword('usuario'.$i);
             $usuario->setPermiteEmail(true);
             $usuario->setSalt(md5(time()));
-            $usuario->setReservas($reservas[0]);
+      
+      //           $usuario->setReservas($reservas[$i]);
             
             $manager->persist($usuario);
           
         }
+      
+      
+        
+       //$manager->persist($usuario);
         
         $manager->flush();
+        
+         $usuarios = $manager->getRepository('UsuarioBundle:Usuario')->findAll(); 
+       
+        $usuarios[4]->setReservas($reservas[0]);
+        $manager->persist($usuarios[4]);
+         $manager->flush();
     }
     
     

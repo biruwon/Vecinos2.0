@@ -22,6 +22,16 @@ class Reserva
      */
     private $id;
 
+    
+    /**
+     * 
+     * @ORM\Column(type="date")
+     */
+    
+    private $fecha;
+    
+    
+    
     /**
      * @var string $horainicio
      *
@@ -46,7 +56,7 @@ class Reserva
     private $usuario;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Vecinos\EspacioBundle\Entity\Espacio", inversedBy="reservas", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="Vecinos\EspacioBundle\Entity\Espacio", inversedBy="reservasEspacio", cascade={"remove"})
      * @ORM\JoinColumn(name="espacio_id", referencedColumnName="id")
      */
 
@@ -89,7 +99,7 @@ class Reserva
     {
         return $this->horainicio;
     }
-
+    
     /**
      * Set horafin
      *
@@ -98,6 +108,26 @@ class Reserva
     public function setHorafin($horafin)
     {
         $this->horafin = $horafin;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return date 
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+    
+    /**
+     * Set fecha
+     *
+     * @param date $fecha
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
     }
 
     /**

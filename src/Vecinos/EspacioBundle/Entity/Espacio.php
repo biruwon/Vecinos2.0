@@ -43,7 +43,7 @@ class Espacio
      */
     
     
-    private $reservas;
+    private $reservasEspacio;
 
    
     /**
@@ -109,23 +109,23 @@ class Espacio
     }
 
     /**
-     * Set reservas
+     * Set reservasEspacio
      *
-     * @param @param Vecinos\ReservaBundle\Entity\Reserva $reservas
+     * @param @param Vecinos\ReservaBundle\Entity\Reserva $reservasEspacio
      */
-    public function setReservas($reservas)
+    public function setReservasEspacio($reservasEspacio)
     {
-        $this->reservas = $reservas;
+        $this->reservasEspacio = $reservasEspacio;
     }
 
 
     /**
-     * Get reservas
+     * Get reservasEspacio
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getReservas()
+    public function getReservasEspacio()
     {
-        return $this->reservas;
+        return $this->reservasEspacio;
     }
 }
