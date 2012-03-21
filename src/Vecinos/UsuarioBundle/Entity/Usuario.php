@@ -114,7 +114,7 @@ class Usuario
      * @ORM\JoinColumn(name="reserva_id", referencedColumnName="id")
      */
     
-    private $reserva;
+    private $reservas;
     
     /**
      * @ORM\OneToMany(targetEntity="Vecinos\MensajeBundle\Entity\Mensaje", mappedBy="emisor")
@@ -450,6 +450,26 @@ class Usuario
     public function getMensaje_recibido()
     {
         return $this->mensaje_recibido;
+    }
+    
+    /**
+     * Get reservas
+     *
+     * @param Vecinos\ReservaBundle\Entity\Reserva $reservas 
+     */
+    public function setReservas()
+    {
+        $this->reservas = $reservas;
+    }
+
+    /**
+     * Get reservas
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getReservas()
+    {
+        return $this->reservas;
     }
     
 

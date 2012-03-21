@@ -68,4 +68,7 @@
 [DoctrineFixturesBundle]
     git=http://github.com/symfony/DoctrineFixturesBundle.git
     target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
+<<<<<<< HEAD
 
+=======
+>>>>>>> 294849815c9095d4645427b22cac5652452aaa97
