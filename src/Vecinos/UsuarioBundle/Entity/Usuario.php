@@ -457,7 +457,7 @@ class Usuario
      *
      * @param Vecinos\ReservaBundle\Entity\Reserva $reservas 
      */
-    public function setReservas()
+    public function setReservas($reservas)
     {
         $this->reservas = $reservas;
     }

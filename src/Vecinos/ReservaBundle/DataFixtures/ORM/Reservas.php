@@ -37,7 +37,7 @@ class Reservas extends AbstractFixture implements OrderedFixtureInterface
 
         foreach ($reservas as $reserva) {
 	    $entidad = new Reserva();
-            $entidad->setHorainicio($reserva['horainicio']);
+                      $entidad->setHorainicio($reserva['horainicio']);
 	    $entidad->setHorafin($reserva['horafin']);
 	    $entidad->setEspacio($reserva['espacio']);
 	  //  $entidad->setUsuario($reserva['usuario']);  

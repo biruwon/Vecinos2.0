@@ -36,7 +36,7 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface
             $usuario->setPassword('usuario'.$i);
             $usuario->setPermiteEmail(true);
             $usuario->setSalt(md5(time()));
-            $usuario->setReservas($reservas[0]);
+            $usuario->setReservas($reservas[$i]);
             
             $manager->persist($usuario);
           
