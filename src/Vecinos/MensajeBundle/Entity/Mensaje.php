@@ -23,14 +23,14 @@ class Mensaje
 
     /**
      * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="mensaje_enviado")
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="emisor_id", referencedColumnName="id")
      */
     private $emisor;
     
     
     /**
      * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="mensaje_recibido")
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="receptor_id", referencedColumnName="id")
      */
     private $receptor;
     
