@@ -14,6 +14,6 @@
     mailer_user       =
     mailer_password   =
 
-    locale            = es_ES
+    locale            = "es_ES"
 
     secret            = dfca479c82fc539f3efec5a88469c9310

@@ -5,7 +5,8 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
+    #translator:      { fallback: es }
     secret:          %secret%
     charset:         UTF-8
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
@@ -15,6 +16,7 @@ framework:
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     session:
         default_locale: %locale%
+        #default_locale: es
         auto_start:     true
 
 # Twig Configuration
@@ -68,13 +70,12 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
 
-        #sonata.admin_doctrine_orm.block.audit:
-        #    contexts:   [admin]
+        sonata.admin_doctrine_orm.block.audit:
+            contexts:   [admin]
 
         sonata.block.service.text:
         sonata.block.service.action:
         sonata.block.service.rss:
-
         # Some specific block from the SonataMediaBundle
         #sonata.media.block.media:
         #sonata.media.block.gallery:
