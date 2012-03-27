@@ -25,10 +25,20 @@ class Espacios extends AbstractFixture implements OrderedFixtureInterface
         //$usuarios = $manager->getRepository('UsuarioBundle:Usuario')->findAll();
     
         $espacios = array(
-	  array('descripcion' => 'Pista de cesped', 'nombre' => 'fútbol7')
-   //	  array('horainicio' => new \DateTime('12:45:00'), 'horafin' => new \DateTime('13:45:00'), 'espacio' => 'piscina','usuario' => array($usuarios[10], $usuarios[17], $usuarios[14])),
-   //       array('horainicio' => new \DateTime('20:45:00'), 'horafin' => new \DateTime('21:45:00'), 'espacio' => 'padel','usuario' => array($usuarios[15], $usuarios[7], $usuarios[9])),
-   //       array('horainicio' => new \DateTime('22:45:00'), 'horafin' => new \DateTime('23:45:00'), 'espacio' => 'baloncesto','usuario' => array($usuarios[18], $usuarios[3], $usuarios[5])),
+	  array('descripcion' => 'Pista de cesped', 'nombre' => 'fútbol7'),
+          array('descripcion' => 'Pista de cesped', 'nombre' => 'fútbol'),
+          array('descripcion' => 'Pista de arena', 'nombre' => 'fútbol7'),
+          array('descripcion' => 'Pista de cemento', 'nombre' => 'fútbolSala1'),
+          array('descripcion' => 'Pista de cemento', 'nombre' => 'fútbolSala2'),
+          array('descripcion' => 'Pista de parquet', 'nombre' => 'fútbolSala3'),
+          array('descripcion' => 'Pista exterior', 'nombre' => 'Baloncesto1'),
+          array('descripcion' => 'Pista exterior', 'nombre' => 'Baloncesto2'),
+          array('descripcion' => 'Pista de cesped', 'nombre' => 'piscina'),
+          array('descripcion' => 'Pista de cesped', 'nombre' => 'padel1'),
+          array('descripcion' => 'Pista de cesped', 'nombre' => 'padel2'),
+          array('descripcion' => 'Pista de cesped', 'nombre' => 'padel3'),
+          array('descripcion' => 'Pista de cesped', 'nombre' => 'padel4')  
+            
             );
         
         

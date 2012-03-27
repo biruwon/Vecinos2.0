@@ -1,3 +1,7 @@
+BackendBundle:
+    resource: "@BackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
 IncidenciaBundle:
     resource: "@IncidenciaBundle/Resources/config/routing.yml"
     prefix:   /
@@ -9,7 +13,7 @@ MensajeBundle:
 ReservaBundle:
     resource: "@ReservaBundle/Resources/config/routing.yml"
     prefix:   /
-    
+
 EspacioBundle:
     resource: "@EspacioBundle/Resources/config/routing.yml"
     prefix:   /
