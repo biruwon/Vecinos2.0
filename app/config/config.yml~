@@ -68,12 +68,13 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
 
-        sonata.admin_doctrine_orm.block.audit:
-            contexts:   [admin]
+        #sonata.admin_doctrine_orm.block.audit:
+        #    contexts:   [admin]
 
         sonata.block.service.text:
         sonata.block.service.action:
         sonata.block.service.rss:
+
         # Some specific block from the SonataMediaBundle
         #sonata.media.block.media:
         #sonata.media.block.gallery:
@@ -88,8 +89,3 @@ sonata_admin:
         list:     SonataAdminBundle:CRUD:list.html.twig
         show:     SonataAdminBundle:CRUD:show.html.twig
         edit:     SonataAdminBundle:CRUD:edit.html.twig
-        
-#framework:
- #   translator: { fallback: es }
-  #  secret: 157652137539aa483528d9425101f1656
-   # templating: { engines: ['twig'] }

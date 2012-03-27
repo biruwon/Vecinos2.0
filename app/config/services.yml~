@@ -1,0 +1,10 @@
+services:
+   sonata.vecinos.admin.espacio:
+       class: Vecinos\EspacioBundle\Admin\EspacioAdmin
+       tags:
+           - { name: sonata.admin, manager_type: orm,
+               group: 'Espacios de alquiler', label: Espacios }
+       arguments:
+           - null
+           - Vecinos\EspacioBundle\Entity\Espacio
+           - EspacioBundle:Admin
