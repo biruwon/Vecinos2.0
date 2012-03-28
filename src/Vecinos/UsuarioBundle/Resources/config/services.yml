@@ -2,6 +2,11 @@ parameters:
 #    usuario.example.class: Vecinos\UsuarioBundle\Example
 
 services:
-#    usuario.example:
-#        class: %usuario.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+   sonata.vecinos.admin.usuario:
+       class: Vecinos\UsuarioBundle\Admin\UsuarioAdmin
+       tags:
+           - { name: sonata.admin, manager_type: orm, group: 'Usuarios de la comunidad', label: Usuarios }
+       arguments:
+           - null
+           - Vecinos\UsuarioBundle\Entity\Usuario
+           - UsuarioBundle:Admin

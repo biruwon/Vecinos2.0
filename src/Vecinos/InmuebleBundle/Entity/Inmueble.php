@@ -107,6 +107,11 @@ class Inmueble
     {
         $this->usuarios = new ArrayCollection();
     }
+    
+    public function __toString()
+    {
+        return $this->getVia().' '.$this->getNombreVia().', Bloque:'.$this->getBloque().', Planta: '.$this->getPlanta().',Número: '.$this->getNumero().',Letra: '.$this->getPuerta();
+    }
 
     /**
      * Get id
@@ -337,6 +342,7 @@ class Inmueble
     {
         return $this->usuarios;
     }
+    
    
 
 }

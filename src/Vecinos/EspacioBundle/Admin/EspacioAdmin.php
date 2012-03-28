@@ -12,8 +12,8 @@ class EspacioAdmin extends Admin
     protected function configureListFields(ListMapper $mapper)
     {
         $mapper
+           ->addIdentifier('nombre', null, array('label' => 'Nombre'))
            ->add('descripcion')
-           ->add('nombre')
            
         ;
     }

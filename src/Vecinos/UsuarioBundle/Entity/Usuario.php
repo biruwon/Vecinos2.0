@@ -21,18 +21,6 @@ class Usuario
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Vecinos\IncidenciaBundle\Entity\Incidencia", mappedBy="usuario")
-     */
-    
-    private $incidencias;
-    
-    /**
-    * @ORM\ManyToMany(targetEntity="Vecinos\JuntaBundle\Entity\Junta", mappedBy="usuarios")
-    */
-    
-    private $juntas;
 
     /**
      * @var string $nombre
@@ -86,7 +74,7 @@ class Usuario
     /**
      * @var datetime $fecha_nacimiento
      *
-     * @ORM\Column(name="fecha_nacimiento", type="datetime")
+     * @ORM\Column(name="fecha_nacimiento", type="date")
      */
     private $fecha_nacimiento;
 
@@ -115,6 +103,19 @@ class Usuario
      */
     
     private $reservas;
+    
+     /**
+     * @ORM\OneToMany(targetEntity="Vecinos\IncidenciaBundle\Entity\Incidencia", mappedBy="usuario")
+     */
+    
+    private $incidencias;
+    
+    /**
+    * @ORM\ManyToMany(targetEntity="Vecinos\JuntaBundle\Entity\Junta", mappedBy="usuarios")
+    */
+    
+    private $juntas;
+    
     
     /**
      * @ORM\OneToMany(targetEntity="Vecinos\MensajeBundle\Entity\Mensaje", mappedBy="emisor")
