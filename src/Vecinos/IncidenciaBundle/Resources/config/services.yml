@@ -2,6 +2,11 @@ parameters:
 #    incidencia.example.class: Vecinos\IncidenciaBundle\Example
 
 services:
-#    incidencia.example:
-#        class: %incidencia.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+   sonata.vecinos.admin.incidencia:
+       class: Vecinos\IncidenciaBundle\Admin\IncidenciaAdmin
+       tags:
+           - { name: sonata.admin, manager_type: orm, group: 'Incidencias de la comunidad', label: Incidencias }
+       arguments:
+           - null
+           - Vecinos\IncidenciaBundle\Entity\Incidencia
+           - IncidenciaBundle:Admin
