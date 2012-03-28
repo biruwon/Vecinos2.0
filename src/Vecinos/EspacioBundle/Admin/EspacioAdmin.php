@@ -9,6 +9,33 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 class EspacioAdmin extends Admin
 {
     
+    protected function configureListFields(ListMapper $mapper)
+    {
+        $mapper
+           ->add('descripcion')
+           ->add('nombre')
+           
+        ;
+    }
+    
+    protected function configureDatagridFilters(DatagridMapper $mapper)
+    {
+        $mapper
+            ->add('descripcion')
+            ->add('nombre')
+        ;
+    }
+    
+    protected function configureFormFields(FormMapper $mapper)
+    {
+        $mapper
+            ->add('descripcion')
+            ->add('nombre')
+        ;
+    }
+
+
+
     
 }
 
