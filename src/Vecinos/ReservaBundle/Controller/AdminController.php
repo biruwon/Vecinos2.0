@@ -1,6 +1,6 @@
 <?php
 
-namespace Vecinos\IncidenciaBundle\Controller;
+namespace Vecinos\ReservaBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
 

@@ -32,9 +32,30 @@ class Inmuebles extends AbstractFixture implements OrderedFixtureInterface
 
 
 	$inmuebles = array(
-	  array('num_personas' => '5', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '45',
+	  array('num_personas' => '3', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '45',
             'bloque' => '12', 'puerta' => 'A', 'planta' => '2', 'nombre_propietario' => 'Juan', 'habitaciones' => '2',
               'usuarios' => array($usuarios[10], $usuarios[13], $usuarios[14])),
+          array('num_personas' => '3', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '3',
+            'bloque' => '12', 'puerta' => 'A', 'planta' => '2', 'nombre_propietario' => 'Juan', 'habitaciones' => '2',
+              'usuarios' => array($usuarios[1], $usuarios[2], $usuarios[3])),
+          array('num_personas' => '2', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '45',
+            'bloque' => '12', 'puerta' => 'A', 'planta' => '2', 'nombre_propietario' => 'Juan', 'habitaciones' => '2',
+              'usuarios' => array($usuarios[4], $usuarios[5])),
+          array('num_personas' => '3', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '45',
+            'bloque' => '12', 'puerta' => 'A', 'planta' => '2', 'nombre_propietario' => 'Juan', 'habitaciones' => '2',
+              'usuarios' => array($usuarios[7], $usuarios[8], $usuarios[9])),
+          array('num_personas' => '5', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '45',
+            'bloque' => '12', 'puerta' => 'A', 'planta' => '2', 'nombre_propietario' => 'Juan', 'habitaciones' => '2',
+              'usuarios' => array($usuarios[15], $usuarios[16], $usuarios[17], $usuarios[18], $usuarios[19])),
+          array('num_personas' => '3', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '45',
+            'bloque' => '12', 'puerta' => 'A', 'planta' => '2', 'nombre_propietario' => 'Juan', 'habitaciones' => '2',
+              'usuarios' => array($usuarios[20], $usuarios[21], $usuarios[22])),
+          array('num_personas' => '1', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '45',
+            'bloque' => '12', 'puerta' => 'A', 'planta' => '2', 'nombre_propietario' => 'Juan', 'habitaciones' => '2',
+              'usuarios' => array($usuarios[23])),
+          array('num_personas' => '1', 'ocupado' => 'true', 'via' => 'calle', 'nombre_via' => 'Beja', 'numero' => '45',
+            'bloque' => '12', 'puerta' => 'A', 'planta' => '2', 'nombre_propietario' => 'Juan', 'habitaciones' => '2',
+              'usuarios' => array($usuarios[24], $usuarios[0]))
 
             );
 

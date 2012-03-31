@@ -1,7 +1,12 @@
 parameters:
-#    reserva.example.class: Vecinos\ReservaBundle\Example
+#    usuario.example.class: Vecinos\UsuarioBundle\Example
 
 services:
-#    reserva.example:
-#        class: %reserva.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+   sonata.vecinos.admin.reserva:
+       class: Vecinos\ReservaBundle\Admin\ReservaAdmin
+       tags:
+           - { name: sonata.admin, manager_type: orm, group: 'Reservas de la comunidad', label: Reservas }
+       arguments:
+           - null
+           - Vecinos\ReservaBundle\Entity\Reserva
+           - ReservaBundle:Admin

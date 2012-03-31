@@ -9,7 +9,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 /**
  * Fixtures de la entidad Usuarios.
- * Crea 20 usuarios para poder probar la aplicación.
+ * Crea 25 usuarios para poder probar la aplicación.
  */
 class Usuarios extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -24,14 +24,14 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface
         $reservas = $manager->getRepository('ReservaBundle:Reserva')->findAll(); 
         
         
-        for($i = 0; $i < 20; $i++){
+        for($i = 0; $i < 25; $i++){
             
             $usuario = new Usuario();
             $usuario->setNombre($this->getNombre());
             $usuario->setApellidos($this->getApellidos());
-            $usuario->setCiudad("Sevilla");
-            $usuario->setDireccion("Calle Beja 33");
-            $usuario->setDni("11111111H");
+            $usuario->setCiudad($this->getCiudades());
+            $usuario->setDireccion('Calle Beja'.$i);
+            $usuario->setDni("49030568L");
             $usuario->setEmail('usuario'.$i.'@localhost');
             $usuario->setFechaNacimiento(new \DateTime('now - '.rand(7000, 20000).' days'));
             $usuario->setPassword('usuario'.$i);
@@ -53,7 +53,13 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface
          $usuarios = $manager->getRepository('UsuarioBundle:Usuario')->findAll(); 
        
         $usuarios[4]->setReservas($reservas[0]);
+        $usuarios[14]->setReservas($reservas[1]);
+        $usuarios[21]->setReservas($reservas[2]);
+        $usuarios[2]->setReservas($reservas[3]);
         $manager->persist($usuarios[4]);
+        $manager->persist($usuarios[14]);
+        $manager->persist($usuarios[21]);
+        $manager->persist($usuarios[2]);
          $manager->flush();
     }
     
@@ -65,8 +71,7 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface
     
     private function getNombre()
     {
-        // Los nombres más populares en España según el INE
-        // Fuente: http://www.ine.es/daco/daco42/nombyapel/nombyapel.htm
+        // Los nombres más populares en España 
         
         $hombres = array('Antonio', 'José', 'Manuel', 'Francisco', 'Juan', 'David', 'José Antonio', 'José Luis', 'Jesús', 'Javier', 'Francisco Javier', 'Carlos', 'Daniel', 'Miguel', 'Rafael', 'Pedro', 'José Manuel', 'Ángel', 'Alejandro', 'Miguel Ángel', 'José María', 'Fernando', 'Luis', 'Sergio', 'Pablo', 'Jorge', 'Alberto');
         $mujeres = array('María Carmen', 'María', 'Carmen', 'Josefa', 'Isabel', 'Ana María', 'María Dolores', 'María Pilar', 'María Teresa', 'Ana', 'Francisca', 'Laura', 'Antonia', 'Dolores', 'María Angeles', 'Cristina', 'Marta', 'María José', 'María Isabel', 'Pilar', 'María Luisa', 'Concepción', 'Lucía', 'Mercedes', 'Manuela', 'Elena', 'Rosa María');
@@ -84,11 +89,23 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface
      */
     private function getApellidos()
     {
-        // Los apellidos más populares en España según el INE
-        // Fuente: http://www.ine.es/daco/daco42/nombyapel/nombyapel.htm
+        // Los apellidos más populares en España 
         
         $apellidos = array('García', 'González', 'Rodríguez', 'Fernández', 'López', 'Martínez', 'Sánchez', 'Pérez', 'Gómez', 'Martín', 'Jiménez', 'Ruiz', 'Hernández', 'Díaz', 'Moreno', 'Álvarez', 'Muñoz', 'Romero', 'Alonso', 'Gutiérrez', 'Navarro', 'Torres', 'Domínguez', 'Vázquez', 'Ramos', 'Gil', 'Ramírez', 'Serrano', 'Blanco', 'Suárez', 'Molina', 'Morales', 'Ortega', 'Delgado', 'Castro', 'Ortíz', 'Rubio', 'Marín', 'Sanz', 'Iglesias', 'Nuñez', 'Medina', 'Garrido');
         
         return $apellidos[rand(0, count($apellidos)-1)].' '.$apellidos[rand(0, count($apellidos)-1)];
+    }
+    
+    
+    
+    /**
+     * Generador aleatorio de ciudades de personas
+     */
+    private function getCiudades()
+    {
+        
+        $ciudades = array('Sevilla', 'Madrid', 'Barcelona', 'Valencia', 'Bilbao', 'Pamplona', 'A coruña', 'Salamanca', 'Huelva', 'Cádiz', 'Málaga', 'Córdoba', 'Murcia', 'Granada', 'Jaén', 'Almeria', 'Cáceres', 'Badajoz', 'Logroño', 'Álbacete', 'Vitoria', 'San Sebastián', 'Tarrogona', 'Ceuta', 'Zaragoza', 'León', 'Huesca', 'Ciudad Real', 'Toledo');
+        
+        return $ciudades[rand(0, count($ciudades)-1)];
     }
 }
