@@ -2,6 +2,11 @@ parameters:
 #    junta.example.class: Vecinos\JuntaBundle\Example
 
 services:
-#    junta.example:
-#        class: %junta.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+   sonata.vecinos.admin.junta:
+       class: Vecinos\JuntaBundle\Admin\JuntaAdmin
+       tags:
+           - { name: sonata.admin, manager_type: orm, group: 'Juntas de la comunidad', label: Juntas }
+       arguments:
+           - null
+           - Vecinos\JuntaBundle\Entity\Junta
+           - JuntaBundle:Admin
