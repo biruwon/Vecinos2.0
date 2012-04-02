@@ -83,7 +83,7 @@ sonata_block:
 
 sonata_admin:
     title:    'Vecinos2.0 - Backend'
-    title_logo: /bundles/backend/logotipo.png
+    title_logo: /bundles/espacio/images/home_blue.png
     templates:
         layout:   SonataAdminBundle::standard_layout.html.twig
         ajax:     SonataAdminBundle::ajax_layout.html.twig
