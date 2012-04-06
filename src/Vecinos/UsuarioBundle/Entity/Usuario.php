@@ -2,17 +2,56 @@
 
 namespace Vecinos\UsuarioBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
 /**
  * Vecinos\UsuarioBundle\Entity\Usuario
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Vecinos\UsuarioBundle\Entity\UsuarioRepository")
+ * @DoctrineAssert\UniqueEntity("email")
  */
-class Usuario
+
+//FALTA INCLUIR LA VALIDACIÓN DE MAYOR DE EDAD Y DNI
+
+class Usuario implements UserInterface
 {
+    
+    /**
+     * Método requerido por la interfaz UserInterface
+     */
+    function equals(\Symfony\Component\Security\Core\User\UserInterface $usuario)
+    {
+        return $this->getEmail() == $usuario->getEmail();
+    }
+    
+    /**
+     * Método requerido por la interfaz UserInterface
+     */
+    function eraseCredentials()
+    {
+    }
+    
+    /**
+     * Método requerido por la interfaz UserInterface
+     */
+    function getRoles()
+    {
+        return array('ROLE_USUARIO');
+    }
+    
+    /**
+     * Método requerido por la interfaz UserInterface
+     */
+    function getUsername()
+    {
+        return $this->getEmail();
+    }
+    
     /**
      * @var integer $id
      *
@@ -26,6 +65,7 @@ class Usuario
      * @var string $nombre
      *
      * @ORM\Column(name="nombre", type="string", length=100)
+     * @Assert\NotBlank()
      */
     private $nombre;
 
@@ -33,6 +73,7 @@ class Usuario
      * @var string $apellidos
      *
      * @ORM\Column(name="apellidos", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $apellidos;
 
@@ -40,6 +81,7 @@ class Usuario
      * @var string $email
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email()
      */
     private $email;
 
@@ -47,6 +89,7 @@ class Usuario
      * @var string $password
      *
      * @ORM\Column(name="password", type="string", length=255)
+     * @Assert\MinLength(6)
      */
     private $password;
     
@@ -61,6 +104,7 @@ class Usuario
      * @var text $direccion
      *
      * @ORM\Column(name="direccion", type="text")
+     * @Assert\NotBlank()
      */
     private $direccion;
     
@@ -68,6 +112,7 @@ class Usuario
      * @var boolean $permite_email
      *
      * @ORM\Column(name="permite_email", type="boolean")
+     * @Assert\Type(type="bool")
      */
     private $permite_email;
     
@@ -75,6 +120,7 @@ class Usuario
      * @var datetime $fecha_nacimiento
      *
      * @ORM\Column(name="fecha_nacimiento", type="date")
+     * @Assert\DateTime()
      */
     private $fecha_nacimiento;
 
@@ -89,6 +135,7 @@ class Usuario
      * @var string $ciudad
      *
      * @ORM\Column(name="ciudad", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $ciudad;
 
