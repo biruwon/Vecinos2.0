@@ -12,4 +12,9 @@ class DefaultController extends Controller
     {
         return $this->render('EspacioBundle:Default:index.html.twig', array('name' => $name));
     }
+    
+    public function portadaAction()
+    {
+        return $this->render('EspacioBundle:Default:portada.html.twig');
+    }
 }

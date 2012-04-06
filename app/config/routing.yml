@@ -35,6 +35,19 @@ _sonata_admin:
    type: sonata_admin
    prefix: /admin
 
+# Rutas de las páginas estáticas del sitio
+estatica:
+    pattern:  /sitio/{pagina}
+    defaults: { _controller: EspacioBundle:Sitio:estatica }
+   
+# Ruta para mostrar el formulario de contacto
+contacto:
+    pattern:  /contacto
+    defaults: { _controller: EspacioBundle:Sitio:contacto }
+
+portada:
+   pattern: /
+   defaults: { _controller: EspacioBundle:Default:portada }
 
 
 
