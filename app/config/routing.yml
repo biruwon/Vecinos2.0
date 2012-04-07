@@ -24,7 +24,7 @@ InmuebleBundle:
 
 UsuarioBundle:
     resource: "@UsuarioBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /usuario
 
 sonata:
    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'

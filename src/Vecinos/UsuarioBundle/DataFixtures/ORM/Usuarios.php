@@ -6,18 +6,24 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Vecinos\UsuarioBundle\Entity\Usuario;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Fixtures de la entidad Usuarios.
  * Crea 25 usuarios para poder probar la aplicación.
  */
-class Usuarios extends AbstractFixture implements OrderedFixtureInterface
+class Usuarios extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     public function getOrder()
     {
 	return 3;
     }
 
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
 
     public function load(ObjectManager $manager)
     {
@@ -31,10 +37,18 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface
             $usuario->setApellidos($this->getApellidos());
             $usuario->setCiudad($this->getCiudades());
             $usuario->setDireccion('Calle Beja'.$i);
-            $usuario->setDni("49030568L");
+            
+            $dni = substr(rand(), 0, 8);
+            $usuario->setDni($dni.substr("TRWAGMYFPDXBNJZSQVHLCKE", strtr($dni, "XYZ", "012")%23, 1));
+            
             $usuario->setEmail('usuario'.$i.'@localhost');
             $usuario->setFechaNacimiento(new \DateTime('now - '.rand(7000, 20000).' days'));
-            $usuario->setPassword('usuario'.$i);
+            
+            $passwordEnClaro = 'usuario'.$i;
+            $encoder = $this->container->get('security.encoder_factory')->getEncoder($usuario);
+            $passwordCodificado = $encoder->encodePassword($passwordEnClaro, $usuario->getSalt());
+            $usuario->setPassword($passwordCodificado);
+            
             $usuario->setPermiteEmail(true);
             $usuario->setSalt(md5(time()));
       

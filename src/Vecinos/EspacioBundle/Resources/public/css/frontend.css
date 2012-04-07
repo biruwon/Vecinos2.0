@@ -50,7 +50,7 @@ section { zoom: 1; }
 aside {
     float: right;
     padding: 0 20px 0 10px;
-    width: 200px;
+    width: 260px;
 }
 
 /* ===========================================================================
@@ -70,7 +70,7 @@ nav ul li select {
 #recientes nav li:nth-child(2) a,
 #compras   nav li:nth-child(3) a {
     border: none;
-    color: #FF3385 !important;
+    color: #FFFFFF !important;
     font-size: 21px;
     font-weight: normal;
     text-decoration: none;
@@ -80,9 +80,9 @@ nav ul li select {
    Zona lateral
    ======================================================================== */
 aside #login h2 {
-    color: #777;
+    color: #CC0066;
     margin: -.5em 0 .5em;
-    text-align: center;
+    text-align: justify;
 }
 aside #login .boton {
     background-color: #008000;
@@ -101,6 +101,7 @@ aside:hover #login .boton { text-decoration: none; }
 aside #login form {
     background: #DCDCDC;
     padding: .5em;
+    margin-right: 26px;
 }
 aside #login label {
     display: block;
@@ -114,6 +115,7 @@ aside #login input {
     font-size: 14px;
     padding: 2px;
     margin-bottom: 7px;
+    margin-right: 10px;
 }
 aside #login form input[type="submit"] {
     margin: 0;
@@ -338,8 +340,8 @@ aside #condiciones, aside #nosotros {
     top: -1em;
 }
 #portada #anuncio .boton {
-    background-color: #008000;
-    margin-left: .5em;
+    background-color: #FF4500;
+    margin-left: 1.5em;
     text-shadow: none;
 }
 #portada #anuncio .boton:hover {
