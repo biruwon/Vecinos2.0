@@ -48,6 +48,7 @@ class InmuebleAdmin extends Admin
            ->add('nombre_propietario')
            ->add('habitaciones')
            ->add('ocupado')
+           ->add('usuarios')
         ;
     }
 

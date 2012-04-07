@@ -25,7 +25,7 @@ class Reserva
     
     /**
      * 
-     * @ORM\Column(type="date")
+     * @ORM\Column(name="fecha", type="date")
      */
     
     private $fecha;

@@ -12,4 +12,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class UsuarioRepository extends EntityRepository
 {
+    
+     /**
+     * Encuentra todas las reservas del usuario indicado
+     *
+     * @param string $usuario El id del usuario
+     */
+    public function findTodasLasReservas($usuario)
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('SELECT r, e FROM ReservaBundle:Reserva r JOIN r.espacio e WHERE r.usuario = :id ORDER BY r.fecha DESC');
+        $consulta->setParameter('id', $usuario);
+        
+        return $consulta->getResult();
+    }
 }

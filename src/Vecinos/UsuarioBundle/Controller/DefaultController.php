@@ -160,4 +160,20 @@ class DefaultController extends Controller
             'formulario' => $formulario->createView()
         ));
     }
+    
+    /**
+     * Muestra todas las reservas del usuario logueado
+     */
+    public function reservasAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $usuario = $this->get('security.context')->getToken()->getUser();
+        
+        
+        $reservas = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasReservas($usuario->getId());
+        
+        return $this->render('UsuarioBundle:Default:reservas.html.twig', array(
+            'reservas'  => $reservas
+        ));
+    }
 }

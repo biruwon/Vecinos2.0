@@ -16,6 +16,7 @@ class ReservaAdmin extends Admin
            ->add('horainicio')
            ->add('horafin')
            ->addIdentifier('fecha', null, array('label' => 'Fecha'))
+           ->add('usuario')
         ;
     }
     
@@ -24,6 +25,7 @@ class ReservaAdmin extends Admin
         $mapper
             ->add('espacio')
            # ->add('fecha')
+            ->add('usuario')
         ;
     }
     
@@ -37,7 +39,9 @@ class ReservaAdmin extends Admin
                 ->add('horainicio')
                 ->add('horafin')
                 ->add('fecha')
-                
+            ->end()
+            ->with('Usuario')
+                ->add('usuario')
             ->end()
 
             ;
