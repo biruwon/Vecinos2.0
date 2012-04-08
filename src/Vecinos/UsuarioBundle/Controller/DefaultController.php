@@ -5,6 +5,7 @@ namespace Vecinos\UsuarioBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Vecinos\UsuarioBundle\Entity\Usuario;
+use Vecinos\ReservaBundle\Entity\Reserva;
 use Vecinos\UsuarioBundle\Form\Frontend\UsuarioType;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

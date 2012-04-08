@@ -50,7 +50,7 @@ class Reserva
     private $horafin;
     
     /**
-     * @ORM\OneToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", mappedBy="reservas")
+     * @ORM\OneToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario")
      */
     
     private $usuario;

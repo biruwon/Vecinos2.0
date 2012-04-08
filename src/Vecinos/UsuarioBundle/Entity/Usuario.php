@@ -144,12 +144,6 @@ class Usuario implements UserInterface, \Serializable
      */
     private $inmuebles;
     
-    /**
-     * @ORM\OneToOne(targetEntity="Vecinos\ReservaBundle\Entity\Reserva", inversedBy="usuario")
-     * @ORM\JoinColumn(name="reserva_id", referencedColumnName="id")
-     */
-    
-    private $reservas;
     
      /**
      * @ORM\OneToMany(targetEntity="Vecinos\IncidenciaBundle\Entity\Incidencia", mappedBy="usuario")
@@ -500,25 +494,7 @@ class Usuario implements UserInterface, \Serializable
         return $this->mensaje_recibido;
     }
     
-    /**
-     * Get reservas
-     *
-     * @param Vecinos\ReservaBundle\Entity\Reserva $reservas 
-     */
-    public function setReservas($reservas)
-    {
-        $this->reservas = $reservas;
-    }
-
-    /**
-     * Get reservas
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getReservas()
-    {
-        return $this->reservas;
-    }
+   
     
     /* Se serializa la clase para corregir el fallo: Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken::serialize() 
      * must return a string or NULL.
