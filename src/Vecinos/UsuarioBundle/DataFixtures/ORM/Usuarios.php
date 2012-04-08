@@ -27,7 +27,7 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface, Conta
 
     public function load(ObjectManager $manager)
     {
-        $reservas = $manager->getRepository('ReservaBundle:Reserva')->findAll(); 
+        //$reservas = $manager->getRepository('ReservaBundle:Reserva')->findAll(); 
         
         
         for($i = 0; $i < 25; $i++){
@@ -64,6 +64,7 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface, Conta
         
         $manager->flush();
         
+         /*
          $usuarios = $manager->getRepository('UsuarioBundle:Usuario')->findAll(); 
        
         $usuarios[4]->setReservas($reservas[0]);
@@ -75,6 +76,8 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface, Conta
         $manager->persist($usuarios[21]);
         $manager->persist($usuarios[2]);
          $manager->flush();
+          * 
+          */
     }
     
     

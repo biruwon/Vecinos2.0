@@ -22,8 +22,8 @@ class UsuarioRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
         
-        $consulta = $em->createQuery('SELECT r, e FROM ReservaBundle:Reserva r JOIN r.espacio e WHERE r.usuario = :id ORDER BY r.fecha DESC');
-        $consulta->setParameter('id', $usuario);
+        $consulta = $em->createQuery('SELECT r FROM ReservaBundle:Reserva r JOIN r.espacio e WHERE r.usuario = :id ORDER BY r.fecha DESC');
+        $consulta->setParameter('id', $usuario); 
         
         return $consulta->getResult();
     }
