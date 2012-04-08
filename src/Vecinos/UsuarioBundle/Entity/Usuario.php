@@ -18,7 +18,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
 //FALTA INCLUIR LA VALIDACIÓN DE MAYOR DE EDAD Y DNI
 
-class Usuario implements UserInterface
+class Usuario implements UserInterface, \Serializable
 {
     
     /**
@@ -520,5 +520,20 @@ class Usuario implements UserInterface
         return $this->reservas;
     }
     
+    /* Se serializa la clase para corregir el fallo: Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken::serialize() 
+     * must return a string or NULL.
+     * Se tiene que serializar el id y no el email para evitar este fallo: You cannot refresh a user from the EntityUserProvider that does not contain an identifier.
+     *  The user object has to be serialized with its own identifier mapped by Doctrine.
+     */
+
+    public function serialize()
+    {
+        return serialize($this->getId());
+    }
+    
+    public function unserialize($data)
+    {
+        $this->id = unserialize($data);
+    }
 
 }

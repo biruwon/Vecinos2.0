@@ -1,0 +1,26 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Últimas reservas que has realizado{% endblock %}
+{% block id 'compras' %}
+
+{% block article %}
+    <h1>{{ block('title') }}</h1>
+    
+    {% for reserva in reservas %}
+         {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
+        {{ reserva.fecha|date('Ymd') }}
+        {{ reserva.horainicio|date('His') }}
+        {{ reserva.horafin|date('His') }}
+        {{ reserva.espacio.nombre }}
+    {% endfor %}
+{% endblock %}
+
+{% block aside %}
+    {{ parent() }}
+
+    <section id="nosotros">
+        <h2>Sobre nosotros</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </section>
+{% endblock %}
