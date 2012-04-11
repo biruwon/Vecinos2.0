@@ -28,6 +28,7 @@ class UsuarioRepository extends EntityRepository
         return $consulta->getResult();
     }
     
+
     public function findTodasLasIncidencias()
     {
         $em = $this->getEntityManager();
@@ -35,5 +36,22 @@ class UsuarioRepository extends EntityRepository
         $consulta = $em->createQuery('SELECT i FROM IncidenciaBundle:Incidencia i'); 
         
         return $consulta->getArrayResult();
+    }
+     /**
+     * Encuentra todas las juntas del usuario indicado
+     *
+     * @param string $usuario El id del usuario
+     */
+    public function findTodasLasJuntas($usuario)
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('SELECT j FROM JuntaBundle:Junta j INNER JOIN j.usuarios u
+                                                                              WHERE u.id = :id
+                                                                              ORDER BY j.fecha DESC');
+        $consulta->setParameter('id', $usuario); 
+        
+        return $consulta->getResult();
+
     }
 }

@@ -27,6 +27,16 @@ usuario_aplicacion:
     pattern:  /
     defaults: { _controller: UsuarioBundle:Default:aplicacion }
 
+# Ruta para ver todas las juntas del usuario logueado
+usuario_juntas:
+    pattern:  /juntas
+    defaults: { _controller: UsuarioBundle:Default:juntas }
+
+# Ruta para crear una nueva junta
+usuario_junta_nueva:
+    pattern:  /juntas/nueva
+    defaults: { _controller: JuntaBundle:Default:juntaNueva }
+
 # Ruta para la acción de login de de los usuarios del frontend
 usuario_login:
     pattern:   /login

@@ -1,18 +1,19 @@
-{% extends '::frontend2.html.twig' %}
+{% extends '::frontend.html.twig' %}
 
-{% block title %}Últimas reservas que has realizado{% endblock %}
+{% block title %}Últimas juntas a las que has asistido{% endblock %}
 {% block id 'reservas' %}
 
 {% block article %}
     <h1>{{ block('title') }}</h1>
     
-    {% for reserva in reservas %}
+    {% for junta in juntas %}
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
-        {{ reserva.fecha|date('Y/m/d') }}
-        {{ reserva.horainicio|date('H:i:s') }}
-        {{ reserva.horafin|date('H:i:s') }}
-        {{ reserva.espacio.nombre }}
-    <br>
+        {{ junta.titulo }} --
+        {{ junta.descripcion }} --
+        {{ junta.fecha|date('Ymd') }} --
+        {{ junta.hora|date('His') }} --
+        {{ junta.duracion }}
+         </br>
     {% endfor %}
 {% endblock %}
 
