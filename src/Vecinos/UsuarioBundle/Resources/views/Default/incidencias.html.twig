@@ -1,17 +1,17 @@
 {% extends '::frontend2.html.twig' %}
 
-{% block title %}Últimas reservas que has realizado{% endblock %}
+{% block title %}Incidencias de la comunidad{% endblock %}
 {% block id 'compras' %}
 
 {% block article %}
     <h1>{{ block('title') }}</h1>
     
-    {% for reserva in reservas %}
+    {% for incidencia in incidencias %}
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
-        {{ reserva.fecha|date('Y/m/d') }}
-        {{ reserva.horainicio|date('H:i:s') }}
-        {{ reserva.horafin|date('H:i:s') }}
-        {{ reserva.espacio.nombre }}
+        {{ incidencia.titulo }}
+        {{ incidencia.descripcion }}
+        {{ incidencia.fecha|date('Y/m/d') }}
+        {{ incidencia.hora|date('H:i:s') }}
     <br>
     {% endfor %}
 {% endblock %}

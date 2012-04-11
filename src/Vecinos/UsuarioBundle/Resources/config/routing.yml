@@ -13,6 +13,20 @@ usuario_reservas:
     pattern:  /reservas
     defaults: { _controller: UsuarioBundle:Default:reservas }
 
+# Ruta para ver todas las incidencias del usuario logueado
+usuario_incidencias:
+    pattern:  /incidencias
+    defaults: { _controller: UsuarioBundle:Default:incidencias}
+
+usuario_incidencia_nueva:
+    pattern:  /incidencias/nueva
+    defaults: { _controller: IncidenciaBundle:Default:incidenciaNueva}
+
+# Ruta a la aplicacion
+usuario_aplicacion:
+    pattern:  /
+    defaults: { _controller: UsuarioBundle:Default:aplicacion }
+
 # Ruta para la acción de login de de los usuarios del frontend
 usuario_login:
     pattern:   /login

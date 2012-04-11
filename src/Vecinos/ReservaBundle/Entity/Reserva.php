@@ -4,6 +4,7 @@ namespace Vecinos\ReservaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Vecinos\UsuarioBundle\Entity\Usuario;
 
 /**
  * Vecinos\ReservaBundle\Entity\Reserva
@@ -50,7 +51,7 @@ class Reserva
     private $horafin;
     
     /**
-     * @ORM\OneToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario")
+     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario")
      */
     
     private $usuario;

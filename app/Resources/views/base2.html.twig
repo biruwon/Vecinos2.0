@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{% block title %}{% endblock %} | Cupon</title>
+    <title>{% block title %}{% endblock %} | Vecinos2.0</title>
     {% block stylesheets %}{% endblock %}
     {% block rss %}{% endblock %}
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}" />
@@ -14,7 +14,7 @@
     {% block body %}{% endblock %}
     
     <footer>
-        &copy; {{ 'now'|date('Y') }} - Cupon
+        &copy; {{ 'now'|date('Y') }} - Vecinos2.0
         <a href="{{ path('estatica', { 'pagina': 'ayuda' }) }}">{{ "Ayuda" | trans }}</a>
         <a href="{{ path('contacto') }}">{{ "Contacto" | trans }}</a>
         <a href="{{ path('estatica', { 'pagina': 'privacidad' }) }}">{{ "Privacidad" | trans }}</a>

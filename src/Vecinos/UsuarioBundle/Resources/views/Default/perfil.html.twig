@@ -1,4 +1,4 @@
-{% extends '::frontend.html.twig' %}
+{% extends '::frontend2.html.twig' %}
 
 {% block id 'usuario' %}
 {% block title %}Ver / Modificar mis datos{% endblock %}
@@ -61,11 +61,11 @@
         <p class="ayuda">Aunque puedes comprar cualquier oferta de cualquier ciudad, la ciudad seleccionada será tu opción preferente.</p>
     </div>
     
-    <div>
+    {#<div>
         {{ form_errors(formulario.permite_email) }}
         {{ form_widget(formulario.permite_email) }}
         <span>Me gustaría recibir el boletín de ofertas de Cupon</span>
-    </div>
+    </div>#}
     
     {{ form_rest(formulario) }}
 

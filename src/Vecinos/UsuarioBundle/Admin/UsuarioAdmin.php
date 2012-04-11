@@ -19,7 +19,7 @@ class UsuarioAdmin extends Admin {
                 ->add('email')
                 ->add('dni')
                 ->add('fecha_nacimiento')
-                ->add('inmuebles')
+                //->add('inmuebles')
 
         ;
     }
@@ -48,9 +48,9 @@ class UsuarioAdmin extends Admin {
                 ->add('direccion')
                 ->add('ciudad')
                 ->end()
-                ->with('Inmuebles')
-                ->add('inmuebles')
-                ->end()
+               // ->with('Inmuebles')
+               // ->add('inmuebles')
+               // ->end()
 
         ;
     }

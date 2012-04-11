@@ -27,4 +27,13 @@ class UsuarioRepository extends EntityRepository
         
         return $consulta->getResult();
     }
+    
+    public function findTodasLasIncidencias()
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('SELECT i FROM IncidenciaBundle:Incidencia i'); 
+        
+        return $consulta->getArrayResult();
+    }
 }

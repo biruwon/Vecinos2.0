@@ -177,4 +177,28 @@ class DefaultController extends Controller
             'reservas'  => $reservas
         ));
     }
+    
+    public function incidenciasAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        //$usuario = $this->get('security.context')->getToken()->getUser();
+        
+        
+        $incidencias = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasIncidencias();
+        
+        return $this->render('UsuarioBundle:Default:incidencias.html.twig', array(
+            'incidencias'  => $incidencias
+        ));
+    }
+    
+    
+    public function aplicacionAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $usuario = $this->get('security.context')->getToken()->getUser();
+        
+   
+        return $this->render('UsuarioBundle:Default:aplicacion.html.twig'
+        );
+    }
 }

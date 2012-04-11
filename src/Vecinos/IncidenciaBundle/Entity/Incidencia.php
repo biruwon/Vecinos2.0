@@ -51,7 +51,7 @@ class Incidencia
     private $resuelta;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="incidencias")
+     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="incidencias", cascade={"persist"})
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
     
@@ -61,7 +61,7 @@ class Incidencia
     
     public function __construct()
     {
-        $this->usuario = new ArrayCollection();
+        //$this->usuario = new ArrayCollection();
     }
     
     public function __toString()

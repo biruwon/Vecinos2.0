@@ -1,0 +1,26 @@
+{% extends '::frontend2.html.twig' %}
+
+{% block title %}Aplicacion{% endblock %}
+{% block id 'compras' %}
+
+{% block article %}
+   <div id="anuncio"> <a class="boton" href="{{ path('usuario_reservas') }}">{{ "Reservas" | trans }}</a></div>
+   <div id="anuncio"> <a class="boton" href="{{ path('usuario_registro') }}">{{ "Juntas" | trans }}</a></div>
+   <div id="anuncio"> <a class="boton" href="{{ path('usuario_incidencias') }}">{{ "Incidencias" | trans }}</a></div>
+   <div id="anuncio"> <a class="boton" href="{{ path('usuario_registro') }}">{{ "Mensajes" | trans }}</a></div>
+   <div id="anuncio"> <a class="boton" href="{{ path('usuario_registro') }}">{{ "Juntas" | trans }}</a></div>
+   <div id="anuncio"> <a class="boton" href="{{ path('usuario_registro') }}">{{ "Espacios" | trans }}</a></div>
+   <div id="anuncio"> <a class="boton" href="{{ path('usuario_registro') }}">{{ "Inmuebles" | trans }}</a></div>
+   <div id="anuncio"> <a class="boton" href="{{ path('usuario_registro') }}">{{ "Usuarios" | trans }}</a></div>
+   
+{% endblock %}
+
+{% block aside %}
+    {{ parent() }}
+
+    <section id="nosotros">
+        <h2>Sobre nosotros</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </section>
+{% endblock %}
