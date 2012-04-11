@@ -19,7 +19,7 @@ class InmuebleAdmin extends Admin
            ->add('bloque')
            ->add('puerta')
            ->add('planta')
-           ->add('nombre_propietario')
+           ->add('usuario_propietario')
            ->add('habitaciones')
            ->add('ocupado')
            ->add('usuarios')    
@@ -30,7 +30,7 @@ class InmuebleAdmin extends Admin
     {
         $mapper
             ->add('nombre_via')
-            ->add('nombre_propietario')
+            ->add('usuario_propietario')
             ->add('ocupado')    
         ;
     }
@@ -45,7 +45,7 @@ class InmuebleAdmin extends Admin
            ->add('bloque')
            ->add('puerta')
            ->add('planta')
-           ->add('nombre_propietario')
+           ->add('usuario_propietario')
            ->add('habitaciones')
            ->add('ocupado')
            ->add('usuarios')

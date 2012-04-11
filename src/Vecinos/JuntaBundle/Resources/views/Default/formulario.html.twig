@@ -1,0 +1,83 @@
+{% extends '::frontend.html.twig' %}
+
+{% block id 'junta' %}
+{% block title %}{{ accion == 'crear' ?
+    'Añadir una nueva junta'
+    :
+    'Modificar la oferta ' ~ junta.titulo
+}}{% endblock %}
+
+{% block article %}
+<h1>{{ block('title') }}</h1>
+
+<form action="{{ path('usuario_junta_nueva') }}" method="post" {{ form_enctype(formulario) }}>
+    <div>
+    {{ form_errors(formulario) }}
+    
+    <div>
+        {{ form_label(formulario.titulo) }}
+        {{ form_errors(formulario.titulo) }}
+        {{ form_widget(formulario.titulo) }}
+    </div>
+    
+    <div>
+        {{ form_label(formulario.descripcion, 'Descripción') }}
+        {{ form_errors(formulario.descripcion) }}
+        {{ form_widget(formulario.descripcion) }}
+        
+        {# <p class="ayuda">Escribe cada característica en una línea.</p> #}
+    </div>
+    
+    <div>
+        {{ form_label(formulario.fecha) }}
+        {{ form_errors(formulario.fecha) }}
+        {{ form_widget(formulario.fecha) }}
+        
+        {# <p class="ayuda">Ejemplos: máximo 1 consumición por persona; No acumulable a otras ofertas; Debe consumirse en el propio local; etc.</p> #}
+    </div>
+    
+    <div>
+        {{ form_label(formulario.hora) }}
+        {{ form_errors(formulario.hora) }}
+        {{ form_widget(formulario.hora) }}
+        
+        {# <p class="ayuda">Ejemplos: máximo 1 consumición por persona; No acumulable a otras ofertas; Debe consumirse en el propio local; etc.</p> #}
+    </div>
+    
+    <div>
+        {{ form_label(formulario.duracion) }}
+        {{ form_errors(formulario.duracion) }}
+        {{ form_widget(formulario.duracion) }}
+        
+        {# <p class="ayuda">Ejemplos: máximo 1 consumición por persona; No acumulable a otras ofertas; Debe consumirse en el propio local; etc.</p> #}
+    </div>
+    
+    <div>
+        {{ form_label(formulario.usuarios) }}
+        {{ form_errors(formulario.usuarios) }}
+        {{ form_widget(formulario.usuarios) }}
+        
+        {# <p class="ayuda">Ejemplos: máximo 1 consumición por persona; No acumulable a otras ofertas; Debe consumirse en el propio local; etc.</p> #}
+    </div>
+    
+    {{ form_rest(formulario) }}
+    
+    <input class="boton" type="submit" value="{{ accion == 'crear' ? 'Añadir junta' : 'Guardar cambios' }}" />
+    </div>
+</form>
+{% endblock %}
+
+{% block aside %}
+<section id="faq">
+    <h2>Preguntas frecuentes</h2>
+    
+    <dl>
+        <dt>¿Lorem ipsum dolor sit amet?</dt>
+        <dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+        <dt>¿Ut enim ad minim veniam?</dt>
+        <dd>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</dd>
+        <dt>¿Excepteur sint occaecat cupidatat non proident?</dt>
+        <dd>Sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+    </dl>
+</section>
+{% endblock %}

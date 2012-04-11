@@ -27,4 +27,21 @@ class UsuarioRepository extends EntityRepository
         
         return $consulta->getResult();
     }
+    
+     /**
+     * Encuentra todas las juntas del usuario indicado
+     *
+     * @param string $usuario El id del usuario
+     */
+    public function findTodasLasJuntas($usuario)
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('SELECT j FROM JuntaBundle:Junta j INNER JOIN j.usuarios u
+                                                                              WHERE u.id = :id
+                                                                              ORDER BY j.fecha DESC');
+        $consulta->setParameter('id', $usuario); 
+        
+        return $consulta->getResult();
+    }
 }

@@ -79,11 +79,9 @@ class Inmueble
     private $planta;
 
     /**
-     * @var string $nombre_propietario
-     *
-     * @ORM\Column(name="nombre_propietario", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario")
      */
-    private $nombre_propietario;
+    private $usuario_propietario;
 
     /**
      * @var integer $habitaciones
@@ -284,23 +282,23 @@ class Inmueble
     }
 
     /**
-     * Set nombre_propietario
+     * Set usuario_propietario
      *
-     * @param string $nombrePropietario
+     * @param Vecinos\UsuarioBundle\Entity\Usuario $usuarioPropietario
      */
-    public function setNombrePropietario($nombrePropietario)
+    public function setUsuarioPropietario($usuarioPropietario)
     {
-        $this->nombre_propietario = $nombrePropietario;
+        $this->usuario_propietario = $usuarioPropietario;
     }
 
     /**
-     * Get nombre_propietario
+     * Get usuario_propietario
      *
-     * @return string 
+     * @return Vecinos\UsuarioBundle\Entity\Usuario
      */
-    public function getNombrePropietario()
+    public function getUsuarioPropietario()
     {
-        return $this->nombre_propietario;
+        return $this->usuario_propietario;
     }
 
     /**

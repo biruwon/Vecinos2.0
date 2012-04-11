@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Vecinos\UsuarioBundle\Entity\Usuario;
 use Vecinos\ReservaBundle\Entity\Reserva;
+use Vecinos\ReservaBundle\Entity\Junta;
+use Vecinos\ReservaBundle\Entity\Inmueble;
 use Vecinos\UsuarioBundle\Form\Frontend\UsuarioType;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -175,6 +177,22 @@ class DefaultController extends Controller
         
         return $this->render('UsuarioBundle:Default:reservas.html.twig', array(
             'reservas'  => $reservas
+        ));
+    }
+    
+    /**
+     * Muestra todas las junstas del usuario logueado
+     */
+    public function juntasAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $usuario = $this->get('security.context')->getToken()->getUser();
+        
+        
+        $juntas = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasJuntas($usuario->getId());
+        
+        return $this->render('UsuarioBundle:Default:juntas.html.twig', array(
+            'juntas'  => $juntas
         ));
     }
 }
