@@ -11,8 +11,11 @@
 {% endblock %}
 
 {% block javascripts %}
-{% javascripts '@EspacioBundle/Resources/public/js/*' output='js/frontend.js' %}
+{% javascripts '@EspacioBundle/Resources/public/js/*'
+               output='js/frontend.js' %}
 <script src="{{ asset('bundles/espacio/js/frontend.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/jquery/js/jquery-1.7.2.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/espacio/js/ini.js') }}" type="text/javascript"></script>
 {% endjavascripts %}
 {% endblock %}
 
@@ -30,11 +33,11 @@
 </header>
 
 {% block anuncio %}{% endblock %}
-
-<article>
-    {% block article %}{% endblock %}
+<article id="contenido">
+    <section id="principal" class="grid_12">
+      {% block article %}{% endblock %}
+    </section>
 </article>
-
 <aside>
     {% block aside %}
     <section id="login">
@@ -42,4 +45,5 @@
     </section>
     {% endblock %}
 </aside>
+   
 {% endblock %} 

@@ -38,6 +38,7 @@ body {
     background: #E6E2DF;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
+    height: 100%;
 }
 
 ul {
@@ -262,6 +263,7 @@ a:active  { position: relative; top: 1px; }
     background: #FFF;
     margin: 0 auto 1em;
     width: 100%;
+    height: auto;
 
     -moz-box-shadow: 0 1px 5px #444;
     -webkit-box-shadow: 0 1px 5px #444;
@@ -269,7 +271,8 @@ a:active  { position: relative; top: 1px; }
 }
 
 #contenedor > article {
-    min-height: 400px;
+    min-height: 500px;
+
 }
 
 footer {
@@ -362,7 +365,6 @@ footer {
     font-size: 13px;
     padding: 1em;
     position: relative;
-}
 
 footer a {
     color: #999;
@@ -383,8 +385,24 @@ footer #idioma {
 p#flash {
     background: #DCDCDC;
     margin-bottom: 1em;
-    padding: .5em 1em;
 }
+.inci1
+{
+    padding:10px 2px;
+    margin: 10px auto -62px 390px;
+    width:450px;
+    background:#A52A2A;
+    border:3px inset #AFEEEE;
+    text-align:center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color:#000000;
+    font-size: 21px;
+    display: block;
+    position: fixed;
+
+} 
 
 p#flash.info {
     background: #090;
