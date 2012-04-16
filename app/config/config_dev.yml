@@ -9,6 +9,17 @@ web_profiler:
     toolbar: true
     intercept_redirects: false
 
+swiftmailer:
+    transport: gmail
+    #delivery_address:  vecinos200@gmail.com
+    #encryption: ssl
+    #host:      smtp.gmail.com
+    #auth_mode: login
+    username: vecinos200@gmail.com
+    password: vecinos200
+    #disable_delivery: true
+
+
 monolog:
     handlers:
         main:

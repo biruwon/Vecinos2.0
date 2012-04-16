@@ -34,6 +34,25 @@ a8"     ""  88       88  88P'    "8a  a8"     "8a  88P'   `"8a
 /* ===========================================================================
    Estructura
    ======================================================================== */
+#principal > div {
+    overflow: visible;
+    margin-top: 8px;
+}
+.grid_2{
+    margin-left: 0;
+}
+.grid_10 {
+    width: 580px;
+    color: #FF4500;
+    font-size: 20px;
+}
+.grid_11 {
+    width: 580px;
+    color: #1148A6;
+}
+.omega {
+    margin-left: 200px;
+}
 article {
     float: left;
     padding: 0 10px 0 20px;
@@ -209,6 +228,22 @@ aside #condiciones, aside #nosotros {
     position: absolute;
     top: 192px;
     left: 0;
+}
+.inci{
+    padding:10px 2px;
+    margin: 10px auto -62px 390px;
+    width:450px;
+    background:#A52A2A;
+    border:3px inset #AFEEEE;
+    text-align:center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color:#000000;
+    font-size: 21px;
+    display: block;
+    position: fixed;
+
 }
 .oferta .galeria .precio span {
     color: #FF3385;

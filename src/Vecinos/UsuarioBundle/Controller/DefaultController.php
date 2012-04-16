@@ -99,8 +99,8 @@ class DefaultController extends Controller
                 );
                 
                 // Loguear al usuario automáticamente
-                $token = new UsernamePasswordToken($usuario, $usuario->getPassword(), 'usuarios', $usuario->getRoles());
-                $this->container->get('security.context')->setToken($token);
+                //$token = new UsernamePasswordToken($usuario, $usuario->getPassword(), 'usuarios', $usuario->getRoles());
+                //$this->container->get('security.context')->setToken($token);
                 
                 
                 return $this->redirect($this->generateUrl('usuario_aplicacion'));
