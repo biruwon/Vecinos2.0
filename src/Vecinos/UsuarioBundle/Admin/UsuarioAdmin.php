@@ -12,13 +12,15 @@ class UsuarioAdmin extends Admin {
 
     protected function configureListFields(ListMapper $mapper) {
         $mapper
-                ->add('nombre')
+                ->addIdentifier('nombre', null, array('label' => 'Nombre'))
+                //->add('nombre')
                 ->add('apellidos')
                 ->add('direccion')
                 ->add('ciudad')
                 ->add('email')
                 ->add('dni')
                 ->add('fecha_nacimiento')
+                ->add('rol')
                 //->add('inmuebles')
 
         ;
@@ -43,6 +45,7 @@ class UsuarioAdmin extends Admin {
                 ->add('fecha_nacimiento')
                 ->add('password')
                 ->add('permite_email', null, array('required' => false))
+                ->add('rol')
                 ->end()
                 ->with('Domicilio')
                 ->add('direccion')

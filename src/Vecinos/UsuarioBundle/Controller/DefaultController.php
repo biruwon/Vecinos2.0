@@ -103,7 +103,7 @@ class DefaultController extends Controller
                 $this->container->get('security.context')->setToken($token);
                 
                 
-                return $this->redirect($this->generateUrl('portada'));
+                return $this->redirect($this->generateUrl('usuario_aplicacion'));
                 
             }
         }
@@ -195,12 +195,11 @@ class DefaultController extends Controller
     
     public function aplicacionAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $usuario = $this->get('security.context')->getToken()->getUser();
+        //$em = $this->getDoctrine()->getEntityManager();
+        //$usuario = $this->get('security.context')->getToken()->getUser();
         
    
-        return $this->render('UsuarioBundle:Default:aplicacion.html.twig'
-        );
+        return $this->render('UsuarioBundle:Default:aplicacion.html.twig');
     }
 
     /**

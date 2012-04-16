@@ -27,7 +27,7 @@ security:
     
     access_control:
         - { path: ^/usuario/(login|registro), roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/usuario/*, roles: ROLE_USUARIO }
+        - { path: ^/usuario/*, roles: [ROLE_ADMIN, ROLE_USUARIO] }
         - { path: ^/admin/*,         roles: ROLE_ADMIN }
     
     encoders:
@@ -46,8 +46,8 @@ security:
                 admin: { password: 1234, roles: ROLE_ADMIN }
                 #admin: { password: Eti36Ru/pWG6WfoIPiDFUBxUuyvgMA4L8+LLuGbGyqV9ATuT9brCWPchBqX5vFTF+DgntacecW+sSGD+GZts2A==, roles: ROLE_ADMIN }
     
-#    role_hierarchy:
-#        ROLE_ADMIN: [ROLE_USUARIO, ROLE_ALLOWED_TO_SWITCH]
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USUARIO, ROLE_ALLOWED_TO_SWITCH]
 
 # security:
 #     encoders:

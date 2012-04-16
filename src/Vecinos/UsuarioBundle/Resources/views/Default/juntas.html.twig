@@ -6,6 +6,10 @@
 {% block article %}
     <h1>{{ block('title') }}</h1>
     
+    {% if is_granted('ROLE_ADMIN') %}
+        <div id="anuncio">¡Empieza a administrar tu comunidad de una forma totalmente gratuita! <a class="boton" href="{{ path('usuario_registro') }}">{{ "Regístrate ya" | trans }}</a></div>
+    {% endif %}
+    
     {% for junta in juntas %}
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
         {{ junta.titulo }} --
