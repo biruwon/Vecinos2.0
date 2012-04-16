@@ -37,9 +37,20 @@ class DefaultController extends Controller
            }
        }
         
-        return $this->render('JuntaBundle:Default:formulario.html.twig', array(
+       if (false === $this->get('security.context')->isGranted('ROLE_ADMIN'))
+        {
+            //throw new AccessDeniedException();
+           throw $this->createNotFoundException(
+                'Solo un administrador puede crear una junta'
+            );
+
+        }
+        else
+        {
+            return $this->render('JuntaBundle:Default:formulario.html.twig', array(
             'accion'     => 'crear',
             'formulario' => $formulario->createView()
         ));
+        }
     }
 }

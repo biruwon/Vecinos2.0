@@ -18,8 +18,8 @@ class JuntaType extends AbstractType
             ->add('titulo')
             ->add('descripcion')
             ->add('fecha')
-            ->add('hora')
-            ->add('duracion')
+            ->add('hora1')
+            ->add('hora2')
             ->add('usuarios')
         ;
         

@@ -7,16 +7,18 @@
     <h1>{{ block('title') }}</h1>
     
     {% if is_granted('ROLE_ADMIN') %}
-        <div id="anuncio">¡Empieza a administrar tu comunidad de una forma totalmente gratuita! <a class="boton" href="{{ path('usuario_registro') }}">{{ "Regístrate ya" | trans }}</a></div>
-    {% endif %}
     
+        <div id="anuncio"><a class="boton" href="{{ path('usuario_junta_nueva') }}">{{ "Nueva junta" | trans }}</a></div>
+    
+    {% endif %}
+
     {% for junta in juntas %}
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
         {{ junta.titulo }} --
         {{ junta.descripcion }} --
         {{ junta.fecha|date('Ymd') }} --
-        {{ junta.hora|date('His') }} --
-        {{ junta.duracion }}
+        {{ junta.hora1|date('His') }} --
+        {{ junta.hora2|date('His') }}
          </br>
     {% endfor %}
 {% endblock %}
