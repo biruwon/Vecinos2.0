@@ -16,6 +16,7 @@
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
         {{ junta.titulo }} --
         {{ junta.descripcion }} --
+        {{ junta.lugar }} --
         {{ junta.fecha|date('Ymd') }} --
         {{ junta.hora1|date('His') }} --
         {{ junta.hora2|date('His') }}

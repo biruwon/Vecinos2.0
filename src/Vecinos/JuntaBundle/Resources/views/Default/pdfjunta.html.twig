@@ -7,7 +7,7 @@ Guadal bullón 19<br>
 
 <p>        Por la presente, me dirijo a Vd. Para comunicarle que el próximo día {{ junta.fecha | date('d/m/Y') }}, a las {{ junta.hora1 |date('His') }}
 horas en 1ª Convocatoria y a las {{ junta.hora2 |date('His') }} horas en 2ª Convocatoria, tendrá lugar reunión de Junta
-General Ordinaria, en el (aquí iría el campo lugar), para tratar el siguiente:</p>
+General Ordinaria, en el {{ junta.lugar }}, para tratar el siguiente:</p>
 
 <strong><p align="center">Orden del Día</p></strong><br>
 {{ junta.descripcion }}

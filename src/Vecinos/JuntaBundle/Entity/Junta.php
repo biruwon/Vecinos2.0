@@ -61,6 +61,11 @@ class Junta
      */
     protected $hora2;
     
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $lugar;
+    
     
     
     public function __construct()
@@ -103,6 +108,25 @@ class Junta
         return $this->titulo;
     }
 
+    /**
+     * Set lugar
+     *
+     * @param string $lugar
+     */
+    public function setLugar($lugar)
+    {
+        $this->lugar = $lugar;
+    }
+
+    /**
+     * Get lugar
+     *
+     * @return string 
+     */
+    public function getLugar()
+    {
+        return $this->lugar;
+    }
     /**
      * Set descripcion
      *
