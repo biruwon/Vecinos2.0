@@ -68,12 +68,6 @@
 [DoctrineFixturesBundle]
     git=http://github.com/symfony/DoctrineFixturesBundle.git
     target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 294849815c9095d4645427b22cac5652452aaa97
-=======
 
 [SonataAdminBundle]
       git=http://github.com/sonata-project/SonataAdminBundle.git
@@ -111,4 +105,11 @@
 [EntityAudit]
     git=git://github.com/simplethings/EntityAudit.git
     target=/bundles/SimpleThings/EntityAudit
->>>>>>> 1534d3311570173344f13b2fdce8907abf8f05ba
+
+[WhiteOctoberTCPDFBundle]
+    git=http://github.com/whiteoctober/WhiteOctoberTCPDFBundle.git
+    target=/bundles/WhiteOctober/TCPDFBundle
+
+[TCPDF]
+    git=git://tcpdf.git.sourceforge.net/gitroot/tcpdf/tcpdf
+    target=/tcpdf

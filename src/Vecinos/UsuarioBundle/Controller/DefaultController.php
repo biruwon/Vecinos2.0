@@ -71,6 +71,8 @@ class DefaultController extends Controller
         $usuario = new Usuario();
         $usuario->setPermiteEmail(true);
         $usuario->setFechaNacimiento(new \DateTime('now - 18 years'));
+        // Completar las propiedades que el usuario no rellena en el formulario
+        $usuario->setRol(array('ROLE_USUARIO'));
         
         $formulario = $this->createForm(new UsuarioType(), $usuario);
         
@@ -79,9 +81,8 @@ class DefaultController extends Controller
             $formulario->bindRequest($peticion);
             
             if ($formulario->isValid()) {
-                // Completar las propiedades que el usuario no rellena en el formulario
-                $usuario->setSalt(md5(time()));
                 
+                $usuario->setSalt(md5(time()));
                 $encoder = $this->get('security.encoder_factory')->getEncoder($usuario);
                 $passwordCodificado = $encoder->encodePassword(
                     $usuario->getPassword(),
@@ -209,7 +210,6 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $usuario = $this->get('security.context')->getToken()->getUser();
-        
         
         $juntas = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasJuntas($usuario->getId());
         

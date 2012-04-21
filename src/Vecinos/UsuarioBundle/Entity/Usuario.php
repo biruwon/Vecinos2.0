@@ -81,8 +81,6 @@ class Usuario implements UserInterface, \Serializable
     /**
      * @var array $rol
      * @ORM\Column(name="rol", type="array", length=100)
-     * @Assert\Choice(choices = {"ROLE_ADMIN", "ROLE_USUARIO"})
-     * @Assert\NotBlank()
      */
     private $rol=array('ROLE_USUARIO');
 
@@ -481,7 +479,7 @@ class Usuario implements UserInterface, \Serializable
      */
     public function getJuntas()
     {
-        return $this->ponencias;
+        return $this->juntas;
     }
     
     /**
