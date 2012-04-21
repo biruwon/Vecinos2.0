@@ -30,10 +30,18 @@ class DefaultController extends Controller
             $sesion->get(SecurityContext::AUTHENTICATION_ERROR)
         );
         
+        if (false === $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY' | ('IS_AUTHENTICATED_REMEMBERED'))) {
+            //throw new AccessDeniedException();
+            
+            return $this->redirect($this->generateUrl('usuario_aplicacion'));
+            
+        } else {
+        
         return $this->render('UsuarioBundle:Default:login.html.twig', array(
             'last_username' => $sesion->get(SecurityContext::LAST_USERNAME),
             'error'         => $error
         ));
+        }
     }
     
     /**
@@ -109,9 +117,17 @@ class DefaultController extends Controller
             }
         }
         
-        return $this->render('UsuarioBundle:Default:registro.html.twig', array(
-            'formulario' => $formulario->createView()
-        ));
+        if (false === $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY' | ('IS_AUTHENTICATED_REMEMBERED'))) {
+            //throw new AccessDeniedException();
+            
+            return $this->redirect($this->generateUrl('usuario_aplicacion'));
+            
+        } else {
+        
+            return $this->render('UsuarioBundle:Default:registro.html.twig', array(
+                'formulario' => $formulario->createView()
+            ));
+        }   
     }
     
     /**
