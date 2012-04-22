@@ -108,6 +108,11 @@
 [EntityAudit]
     git=git://github.com/simplethings/EntityAudit.git
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    target=/bundles/SimpleThings/EntityAudit
+=======
+>>>>>>> 58cce4076c4da4078ea8a4190976a787041c1ca5
     target=/bundles/SimpleThings/EntityAudit
 
 [WhiteOctoberTCPDFBundle]
@@ -117,6 +122,10 @@
 [TCPDF]
     git=git://tcpdf.git.sourceforge.net/gitroot/tcpdf/tcpdf
     target=/tcpdf
+<<<<<<< HEAD
 =======
     target=/bundles/SimpleThings/EntityAudit
 >>>>>>> f309c034649cbc700f681548d89eb673aac965a1
+=======
+>>>>>>> 9a5a2130703691a0ea36f3f5b6cb9d6bf77ecadc
+>>>>>>> 58cce4076c4da4078ea8a4190976a787041c1ca5

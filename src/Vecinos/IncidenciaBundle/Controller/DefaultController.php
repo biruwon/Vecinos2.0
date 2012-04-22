@@ -39,11 +39,11 @@ class DefaultController extends Controller
                 );
                 //kernel.root_dir apunta a /app
                // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/vecinos-4f8ee86cadbfc-foto1.jpg';
-               
+                
                 $message = \Swift_Message::newInstance()
                 
-               // ->attach(Swift_Attachment::fromPath($documento))
-                ->setSubject('Nueva incidencia en la comunidad')
+                //->attach(Swift_Attachment::fromPath($documento))
+                //->attach((new Swift_Message_Attachment(new Swift_File(SF_ROOT_DIR.'/../uploads/images/vecinos-4f8ee86cadbfc-foto1.jpg'))))
                 ->setFrom('vecinos200@gmail.com')
                 ->setTo('ojosverdesdecristal@hotmail.com')
                 ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));

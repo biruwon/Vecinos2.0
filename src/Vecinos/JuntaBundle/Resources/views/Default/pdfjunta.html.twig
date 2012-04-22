@@ -5,15 +5,15 @@ Guadal bullón 19<br>
 
 <p> Estimadas vecinas y vecinos: </p>
 
-<p>        Por la presente, me dirijo a Vd. Para comunicarle que el próximo día {{ junta.fecha | date('d/m/Y') }}, a las {{ junta.hora1 |date('His') }}
-horas en 1ª Convocatoria y a las {{ junta.hora2 |date('His') }} horas en 2ª Convocatoria, tendrá lugar reunión de Junta
-General Ordinaria, en el {{ junta.lugar }}, para tratar el siguiente:</p>
+<p>Por la presente, me dirijo a Vd. Para comunicarle que el próximo día {{ junta.fecha | date('d/m/Y') }}, a las {{ junta.hora1 |date('H:i') }}
+horas en 1ª Convocatoria y a las {{ junta.hora2 |date('H:i') }} horas en 2ª Convocatoria, tendrá lugar reunión de Junta
+General Ordinaria, el lugar de dichar reunión será en {{ junta.lugar }}, para tratar lo siguiente:</p>
 
 <strong><p align="center">Orden del Día</p></strong><br>
-{{ junta.descripcion }}
+{{ junta.descripcion  | raw }}
 <br>
-
-<p>        Se recuerda a todos los propietarios que, según el Art. 15.2 de la Ley de Propieda Horizontal, <strong>"los propietarios
+    
+<p>Se recuerda a todos los propietarios que, según el Art. 15.2 de la Ley de Propieda Horizontal, <strong>"los propietarios
 que en el momento de iniciarse la Junta no se encontrasen al corriente de pago de todas las deudas vencidas con
 la Comunidad y no hubiesen impugnado judicialmente las mismas o procedido a la consignación judicial o notarial
 de la suma adeudada, PODRÁN participar en sus deliberaciones, si bien NO TENDRÁN DERECHO A VOTO".</strong>
@@ -39,3 +39,9 @@ a D. _____________________________________________________ para que me represent
 
 
 <p align="right">Fdo: _________________________________________ </p>
+
+
+
+
+
+<fn> © 2012 - Vecinos2.0 </fn>

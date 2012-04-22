@@ -40,7 +40,7 @@ class Incidencias extends AbstractFixture implements OrderedFixtureInterface
           'hora' => new \DateTime('5:45:50'),'gravedad' => 'media','foto' => 'sinfoto')
             );
 
-        foreach ($incidencias as $incidencia) {
+            foreach ($incidencias as $incidencia) {
 	    $entidad = new Incidencia();
             $entidad->setUsuario($incidencia['usuario']);
             $entidad->setTitulo($incidencia['titulo']);

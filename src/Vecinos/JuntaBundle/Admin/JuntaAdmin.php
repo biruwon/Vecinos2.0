@@ -27,7 +27,7 @@ class JuntaAdmin extends Admin
         $mapper
             ->add('titulo')
             ->add('descripcion')
-            ->add('duracion')    
+              
         ;
     }
     
