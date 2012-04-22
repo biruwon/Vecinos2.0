@@ -1,6 +1,8 @@
-A las {{ incidencia.hora |  date('H:i') }} del {{ incidencia.fecha|date('Y/m/d') }} , un usuario de la comunidad ha creado una nueva incidencia.
+A las {{ incidencia.hora |  date('H:i') }} del {{ incidencia.fecha|date('d/m/Y') }} , 
+{{ incidencia.usuario }} ha creado una nueva incidencia.
 
 Titulo: {{ incidencia.titulo }}
+Gravedad: {{ incidencia.gravedad }}
 Descripción del problema: {{ incidencia.descripcion }}
 
 

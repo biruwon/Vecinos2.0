@@ -16,6 +16,7 @@ class IncidenciaAdmin extends Admin
            ->add('descripcion')
            ->add('fecha')
            ->add('hora')
+           ->add('gravedad')     
            ->addIdentifier('resuelta', null, array('label' => 'Resuelta'))
         ;
     }
@@ -24,8 +25,8 @@ class IncidenciaAdmin extends Admin
     {
         $mapper
             ->add('titulo')
-            #->add('fecha')
-            #->add('hora')
+            ->add('gravedad')
+            //->add('hora')
             ->add('resuelta')
             ->add('descripcion')    
         ;
@@ -38,6 +39,7 @@ class IncidenciaAdmin extends Admin
             ->add('descripcion')
             ->add('fecha')
             ->add('hora')
+            ->add('gravedad','choice',array('choices' => array('leve', 'media', 'grave'),'expanded' => true))
             ->add('resuelta')
         ;
     }

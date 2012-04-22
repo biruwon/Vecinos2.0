@@ -16,7 +16,7 @@
     <div id="anuncio"><a class="boton" href="{{ path('usuario_incidencia_nueva') }}">{{ "Nueva incidencia" | trans }}</a></div>
    
     {% for incidencia in incidencias %}
-    {% if incidencia.resuelta == '0' %}
+    {% if incidencia.resuelta == '0' %} {# te muestra solo las incidencias no resueltas #}
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
     <div>
            {% include 'IncidenciaBundle:Default:bloqueGrande.html.twig' %}
