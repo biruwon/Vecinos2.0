@@ -13,8 +13,9 @@ class IncidenciaType extends AbstractType
         $builder
             ->add('titulo')
             ->add('descripcion')
+            ->add('gravedad')
             ->add('fecha')
-           // ->add('foto', 'file', array('required' => false))
+            ->add('foto', 'file', array('required' => false))
             ->add('hora')
         ;
      

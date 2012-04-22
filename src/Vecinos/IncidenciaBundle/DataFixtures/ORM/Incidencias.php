@@ -31,13 +31,13 @@ class Incidencias extends AbstractFixture implements OrderedFixtureInterface
 
 	$incidencias = array(
 	  array('usuario' => $usuarios[11], 'titulo' => 'Depuradora no funciona', 'resuelta' => 'true', 'descripcion' => 'La piscina no funciona debido a ...', 'fecha' => new \DateTime('2011-10-12'),
-          'hora' => new \DateTime('7:45:50')),
+          'hora' => new \DateTime('7:45:50'),'gravedad' => 'media'),
           array('usuario' => $usuarios[11], 'titulo' => 'Ascensor no funciona', 'resuelta' => 'false', 'descripcion' => 'No funciona desde el Viernes pasado', 'fecha' => new \DateTime('2011-02-23'),
-          'hora' => new \DateTime('17:45:50')),
+          'hora' => new \DateTime('17:45:50'),'gravedad' => 'media'),
           array('usuario' => $usuarios[11], 'titulo' => 'Las luces de los pasillos no estan reguladas', 'resuelta' => 'false', 'descripcion' => ' ...', 'fecha' => new \DateTime('2011-03-10'),
-          'hora' => new \DateTime('20:45:50')),
+          'hora' => new \DateTime('20:45:50'),'gravedad' => 'media'),
           array('usuario' => $usuarios[11], 'titulo' => 'Se ha roto la red de pádel de la pista 3', 'resuelta' => 'true', 'descripcion' => 'Red rota', 'fecha' => new \DateTime('2011-06-07'),
-          'hora' => new \DateTime('5:45:50')),
+          'hora' => new \DateTime('5:45:50'),'gravedad' => 'media')
             );
 
         foreach ($incidencias as $incidencia) {
@@ -48,6 +48,7 @@ class Incidencias extends AbstractFixture implements OrderedFixtureInterface
             $entidad->setDescripcion($incidencia['descripcion']);
             $entidad->setHora($incidencia['hora']);
             $entidad->setFecha($incidencia['fecha']);
+            $entidad->setGravedad($incidencia['gravedad']);
             
             $manager->persist($entidad);
         }

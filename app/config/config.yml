@@ -93,3 +93,6 @@ sonata_admin:
         list:     SonataAdminBundle:CRUD:list.html.twig
         show:     SonataAdminBundle:CRUD:show.html.twig
         edit:     SonataAdminBundle:CRUD:edit.html.twig
+       
+parameters:
+    vecinos.directorio.imagenes: %kernel.root_dir%/../web/uploads/images/
