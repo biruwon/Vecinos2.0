@@ -108,3 +108,11 @@
 [EntityAudit]
     git=git://github.com/simplethings/EntityAudit.git
     target=/bundles/SimpleThings/EntityAudit
+
+[WhiteOctoberTCPDFBundle]
+    git=http://github.com/whiteoctober/WhiteOctoberTCPDFBundle.git
+    target=/bundles/WhiteOctober/TCPDFBundle
+
+[TCPDF]
+    git=git://tcpdf.git.sourceforge.net/gitroot/tcpdf/tcpdf
+    target=/tcpdf

@@ -107,4 +107,16 @@
 # optional bundle
 [EntityAudit]
     git=git://github.com/simplethings/EntityAudit.git
+<<<<<<< HEAD
     target=/bundles/SimpleThings/EntityAudit
+=======
+    target=/bundles/SimpleThings/EntityAudit
+
+[WhiteOctoberTCPDFBundle]
+    git=http://github.com/whiteoctober/WhiteOctoberTCPDFBundle.git
+    target=/bundles/WhiteOctober/TCPDFBundle
+
+[TCPDF]
+    git=git://tcpdf.git.sourceforge.net/gitroot/tcpdf/tcpdf
+    target=/tcpdf
+>>>>>>> 9a5a2130703691a0ea36f3f5b6cb9d6bf77ecadc

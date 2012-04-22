@@ -15,8 +15,9 @@ class JuntaAdmin extends Admin
            ->addIdentifier('fecha', null, array('label' => 'Fecha'))
            ->add('titulo')
            ->add('descripcion')
-           ->add('hora')
-           ->add('duracion')
+           ->add('lugar')
+           ->add('hora1')
+           ->add('hora2')
            ->add('usuarios')    
         ;
     }
@@ -26,7 +27,7 @@ class JuntaAdmin extends Admin
         $mapper
             ->add('titulo')
             ->add('descripcion')
-            ->add('duracion')    
+              
         ;
     }
     
@@ -36,8 +37,9 @@ class JuntaAdmin extends Admin
            ->add('fecha')
            ->add('titulo')
            ->add('descripcion')
-           ->add('hora')
-           ->add('duracion')
+           ->add('lugar')
+           ->add('hora1')
+           ->add('hora2')
            ->add('usuarios')    
         ;
     }

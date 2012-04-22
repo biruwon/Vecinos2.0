@@ -41,7 +41,8 @@ class Usuario implements UserInterface, \Serializable
      */
     function getRoles()
     {
-        return array('ROLE_USUARIO');
+        //return array('ROLE_USUARIO');
+        return $this->getRol();
     }
     
     /**
@@ -76,6 +77,12 @@ class Usuario implements UserInterface, \Serializable
      * @Assert\NotBlank()
      */
     private $apellidos;
+    
+    /**
+     * @var array $rol
+     * @ORM\Column(name="rol", type="array", length=100)
+     */
+    private $rol=array('ROLE_USUARIO');
 
     /**
      * @var string $email
@@ -176,6 +183,7 @@ class Usuario implements UserInterface, \Serializable
         $this->usuarios = new ArrayCollection();
         $this->incidencias = new ArrayCollection();
         $this->juntas= new ArrayCollection();
+        $this->rol= new ArrayCollection();
     }
     
     public function __toString()
@@ -211,6 +219,26 @@ class Usuario implements UserInterface, \Serializable
     public function getNombre()
     {
         return $this->nombre;
+    }
+    
+    /**
+     * Set rol
+     *
+     * @param array $rol
+     */
+    public function setRol($rol)
+    {
+        $this->rol = $rol;
+    }
+    
+    /**
+     * Get rol
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getRol()
+    {
+        return $this->rol;
     }
 
     /**
@@ -451,7 +479,7 @@ class Usuario implements UserInterface, \Serializable
      */
     public function getJuntas()
     {
-        return $this->ponencias;
+        return $this->juntas;
     }
     
     /**

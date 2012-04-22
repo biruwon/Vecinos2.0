@@ -1,28 +1,29 @@
 {% extends '::frontend2.html.twig' %}
 
-{% block title %}Últimas juntas a las que has asistido{% endblock %}
+{% block title %}Próximas juntas{% endblock %}
 {% block id 'reservas' %}
 
 {% block article %}
     <h1>{{ block('title') }}</h1>
     
+    {% if is_granted('ROLE_ADMIN') %}
+    
+        <div id="anuncio"><a class="boton" href="{{ path('usuario_junta_nueva') }}">{{ "Nueva junta" | trans }}</a></div>
+    
+    {% endif %}
+
     {% for junta in juntas %}
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
-        {{ junta.titulo }} --
-        {{ junta.descripcion }} --
-        {{ junta.fecha|date('Ymd') }} --
-        {{ junta.hora|date('His') }} --
-        {{ junta.duracion }}
-         </br>
+        {% include 'JuntaBundle:Default:bloqueGrande2.html.twig' %}
+        
     {% endfor %}
 {% endblock %}
-
 {% block aside %}
     {{ parent() }}
 
     <section id="nosotros">
         <h2>Sobre nosotros</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+     <p>Somos una empresa joven y dinámica, que apuesta por la implantación de las nuevas tecnologías en la vida diaria de las personas, para favorecer todas las tareas cotidianas que surgen en ella y responder de una forma más rápida y eficaz .</p>
+        <p>Creemos firmemente que si controlamos de una forma óptima toda la información que nos llega, podremos reducir en tiempo, dinero y esfuerzo.</p>
     </section>
 {% endblock %}

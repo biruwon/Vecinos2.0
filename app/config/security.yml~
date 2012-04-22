@@ -5,16 +5,18 @@ security:
     
     firewalls:
         # Firewall de la parte de administración o backend
-#        backend:
-#            pattern:        ^/backend
-#            provider:       administradores
-#            http_basic:     ~
+        backend:
+            pattern:        ^/admin
+            provider:       administradores
+            http_basic:     ~
         # Firewall global utilizado en la parte pública o frontend
         frontend:
             pattern:        ^/*
             provider:       usuarios
             anonymous:      ~
             form_login:
+                default_target_path: /usuario/
+                always_use_default_target_path: true
                 login_path: usuario_login
                 check_path: usuario_login_check
             logout:
@@ -25,24 +27,27 @@ security:
     
     access_control:
         - { path: ^/usuario/(login|registro), roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/usuario/*, roles: ROLE_USUARIO }
-#        - { path: ^/backend/*,         roles: ROLE_ADMIN }
+        - { path: ^/usuario/*, roles: [ROLE_ADMIN, ROLE_USUARIO] }
+        - { path: ^/admin/*,         roles: ROLE_ADMIN }
     
     encoders:
-        Vecinos\UsuarioBundle\Entity\Usuario:    plaintext
+        Vecinos\UsuarioBundle\Entity\Usuario:        plaintext
+        Symfony\Component\Security\Core\User\User: plaintext
+
     
     providers:
         # Usuarios del frontend
         usuarios:
             entity: { class: Vecinos\UsuarioBundle\Entity\Usuario, property: email }
         # Usuarios del backend
-#        administradores:
-#            users:
+        administradores:
+            users:
                 # user = admin, pass = 1234
-#                admin: { password: Eti36Ru/pWG6WfoIPiDFUBxUuyvgMA4L8+LLuGbGyqV9ATuT9brCWPchBqX5vFTF+DgntacecW+sSGD+GZts2A==, roles: ROLE_ADMIN }
+                admin: { password: 1234, roles: ROLE_ADMIN }
+                #admin: { password: Eti36Ru/pWG6WfoIPiDFUBxUuyvgMA4L8+LLuGbGyqV9ATuT9brCWPchBqX5vFTF+DgntacecW+sSGD+GZts2A==, roles: ROLE_ADMIN }
     
-#    role_hierarchy:
-#        ROLE_ADMIN: [ROLE_TIENDA, ROLE_USUARIO, ROLE_ALLOWED_TO_SWITCH]
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USUARIO, ROLE_ALLOWED_TO_SWITCH]
 
 # security:
 #     encoders:

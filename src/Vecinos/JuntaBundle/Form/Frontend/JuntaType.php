@@ -17,9 +17,10 @@ class JuntaType extends AbstractType
         $builder
             ->add('titulo')
             ->add('descripcion')
+            ->add('lugar')
             ->add('fecha')
-            ->add('hora')
-            ->add('duracion')
+            ->add('hora1')
+            ->add('hora2')
             ->add('usuarios')
         ;
         

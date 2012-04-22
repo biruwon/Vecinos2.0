@@ -30,10 +30,18 @@ class DefaultController extends Controller
             $sesion->get(SecurityContext::AUTHENTICATION_ERROR)
         );
         
+        if (false === $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY' | ('IS_AUTHENTICATED_REMEMBERED'))) {
+            //throw new AccessDeniedException();
+            
+            return $this->redirect($this->generateUrl('usuario_aplicacion'));
+            
+        } else {
+        
         return $this->render('UsuarioBundle:Default:login.html.twig', array(
             'last_username' => $sesion->get(SecurityContext::LAST_USERNAME),
             'error'         => $error
         ));
+        }
     }
     
     /**
@@ -71,6 +79,8 @@ class DefaultController extends Controller
         $usuario = new Usuario();
         $usuario->setPermiteEmail(true);
         $usuario->setFechaNacimiento(new \DateTime('now - 18 years'));
+        // Completar las propiedades que el usuario no rellena en el formulario
+        $usuario->setRol(array('ROLE_USUARIO'));
         
         $formulario = $this->createForm(new UsuarioType(), $usuario);
         
@@ -79,9 +89,8 @@ class DefaultController extends Controller
             $formulario->bindRequest($peticion);
             
             if ($formulario->isValid()) {
-                // Completar las propiedades que el usuario no rellena en el formulario
-                $usuario->setSalt(md5(time()));
                 
+                $usuario->setSalt(md5(time()));
                 $encoder = $this->get('security.encoder_factory')->getEncoder($usuario);
                 $passwordCodificado = $encoder->encodePassword(
                     $usuario->getPassword(),
@@ -108,9 +117,17 @@ class DefaultController extends Controller
             }
         }
         
-        return $this->render('UsuarioBundle:Default:registro.html.twig', array(
-            'formulario' => $formulario->createView()
-        ));
+        if (false === $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY' | ('IS_AUTHENTICATED_REMEMBERED'))) {
+            //throw new AccessDeniedException();
+            
+            return $this->redirect($this->generateUrl('usuario_aplicacion'));
+            
+        } else {
+        
+            return $this->render('UsuarioBundle:Default:registro.html.twig', array(
+                'formulario' => $formulario->createView()
+            ));
+        }   
     }
     
     /**
@@ -195,12 +212,11 @@ class DefaultController extends Controller
     
     public function aplicacionAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $usuario = $this->get('security.context')->getToken()->getUser();
+        //$em = $this->getDoctrine()->getEntityManager();
+        //$usuario = $this->get('security.context')->getToken()->getUser();
         
    
-        return $this->render('UsuarioBundle:Default:aplicacion.html.twig'
-        );
+        return $this->render('UsuarioBundle:Default:aplicacion.html.twig');
     }
 
     /**
@@ -210,7 +226,6 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $usuario = $this->get('security.context')->getToken()->getUser();
-        
         
         $juntas = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasJuntas($usuario->getId());
         

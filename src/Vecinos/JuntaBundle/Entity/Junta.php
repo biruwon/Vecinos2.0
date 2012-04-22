@@ -54,16 +54,17 @@ class Junta
     /**
      * @ORM\Column(type="time")
      */
-    protected $hora;
+    protected $hora1;
     
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="time")
      */
-    protected $duracion;
+    protected $hora2;
     
-    
-    
-    //protected $nombrepresidente;
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $lugar;
     
     
     
@@ -108,6 +109,25 @@ class Junta
     }
 
     /**
+     * Set lugar
+     *
+     * @param string $lugar
+     */
+    public function setLugar($lugar)
+    {
+        $this->lugar = $lugar;
+    }
+
+    /**
+     * Get lugar
+     *
+     * @return string 
+     */
+    public function getLugar()
+    {
+        return $this->lugar;
+    }
+    /**
      * Set descripcion
      *
      * @param text $descripcion
@@ -148,43 +168,43 @@ class Junta
     }
 
     /**
-     * Set hora
+     * Set hora1
      *
-     * @param time $hora
+     * @param time $hora1
      */
-    public function setHora($hora)
+    public function setHora1($hora1)
     {
-        $this->hora = $hora;
+        $this->hora1 = $hora1;
     }
 
     /**
-     * Get hora
+     * Get hora1
      *
      * @return time 
      */
-    public function getHora()
+    public function getHora1()
     {
-        return $this->hora;
+        return $this->hora1;
+    }
+    
+    /**
+     * Set hora2
+     *
+     * @param time $hora2
+     */
+    public function setHora2($hora2)
+    {
+        $this->hora2 = $hora2;
     }
 
     /**
-     * Set duracion
+     * Get hora2
      *
-     * @param integer $duracion
+     * @return time 
      */
-    public function setDuracion($duracion)
+    public function getHora2()
     {
-        $this->duracion = $duracion;
-    }
-
-    /**
-     * Get duracion
-     *
-     * @return integer 
-     */
-    public function getDuracion()
-    {
-        return $this->duracion;
+        return $this->hora2;
     }
 
     /**

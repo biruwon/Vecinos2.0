@@ -37,6 +37,7 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface, Conta
             $usuario->setApellidos($this->getApellidos());
             $usuario->setCiudad($this->getCiudades());
             $usuario->setDireccion('Calle Beja'.$i);
+            $usuario->setRol(array('ROLE_USUARIO'));
             
             $dni = substr(rand(), 0, 8);
             $usuario->setDni($dni.substr("TRWAGMYFPDXBNJZSQVHLCKE", strtr($dni, "XYZ", "012")%23, 1));
@@ -64,20 +65,12 @@ class Usuarios extends AbstractFixture implements OrderedFixtureInterface, Conta
         
         $manager->flush();
         
-         /*
-         $usuarios = $manager->getRepository('UsuarioBundle:Usuario')->findAll(); 
+         
+        $usuarios = $manager->getRepository('UsuarioBundle:Usuario')->findAll(); 
        
-        $usuarios[4]->setReservas($reservas[0]);
-        $usuarios[14]->setReservas($reservas[1]);
-        $usuarios[21]->setReservas($reservas[2]);
-        $usuarios[2]->setReservas($reservas[3]);
-        $manager->persist($usuarios[4]);
-        $manager->persist($usuarios[14]);
-        $manager->persist($usuarios[21]);
-        $manager->persist($usuarios[2]);
-         $manager->flush();
-          * 
-          */
+        $usuarios[0]->setRol(array('ROLE_ADMIN'));
+        $manager->persist($usuarios[0]);
+        $manager->flush();
     }
     
     
