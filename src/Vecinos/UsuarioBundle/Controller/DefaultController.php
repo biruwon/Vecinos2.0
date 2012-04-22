@@ -30,7 +30,7 @@ class DefaultController extends Controller
             $sesion->get(SecurityContext::AUTHENTICATION_ERROR)
         );
         
-        if (false === $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY' | ('IS_AUTHENTICATED_REMEMBERED'))) {
+        if (true === $this->get('security.context')->isGranted('ROLE_USUARIO' || 'ROLE_ADMIN')) {
             //throw new AccessDeniedException();
             
             return $this->redirect($this->generateUrl('usuario_aplicacion'));
@@ -117,7 +117,7 @@ class DefaultController extends Controller
             }
         }
         
-        if (false === $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY' | ('IS_AUTHENTICATED_REMEMBERED'))) {
+        if (true === $this->get('security.context')->isGranted('ROLE_USUARIO' || 'ROLE_ADMIN')) {
             //throw new AccessDeniedException();
             
             return $this->redirect($this->generateUrl('usuario_aplicacion'));
