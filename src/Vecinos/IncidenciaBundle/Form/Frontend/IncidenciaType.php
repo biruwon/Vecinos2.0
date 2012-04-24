@@ -13,9 +13,18 @@ class IncidenciaType extends AbstractType
         $builder
             ->add('titulo')
             ->add('descripcion')
-            ->add('gravedad')
+            ->add('gravedad','choice', array('choices' => array('leve' => 'leve', 'media' => 'media','grave' => 'grave')))
             ->add('fecha')
             ->add('foto', 'file', array('required' => false))
+            /*->add('foto', 'collection', array(
+                'type'      => 'file',
+                'allow_add' => true,
+                'allow_delete' => true,
+                'prototype' => true,
+                'options'=>array(
+                    'required'  => false,
+                    'attr'  => array('class' => 'unidades'),
+                )))    */
             ->add('hora')
         ;
      
