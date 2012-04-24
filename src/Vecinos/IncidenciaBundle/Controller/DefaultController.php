@@ -17,6 +17,10 @@ class DefaultController extends Controller
         
         $formulario = $this->createForm(new IncidenciaType(), $incidencia);
         
+       // require_once  'lib/swift_required.php';
+        
+      //  require_once('/home/juanma/public_html/VecinosNetBeans/vendor/swiftmailer/lib');
+        
         if ($peticion->getMethod() == 'POST') {
             $formulario->bindRequest($peticion);
             
@@ -38,12 +42,13 @@ class DefaultController extends Controller
                 
                 );
                 //kernel.root_dir apunta a /app
-               // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/vecinos-4f8ee86cadbfc-foto1.jpg';
+              //  $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/vecinos-4f8ee86cadbfc-foto1.jpg';
                 
                 $message = \Swift_Message::newInstance()
                 
-                //->attach(Swift_Attachment::fromPath($documento))
+              //  ->attach(Swift_Attachment::fromPath($documento))
                 //->attach((new Swift_Message_Attachment(new Swift_File(SF_ROOT_DIR.'/../uploads/images/vecinos-4f8ee86cadbfc-foto1.jpg'))))
+                ->addBcc($usuario->getEmail())
                 ->setFrom('vecinos200@gmail.com')
                 ->setTo('ojosverdesdecristal@hotmail.com')
                 ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));

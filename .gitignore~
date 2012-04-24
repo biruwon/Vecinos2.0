@@ -13,7 +13,7 @@ web/js/*
 web/pdfs/*
 =======
 web/pdfs/* 
->>>>>>> 58cce4076c4da4078ea8a4190976a787041c1ca5
+>>>>>>> 0c83f0e999782e700526a9790e5b6f1e9ffc24d9
 web/uploads/*
 
 # ignorar archivos de Eclipse, Zend Studio, Netbeans, PHPStorm y TextMate2

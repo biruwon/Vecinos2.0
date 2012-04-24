@@ -40,7 +40,8 @@ class Incidencia
      */
     protected $fecha;
     
-        /**
+    /**
+    *
     * @ORM\Column(type="string")
     *
     * @Assert\Image(maxSize = "500k")
@@ -55,7 +56,6 @@ class Incidencia
     
     /**
      * @ORM\Column(type="string")
-     * @Assert\Choice(choices= {"leve","media","grave"})
      */
    
     
