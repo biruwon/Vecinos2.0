@@ -5,6 +5,7 @@ namespace Vecinos\IncidenciaBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Vecinos\IncidenciaBundle\Entity\Incidencia;
 use Vecinos\IncidenciaBundle\Form\Frontend\IncidenciaType;
+use Vecinos\UsuarioBundle\Entity\Usuario;
 
 class DefaultController extends Controller
 {
