@@ -21,7 +21,7 @@ class JuntaType extends AbstractType
             ->add('fecha')
             ->add('hora1')
             ->add('hora2')
-            ->add('usuarios')
+            //->add('usuarios', null, array('required' => false))
         ;
         
     }

@@ -17,10 +17,17 @@ class DefaultController extends Controller {
         
         $peticion = $this->getRequest();
         $nombre_pdf = uniqid('vecinos-').'-junta.pdf';
+         $em = $this->getDoctrine()->getEntityManager();
         
         $junta = new Junta();
         //$path = $this->container->getParameter('vecinos.directorio.pdfs');
         $junta->setPath('/Vecinos2.0/web/pdfs/'.$nombre_pdf);
+        $junta->setHora1(new \DateTime('now'));
+        $junta->setHora2(new \DateTime('now+30minutes'));
+        
+        //Para pasarle todos los usuarios por defecto
+        $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findTodosLosUsuarios();
+        $junta->setUsuarios($usuarios);
         
         $formulario = $this->createForm(new JuntaType(), $junta);
 
@@ -88,7 +95,7 @@ EOD;
                 //$nombre_pdf = uniqid('vecinos-').'-junta.pdf';
                 $pdf->Output(__DIR__ . '/../../../../web/pdfs/'.$nombre_pdf, 'F');
 
-                $em = $this->getDoctrine()->getEntityManager();
+                //$em = $this->getDoctrine()->getEntityManager();
                 $em->persist($junta);
                 $em->flush();
 
