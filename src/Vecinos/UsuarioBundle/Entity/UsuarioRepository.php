@@ -54,4 +54,16 @@ class UsuarioRepository extends EntityRepository
         return $consulta->getResult();
 
     }
+    
+    /**
+     * Encuentra todas los usuarios
+     */
+    public function findTodosLosUsuarios()
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('SELECT u FROM UsuarioBundle:Usuario u');
+        
+        return $consulta->getResult();
+    }
 }

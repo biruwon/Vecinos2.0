@@ -16,8 +16,19 @@ class DefaultController extends Controller {
     public function juntaNuevaAction() {
         
         $peticion = $this->getRequest();
-
+        $nombre_pdf = uniqid('vecinos-').'-junta.pdf';
+         $em = $this->getDoctrine()->getEntityManager();
+        
         $junta = new Junta();
+        //$path = $this->container->getParameter('vecinos.directorio.pdfs');
+        $junta->setPath('/Vecinos2.0/web/pdfs/'.$nombre_pdf);
+        $junta->setHora1(new \DateTime('now'));
+        $junta->setHora2(new \DateTime('now+30minutes'));
+        
+        //Para pasarle todos los usuarios por defecto
+        $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findTodosLosUsuarios();
+        $junta->setUsuarios($usuarios);
+        
         $formulario = $this->createForm(new JuntaType(), $junta);
 
         if ($peticion->getMethod() == 'POST') {
@@ -80,11 +91,11 @@ EOD;
 // ---------------------------------------------------------
 // Close and output PDF document
 // This method has several options, check the source code documentation for more informatione 
-                //He añadido un número aleatorio al nombre del pdf, pero sería mejor utilizar el id de la junta
-                $num_pdf = substr(rand(), 1, 10000000000);
-                $pdf->Output(__DIR__ . '/../../../../web/pdfs/junta_'.$num_pdf.'.pdf', 'F');
+                
+                //$nombre_pdf = uniqid('vecinos-').'-junta.pdf';
+                $pdf->Output(__DIR__ . '/../../../../web/pdfs/'.$nombre_pdf, 'F');
 
-                $em = $this->getDoctrine()->getEntityManager();
+                //$em = $this->getDoctrine()->getEntityManager();
                 $em->persist($junta);
                 $em->flush();
 

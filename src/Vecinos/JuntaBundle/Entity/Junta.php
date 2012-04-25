@@ -66,6 +66,10 @@ class Junta
      */
     protected $lugar;
     
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $path;
     
     
     public function __construct()
@@ -127,6 +131,27 @@ class Junta
     {
         return $this->lugar;
     }
+    
+    /**
+     * Set path
+     *
+     * @param string $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+    
     /**
      * Set descripcion
      *

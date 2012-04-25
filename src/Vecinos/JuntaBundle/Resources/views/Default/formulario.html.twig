@@ -9,6 +9,7 @@
 
 {% block article %}
 <h1>{{ block('title') }}</h1>
+{{ tinymce_init() }}
 
 <form action="{{ path('usuario_junta_nueva') }}" method="post" {{ form_enctype(formulario) }}>
     <div>
@@ -21,7 +22,7 @@
     </div>
     
     <div>
-        {{ form_label(formulario.descripcion, 'Descripción') }}
+        {{ form_label(formulario.descripcion, 'Orden del Día') }}
         {{ form_errors(formulario.descripcion) }}
         {{ form_widget(formulario.descripcion) }}
         
@@ -37,7 +38,7 @@
     </div>
 
     <div>
-        {{ form_label(formulario.hora1) }}
+        {{ form_label(formulario.hora1, 'Hora 1ª Convocatoria') }}
         {{ form_errors(formulario.hora1) }}
         {{ form_widget(formulario.hora1) }}
         
@@ -45,18 +46,18 @@
     </div>
             
     <div>
-        {{ form_label(formulario.hora2) }}
+        {{ form_label(formulario.hora2, 'Hora 2º Concovatoria') }}
         {{ form_errors(formulario.hora2) }}
         {{ form_widget(formulario.hora2) }}
     </div>        
     
-    <div>
+    {#<div>
         {{ form_label(formulario.usuarios) }}
         {{ form_errors(formulario.usuarios) }}
         {{ form_widget(formulario.usuarios) }}
         
-        {# <p class="ayuda">Ejemplos: máximo 1 consumición por persona; No acumulable a otras ofertas; Debe consumirse en el propio local; etc.</p>#}
-    </div>
+        {# <p class="ayuda">Ejemplos: máximo 1 consumición por persona; No acumulable a otras ofertas; Debe consumirse en el propio local; etc.</p>
+    </div>#}
     
     {{ form_rest(formulario) }}
     

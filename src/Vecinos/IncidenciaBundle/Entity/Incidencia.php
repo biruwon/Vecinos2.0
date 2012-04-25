@@ -270,7 +270,7 @@ class Incidencia
             return;
         }
         //$directorioDestino = __DIR__.'/../../../../web/uploads/images';
-        $nombreArchivoFoto = uniqid('vecinos-').'-foto1.jpg';
+        $nombreArchivoFoto = uniqid('vecinos-').'-foto.jpg';
         
         $this->foto->move($directorioDestino, $nombreArchivoFoto);
         

@@ -53,10 +53,13 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: %mailer_transport%
-    host:      %mailer_host%
-    username:  %mailer_user%
-    password:  %mailer_password%
+    transport: 
+    delivery_address:  
+    encryption:
+    host: 
+    auth_mode:
+    username:  
+    password: 
 
 jms_security_extra:
     secure_controllers:  true
@@ -83,10 +86,14 @@ sonata_block:
 
 sonata_admin:
     title:    'Vecinos2.0 - Backend'
-    title_logo: /bundles/backend/logotipo.png
+    title_logo: /bundles/espacio/images/home_blue.png
     templates:
         layout:   SonataAdminBundle::standard_layout.html.twig
         ajax:     SonataAdminBundle::ajax_layout.html.twig
         list:     SonataAdminBundle:CRUD:list.html.twig
         show:     SonataAdminBundle:CRUD:show.html.twig
         edit:     SonataAdminBundle:CRUD:edit.html.twig
+       
+parameters:
+    vecinos.directorio.imagenes: %kernel.root_dir%/../web/uploads/images/
+#    vecinos.directorio.pdfs: %kernel.root_dir%/../web/pdfs/

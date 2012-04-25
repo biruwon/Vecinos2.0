@@ -9,7 +9,7 @@ vendor/*
 web/bundles/*
 web/css/*
 web/js/*
-web/pdfs/* 
+web/pdfs/*
 web/uploads/*
 
 # ignorar archivos de Eclipse, Zend Studio, Netbeans, PHPStorm y TextMate2
