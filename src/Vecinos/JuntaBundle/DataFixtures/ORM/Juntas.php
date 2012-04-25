@@ -54,6 +54,7 @@ class Juntas extends AbstractFixture implements OrderedFixtureInterface
             $entidad->setHora1($junta['hora1']);
             $entidad->setHora2($junta['hora2']);
             $entidad->setUsuarios($junta['usuarios']);
+            $entidad->setPath('Ruta de ejemplo');
             
             $manager->persist($entidad);
         }
