@@ -9,6 +9,7 @@
 
 {% block article %}
 <h1>{{ block('title') }}</h1>
+{{ tinymce_init() }}
 
 <form action="{{ path('usuario_junta_nueva') }}" method="post" {{ form_enctype(formulario) }}>
     <div>
@@ -21,7 +22,7 @@
     </div>
     
     <div>
-        {{ form_label(formulario.descripcion, 'Descripción') }}
+        {{ form_label(formulario.descripcion, 'Orden del Día') }}
         {{ form_errors(formulario.descripcion) }}
         {{ form_widget(formulario.descripcion) }}
         

@@ -96,4 +96,4 @@ sonata_admin:
        
 parameters:
     vecinos.directorio.imagenes: %kernel.root_dir%/../web/uploads/images/
-    vecinos.directorio.pdfs: %kernel.root_dir%/../web/pdfs/
+#    vecinos.directorio.pdfs: %kernel.root_dir%/../web/pdfs/

@@ -16,7 +16,12 @@ class JuntaType extends AbstractType
     {
         $builder
             ->add('titulo')
-            ->add('descripcion')
+            ->add('descripcion', 'textarea', array(
+            'attr' => array(
+            'class' => 'tinymce',
+            'data-theme' => 'medium' // simple, advanced, bbcode
+            )
+            ))
             ->add('lugar')
             ->add('fecha')
             ->add('hora1')

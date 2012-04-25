@@ -116,3 +116,7 @@
 [TCPDF]
     git=git://tcpdf.git.sourceforge.net/gitroot/tcpdf/tcpdf
     target=/tcpdf
+
+[TinymceBundle]
+    git=git://github.com/stfalcon/TinymceBundle.git
+    target=/bundles/Stfalcon/Bundle/TinymceBundle
