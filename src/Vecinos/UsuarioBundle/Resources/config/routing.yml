@@ -37,6 +37,16 @@ usuario_junta_nueva:
     pattern:  /juntas/nueva
     defaults: { _controller: JuntaBundle:Default:juntaNueva }
 
+# Ruta para crear eliminar la nueva junta
+usuario_junta_volver:
+    pattern:  /juntas/nueva/volver/{id}
+    defaults: { _controller: UsuarioBundle:Default:juntaVolver }
+
+# Ruta para confirmar la junta
+usuario_junta_nueva_confirmacion:
+    pattern:  /juntas/nueva/confirmacion/{id}
+    defaults: { _controller: UsuarioBundle:Default:confirmacion }
+
 # Ruta para la acción de login de de los usuarios del frontend
 usuario_login:
     pattern:   /login
