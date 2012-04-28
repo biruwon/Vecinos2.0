@@ -1,0 +1,23 @@
+{% extends '::frontend2.html.twig' %}
+
+
+{% block article %}
+<h1>Vista previa</h1>
+
+Se va a generar el siguiente pdf: ¿Desea continuar?
+<div id="anuncio"><a class="boton" href="{{ path('usuario_juntas') }}">{{ "Si" | trans }}</a></div>
+<div id="anuncio"><a class="boton" href="{{ path('usuario_junta_volver', { 'id': junta.id }) }}">{{ "Volver atrás" | trans }}</a></div>
+
+<br>
+{% include 'JuntaBundle:Default:pdfjunta.html.twig'  with { 'junta': junta } %}
+{% endblock %}
+
+{% block aside %}
+<section id="faq">
+    <h2>Vecinos a los que será enviado el pdf:</h2>
+    
+    {% for usuario in usuarios %}
+            <p>{{ usuario }}</p>
+    {% endfor %}
+</section>
+{% endblock %}

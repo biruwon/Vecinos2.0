@@ -1,0 +1,37 @@
+{% extends '::base.rss.twig' %}
+
+{% block title %}{% spaceless %}
+       Vecinos2.0 - Juntas recientes
+{% endspaceless %}{% endblock %}
+        
+{% block url %}{% spaceless %}
+        {{ url('usuario_juntas') }}
+{% endspaceless %}{% endblock %}
+        
+{% block descripcion %}{% spaceless %}
+        Las juntas más recientes creadas
+{% endspaceless %}{% endblock %}
+
+{% block self %}{% spaceless %}
+        {{ url('usuario_juntas', { '_format': 'rss' }) }}
+{% endspaceless %}{% endblock %}
+
+{% block items %}
+        {% for junta in juntas %}
+        {#{% set urlAbsolutaFoto = 'http://'
+                                                    ~ app.request.server.get('SERVER_NAME')
+                                                    ~ asset(directorio_imagenes ~ oferta.foto) %}#}
+        <item>
+            <title>{{ junta.titulo }}</title>
+            {#<link>{{ url('oferta', { 'ciudad': oferta.ciudad.slug,
+                                                    'slug': oferta.slug }) }}</link>#}
+            <description><![CDATA[
+                {#<img alt="" src="{{ urlAbsolutaFoto }}"/>#}
+                {{ junta.descripcion }}
+                <a target="_blank" href="__DIR__ . '/../../../../pdfs/{{ junta.path }}">Consultar en pdf </a>
+            ]]></description>
+            <pubDate>{{ junta.fecha | date('r') }}</pubDate>
+            <guid>{{ url('usuario_juntas', { '_format': 'rss' }) }}</guid>
+        </item>
+        {% endfor %}
+{% endblock %}
