@@ -3,27 +3,32 @@
 {% block title %}Próximas juntas{% endblock %}
 {% block id 'reservas' %}
 
+{% block rss %}
+<link rel="alternate" type="application/rss+xml" title="RSS de las juntas" href="{{ path('usuario_juntas', { '_format': 'rss' }) }}" />
+{% endblock %}
+
+
 {% block article %}
-    <h1>{{ block('title') }}</h1>
-    
+<h1>{{ block('title') }}</h1>
+
     {% if is_granted('ROLE_ADMIN') %}
-    
-        <div id="anuncio"><a class="boton" href="{{ path('usuario_junta_nueva') }}">{{ "Nueva junta" | trans }}</a></div>
-    
+
+<div id="anuncio"><a class="boton" href="{{ path('usuario_junta_nueva') }}">{{ "Nueva junta" | trans }}</a></div>
+
     {% endif %}
 
     {% for junta in juntas %}
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
         {% include 'JuntaBundle:Default:bloqueGrande2.html.twig' %}
-        
+
     {% endfor %}
 {% endblock %}
 {% block aside %}
     {{ parent() }}
 
-    <section id="nosotros">
-        <h2>Sobre nosotros</h2>
-     <p>Somos una empresa joven y dinámica, que apuesta por la implantación de las nuevas tecnologías en la vida diaria de las personas, para favorecer todas las tareas cotidianas que surgen en ella y responder de una forma más rápida y eficaz .</p>
-        <p>Creemos firmemente que si controlamos de una forma óptima toda la información que nos llega, podremos reducir en tiempo, dinero y esfuerzo.</p>
-    </section>
+<section id="nosotros">
+    <h2>Sobre nosotros</h2>
+    <p>Somos una empresa joven y dinámica, que apuesta por la implantación de las nuevas tecnologías en la vida diaria de las personas, para favorecer todas las tareas cotidianas que surgen en ella y responder de una forma más rápida y eficaz .</p>
+    <p>Creemos firmemente que si controlamos de una forma óptima toda la información que nos llega, podremos reducir en tiempo, dinero y esfuerzo.</p>
+</section>
 {% endblock %}

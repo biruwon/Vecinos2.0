@@ -207,8 +207,10 @@ class DefaultController extends Controller {
         $usuario = $this->get('security.context')->getToken()->getUser();
 
         $juntas = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasJuntas($usuario->getId());
+        
+        $formato = $this->get('request')->getRequestFormat();
 
-        return $this->render('UsuarioBundle:Default:juntas.html.twig', array(
+        return $this->render('UsuarioBundle:Default:juntas.'.$formato.'.twig', array(
                     'juntas' => $juntas
                 ));
     }
