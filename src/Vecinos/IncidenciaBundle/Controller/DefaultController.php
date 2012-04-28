@@ -5,6 +5,7 @@ namespace Vecinos\IncidenciaBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Vecinos\IncidenciaBundle\Entity\Incidencia;
 use Vecinos\IncidenciaBundle\Form\Frontend\IncidenciaType;
+use Vecinos\UsuarioBundle\Entity\Usuario;
 
 class DefaultController extends Controller
 {
@@ -16,10 +17,6 @@ class DefaultController extends Controller
         $incidencia = new Incidencia();
         
         $formulario = $this->createForm(new IncidenciaType(), $incidencia);
-        
-       // require_once  'lib/swift_required.php';
-        
-      //  require_once('/home/juanma/public_html/VecinosNetBeans/vendor/swiftmailer/lib');
         
         if ($peticion->getMethod() == 'POST') {
             $formulario->bindRequest($peticion);
@@ -42,17 +39,18 @@ class DefaultController extends Controller
                 
                 );
                 //kernel.root_dir apunta a /app
-              //  $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/vecinos-4f8ee86cadbfc-foto1.jpg';
+                $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getFoto();
                 
                 $message = \Swift_Message::newInstance()
-                
-              //  ->attach(Swift_Attachment::fromPath($documento))
-                //->attach((new Swift_Message_Attachment(new Swift_File(SF_ROOT_DIR.'/../uploads/images/vecinos-4f8ee86cadbfc-foto1.jpg'))))
+  
                 ->addBcc($usuario->getEmail())
                 ->setFrom('vecinos200@gmail.com')
                 ->setTo('ojosverdesdecristal@hotmail.com')
                 ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));
-                
+                if ('sinfoto' != $incidencia->getFoto()) {
+                $message -> attach(\Swift_Attachment::fromPath($documento));
+                }
+              
                 $this->get('mailer')->send($message);
             
                 return $this->redirect($this->generateUrl('usuario_incidencias'));

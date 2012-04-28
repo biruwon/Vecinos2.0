@@ -38,10 +38,10 @@
     <div>
         {{ form_label(formulario.fecha, 'Fecha') }}
         {{ form_errors(formulario.fecha) }}
-        {{ form_widget(formulario.fecha, { 'attr': { 'class': 'mediana' } }) }}
+        {{ form_widget(formulario.fecha, { 'attr': { 'class': 'date' } }) }}
         
     </div>
-
+            
             
     {{ form_row(formulario.fecha) }}
     <div>
@@ -51,7 +51,6 @@
         
     </div>
     
-    
     {{ form_rest(formulario) }} 
     
     <input class="boton" type="submit" value="{{ accion == 'crear' ? 'Crear incidencia' : 'Guardar cambios' }}" />
@@ -60,19 +59,30 @@
 {% endblock %}
 
 {% block aside %}
+
+
+
 <section id="faq">
     <h2>Preguntas frecuentes</h2>
     
-    <dl>
-        <dt>¿Cuánto tarda en ver el presidente la nueva incidencia?</dt>
-        <dd>Después de crear la incidencia, le llega de forma automática un correo al presidente de la comunidad. Así se consigue que este este informado a la mayor brevedad posible.</dd>
-        <dt>¿Cuánto tarda en resolverse una incidencia?</dt>
-        <dd>El periodo de resolución es variable, dependiendo de la gravedad de la incidencia. Desde la junta directiva se intentará resolver lo antes posible.</dd>
-        <dt>¿Cómo clasificar la gravedad de una incidencia?</dt>
-        <dd>Hay tres tipos de incidencias:</dd>
-        <dd>Leve:son pequeñas incidencias que temporalmente no son necesarias de resolver . Ejemplo: rotura de la valla de pádel o que una parde este esconchada</dd>
-        <dd>Media:incidencias que afectan a algunos usuarios de la comunidad, que les privan de algunos servicios pero que no son urgentes. Ejemplo:Pista de Pádel sin red</dd>
-        <dd>Grave:incidencias que deben saldarse con urgencia. Ejemplo:Robo en una vivienda: Contratación de seguridad privada.</dd>
-    </dl>
+    <div id="accordion">
+	<h3><a href="#">¿Cuánto tarda en ver el presidente la nueva incidencia?</a></h3>
+	<div>
+		<p>Después de crear la incidencia, le llega de forma automática un correo al presidente de la comunidad. Así se consigue que este este informado a la mayor brevedad posible.</p>
+	</div>
+	<h3><a href="#">¿Cuánto tarda en resolverse una incidencia?</a></h3>
+	<div>
+		<p>El periodo de resolución es variable, dependiendo de la gravedad de la incidencia. Desde la junta directiva se intentará resolver lo antes posible. </p>
+	</div>
+	<h3><a href="#">¿Cómo clasificar la gravedad de una incidencia?</a></h3>
+	<div>
+		<dd>Hay tres tipos de incidencias:</dd>
+                <dd>Leve:son pequeñas incidencias que temporalmente no son necesarias de resolver . Ejemplo: rotura de la valla de pádel o que una parde este esconchada</dd>
+                <dd>Media:incidencias que afectan a algunos usuarios de la comunidad, que les privan de algunos servicios pero que no son urgentes. Ejemplo:Pista de Pádel sin red</dd>
+                <dd>Grave:incidencias que deben saldarse con urgencia. Ejemplo:Robo en una vivienda: Contratación de seguridad privada.</dd>
+	</div>
+	
+</div>
+    
 </section>
 {% endblock %}

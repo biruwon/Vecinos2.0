@@ -14,8 +14,15 @@ class IncidenciaType extends AbstractType
             ->add('titulo')
             ->add('descripcion')
             ->add('gravedad','choice', array('choices' => array('leve' => 'leve', 'media' => 'media','grave' => 'grave')))
-            ->add('fecha')
             ->add('foto', 'file', array('required' => false))
+            ->add('fecha', 'date', array(
+                'attr' => array('class' => 'date'),
+                'widget' => 'single_text',
+                'input' => 'string',
+                //'format' => 'dd/mm/yy', //\IntlDateFormatter::FULL
+            ))
+         
+                    
             /*->add('foto', 'collection', array(
                 'type'      => 'file',
                 'allow_add' => true,

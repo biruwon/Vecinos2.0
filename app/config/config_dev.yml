@@ -11,6 +11,10 @@ web_profiler:
 
 swiftmailer:
     transport: gmail
+    #spool:
+    #    type: file
+    #   path: %kernel.cache_dir%/swiftmailer/spool
+
     #delivery_address:  vecinos200@gmail.com
     #encryption: ssl
     #host:      smtp.gmail.com
