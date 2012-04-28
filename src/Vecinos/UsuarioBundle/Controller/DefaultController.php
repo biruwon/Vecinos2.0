@@ -317,7 +317,7 @@ class DefaultController extends Controller {
         $em->remove($junta);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('usuario_juntas'));
+        return $this->redirect($this->generateUrl('usuario_junta_nueva'));
     }
 
 }
