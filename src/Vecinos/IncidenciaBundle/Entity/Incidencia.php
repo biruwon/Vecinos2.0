@@ -36,7 +36,7 @@ class Incidencia
     protected $descripcion;
     
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     protected $fecha;
     
