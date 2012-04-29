@@ -15,6 +15,7 @@ class DefaultController extends Controller
         $peticion = $this->getRequest();
         
         $incidencia = new Incidencia();
+        $incidencia->setHora(new \DateTime('now'));
         
         $formulario = $this->createForm(new IncidenciaType(), $incidencia);
         
@@ -44,6 +45,7 @@ class DefaultController extends Controller
                 $message = \Swift_Message::newInstance()
   
                 ->addBcc($usuario->getEmail())
+                ->setSubject($incidencia->getTitulo())
                 ->setFrom('vecinos200@gmail.com')
                 ->setTo('ojosverdesdecristal@hotmail.com')
                 ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));

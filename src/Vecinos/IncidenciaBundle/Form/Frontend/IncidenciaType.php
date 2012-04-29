@@ -12,7 +12,12 @@ class IncidenciaType extends AbstractType
         
         $builder
             ->add('titulo')
-            ->add('descripcion')
+            ->add('descripcion', 'textarea', array(
+            'attr' => array(
+            'class' => 'tinymce',
+            'data-theme' => 'medium' // simple, advanced, bbcode
+            )
+            ))
             ->add('gravedad','choice', array('choices' => array('leve' => 'leve', 'media' => 'media','grave' => 'grave')))
             ->add('foto', 'file', array('required' => false))
             ->add('fecha', 'date', array(
