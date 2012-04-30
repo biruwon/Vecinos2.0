@@ -55,12 +55,15 @@ class DefaultController extends Controller
               
                 $this->get('mailer')->send($message);
             
+                //le pasa al controlador de usuario_incidencias, que es UsuarioBundle:Default:incidencias , el usuario que creo la incidencia
+                
                 return $this->redirect($this->generateUrl('usuario_incidencias'));
             }
+          
         }
         return $this->render('IncidenciaBundle:Default:formulario.html.twig',array(
             'accion' => 'crear',
-            'formulario' => $formulario->createView()
+            'formulario' => $formulario->createView(), 
         ));
     }
    

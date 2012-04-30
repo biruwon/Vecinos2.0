@@ -184,7 +184,7 @@ class DefaultController extends Controller {
         //$usuario = $this->get('security.context')->getToken()->getUser();
 
 
-        $incidencias = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasIncidencias();
+       $incidencias = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasIncidencias();
 
         return $this->render('UsuarioBundle:Default:incidencias.html.twig', array(
                     'incidencias' => $incidencias

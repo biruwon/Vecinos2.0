@@ -70,8 +70,7 @@ class Incidencia
     private $resuelta;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="incidencias", cascade={"persist"})
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario")
      */
     
     private $usuario;
@@ -232,7 +231,7 @@ class Incidencia
     /**
      * Get usuario
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Vecinos\UsuarioBundle\Entity\Usuario 
      */
     public function getUsuario()
     {

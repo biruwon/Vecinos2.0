@@ -4,21 +4,24 @@
 <div class="grid_10 omega">
   <p>Titulo: {{ incidencia.titulo }}</p>
 </div>
+<div class="grid_12 omega">
+    
+  <p>Autor: {{ incidencia.usuario }}  </p>
+</div>
 <div class="grid_3 omega">
   <p>Gravedad: {{ incidencia.gravedad }}</p>
 </div>
 <div class="grid_11 omega">
   <p>Descripción: {{ incidencia.descripcion | raw }}</p>
 </div>
-<div class="grid_12 omega">
-  <p> </p>
-</div>
+
 {% if incidencia.foto != 'sinfoto' %}
 <div class="grid_3 omega">
   
-  <IMG src="/uploads/images/{{ incidencia.foto }}"> 
-  
+  <IMG src="/uploads/images/{{ incidencia.foto }}">
 </div>
 {% endif %}
+
+
 
 ____________________
