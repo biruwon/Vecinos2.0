@@ -5,9 +5,8 @@
 <h1>Vista previa</h1>
 
 Se va a generar el siguiente pdf: ¿Desea continuar?
-<div id="anuncio"><a class="boton" href="{{ path('usuario_juntas') }}">{{ "Si" | trans }}</a></div>
-<div id="anuncio"><a class="boton" href="{{ path('usuario_junta_volver', { 'id': junta.id }) }}">{{ "Volver atrás" | trans }}</a></div>
-
+<div id="anuncio"><a class="boton" href="{{ path('usuario_junta_nueva_si') }}">{{ "Si" | trans }}</a></div>
+<div id="anuncio"><a class="boton" href="javascript:history.back()">{{ "Volver atrás" | trans }}</a></div>
 <br>
 {% include 'JuntaBundle:Default:pdfjunta.html.twig'  with { 'junta': junta } %}
 {% endblock %}
@@ -16,8 +15,8 @@ Se va a generar el siguiente pdf: ¿Desea continuar?
 <section id="faq">
     <h2>Vecinos a los que será enviado el pdf:</h2>
     
-    {% for usuario in usuarios %}
+    {#{% for usuario in usuarios %}
             <p>{{ usuario }}</p>
-    {% endfor %}
+    {% endfor %}#}
 </section>
 {% endblock %}

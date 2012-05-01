@@ -27,8 +27,8 @@ class DefaultController extends Controller {
         $junta->setHora2(new \DateTime('now+30minutes'));
 
         //Para pasarle todos los usuarios por defecto
-        $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findTodosLosUsuarios();
-        $junta->setUsuarios($usuarios);
+        //$usuarios = $em->getRepository('UsuarioBundle:Usuario')->findTodosLosUsuarios();
+        //$junta->setUsuarios($usuarios);
 
         $formulario = $this->createForm(new JuntaType(), $junta);
 
@@ -36,14 +36,32 @@ class DefaultController extends Controller {
             $formulario->bindRequest($peticion);
 
             if ($formulario->isValid()) {
-                
-                $em->persist($junta);
-                $em->flush();
-                $id = $junta->getId();
-                
-               return $this->redirect($this->generateUrl('usuario_junta_nueva_confirmacion', array(
-                    'id'  => $id
-                    )));
+
+                /* $em->persist($junta);
+                  $em->flush();
+                  $id = $junta->getId();
+
+                  return $this->redirect($this->generateUrl('usuario_junta_nueva_confirmacion', array(
+                  'id'  => $id
+                  ))); */
+
+                $junta = $formulario->getData();
+                if (!$junta) {
+                    throw $this->createNotFoundException('La junta indicada no está disponible');
+                }
+
+                $session = $this->get("session");
+
+                $session->set('junta', $junta);
+                $session->save();
+
+                $response = $this->forward('UsuarioBundle:Default:confirmacion', array(
+                    'junta' => $junta
+                        ));
+
+                // adicionalmente modifica la respuesta o la devuelve directamente
+
+                return $response;
             }
         }
 
