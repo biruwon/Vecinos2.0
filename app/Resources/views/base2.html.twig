@@ -11,8 +11,13 @@
 </head>
 
 <body id="{% block id '' %}"><div id="contenedor">
+    <header id="header">
+    <div class="container_16">
+    {% block header %}{% endblock %}
+    </div>
+    </header>
     {% block body %}{% endblock %}
-    
+    <div class="container_16">
     <footer>
         &copy; {{ 'now'|date('Y') }} - Vecinos2.0
         <a href="{{ path('estatica', { 'pagina': 'ayuda' }) }}">{{ "Ayuda" | trans }}</a>
@@ -23,7 +28,7 @@
         {% set locale = app.request.session.locale %}
      
     </footer>
-
+    </div>
     {% block javascripts %}{% endblock %}
 </div></body>
 

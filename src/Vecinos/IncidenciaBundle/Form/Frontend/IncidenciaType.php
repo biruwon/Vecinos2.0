@@ -19,7 +19,17 @@ class IncidenciaType extends AbstractType
             )
             ))
             ->add('gravedad','choice', array('choices' => array('leve' => 'leve', 'media' => 'media','grave' => 'grave')))
-            ->add('foto', 'file', array('required' => false))
+           // ->add('foto', 'file', array('required' => false))
+            ->add('archivos', 'collection', array(
+                'type'      => 'file',
+                'allow_add' => true,
+                'allow_delete' => true,
+                'prototype' => true,
+                'options'=>array(
+                    'required'  => false,
+                    'attr'  => array('class' => 'unidades'),
+                )))    
+                
             ->add('fecha', 'date', array(
                 'attr' => array('class' => 'date'),
                 'widget' => 'single_text',

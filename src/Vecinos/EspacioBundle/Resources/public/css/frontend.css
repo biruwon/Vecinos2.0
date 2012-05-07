@@ -54,7 +54,7 @@ a8"     ""  88       88  88P'    "8a  a8"     "8a  88P'   `"8a
     color: #1148A6;
 }
 .omega {
-    margin-left: 200px;
+    
 }
 article {
     float: left;
@@ -105,6 +105,23 @@ aside #login h2 {
     color: #CC0066;
     margin: -.5em 0 .5em;
     text-align: justify;
+}
+.botono {
+    background: none repeat scroll 0 0 #8B4513;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    /*font-size: 18px;*/
+    font-weight: bold;
+    width: 130px;
+    line-height: 1;
+    margin-bottom: 6px;
+   /* padding: 0.5em 1em;*/
+    text-decoration: none;
+    text-shadow: 0 1px 1px #660033;
 }
 aside #login .boton {
     background-color: #008000;

@@ -27,11 +27,12 @@ class DefaultController extends Controller
                 $usuario = $this->get('security.context')->getToken()->getUser();
                 $incidencia->setUsuario($usuario);
                 
-                $incidencia->subirFoto($this->container->getParameter('vecinos.directorio.imagenes'));
-                if (null == $incidencia->getFoto()) {
-                $incidencia->setFoto('sinfoto');
-                }
+               // $incidencia->subirFoto($this->container->getParameter('vecinos.directorio.imagenes'));
+                //if (null == $incidencia->getFoto()) {
+                //$incidencia->setFoto('sinfoto');
                 
+                $incidencia->uploadVarios();
+
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($incidencia);
                 $em->flush();
@@ -40,7 +41,7 @@ class DefaultController extends Controller
                 
                 );
                 //kernel.root_dir apunta a /app
-                $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getFoto();
+               // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getFoto();
                 
                 $message = \Swift_Message::newInstance()
   
@@ -49,9 +50,9 @@ class DefaultController extends Controller
                 ->setFrom('vecinos200@gmail.com')
                 ->setTo('ojosverdesdecristal@hotmail.com')
                 ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));
-                if ('sinfoto' != $incidencia->getFoto()) {
-                $message -> attach(\Swift_Attachment::fromPath($documento));
-                }
+                //if ('sinfoto' != $incidencia->getFoto()) {
+               // $message -> attach(\Swift_Attachment::fromPath($documento));
+              //  }
               
                 $this->get('mailer')->send($message);
             
@@ -65,7 +66,5 @@ class DefaultController extends Controller
             'accion' => 'crear',
             'formulario' => $formulario->createView(), 
         ));
-    }
-   
-}
+    }}
 ?>

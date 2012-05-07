@@ -1,7 +1,7 @@
-{% extends '::frontend2.html.twig' %}
+{% extends '::app.html.twig' %}
 
 {% block title %}Próximas juntas{% endblock %}
-{% block id 'reservas' %}
+{% block id 'juntas' %}
 
 {% block rss %}
 <link rel="alternate" type="application/rss+xml" title="RSS de las juntas" href="{{ path('usuario_juntas', { '_format': 'rss' }) }}" />

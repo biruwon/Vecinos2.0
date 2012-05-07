@@ -3,6 +3,9 @@
 namespace Vecinos\IncidenciaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 
 /**
  * Vecinos\IncidenciaBundle\Entity\Incidencia
@@ -33,16 +36,39 @@ class Incidencia
     protected $descripcion;
     
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     protected $fecha;
     
+    /**
+    *
+    * @var array
+    * @ORM\Column(name="archivos", type="array")
+    *
+    * @Assert\Image(maxSize = "500k")
+    */
+    
+    protected $archivos;
+    
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    public $path;
+
     /**
      * @ORM\Column(type="time")
      */
     protected $hora;
     
-      /**
+    /**
+     * @ORM\Column(type="string")
+     */
+   
+    
+    private $gravedad;
+
+
+    /**
      * @var boolean $resuelta
      *
      * @ORM\Column(name="resuelta", type="boolean")
@@ -50,8 +76,7 @@ class Incidencia
     private $resuelta;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="incidencias")
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario")
      */
     
     private $usuario;
@@ -60,7 +85,7 @@ class Incidencia
     
     public function __construct()
     {
-        $this->usuario = new ArrayCollection();
+        $this->archivos = new ArrayCollection();
     }
     
     public function __toString()
@@ -78,4 +103,183 @@ class Incidencia
     {
         return $this->id;
     }
+
+    /**
+     * Set titulo
+     *
+     * @param string $titulo
+     */
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
+    }
+
+    /**
+     * Get titulo
+     *
+     * @return string 
+     */
+    public function getTitulo()
+    {
+        return $this->titulo;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param text $descripcion
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return text 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param date $fecha
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return date 
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Set gravedad
+     *
+     * @param string $gravedad
+     */
+    public function setGravedad($gravedad)
+    {
+        $this->gravedad = $gravedad;
+    }
+
+    /**
+     * Get gravedad
+     *
+     * @return string 
+     */
+    public function getGravedad()
+    {
+        return $this->gravedad;
+    }
+    
+    /**
+     * Set hora
+     *
+     * @param time $hora
+     */
+    public function setHora($hora)
+    {
+        $this->hora = $hora;
+    }
+
+    /**
+     * Get hora
+     *
+     * @return time 
+     */
+    public function getHora()
+    {
+        return $this->hora;
+    }
+
+    /**
+     * Set resuelta
+     *
+     * @param boolean $resuelta
+     */
+    public function setResuelta($resuelta)
+    {
+        $this->resuelta = $resuelta;
+    }
+
+    /**
+     * Get resuelta
+     *
+     * @return boolean 
+     */
+    public function getResuelta()
+    {
+        return $this->resuelta;
+    }
+
+    /**
+     * Set usuario
+     *
+     * @param Vecinos\UsuarioBundle\Entity\Usuario $usuario
+     */
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
+    }
+
+    /**
+     * Get usuario
+     *
+     * @return Vecinos\UsuarioBundle\Entity\Usuario 
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+    /**
+     * Set archivos
+     *
+     * @param string $archivos
+     */
+    public function setArchivos($archivos)
+    {
+        $this->archivos = $archivos;
+    }
+
+    /**
+     * Get archivos
+     *
+     * @return string 
+     */
+    public function getArchivos()
+    {
+        return $this->archivos;
+    }
+     
+    /**
+     * Sube la foto de la oferta copiándola en el directorio que se indica y
+     * guardando en la entidad la ruta hasta la foto
+     *
+     * @param string $directorioDestino Ruta completa del directorio al que se sube la foto
+     */
+   /* public function subirFoto($directorioDestino)
+    {
+        if (null === $this->foto) {
+            return;
+        }
+        //$directorioDestino = __DIR__.'/../../../../web/uploads/images';
+        $nombreArchivoFoto = uniqid('vecinos-').'-foto.jpg';
+        
+        $this->foto->move($directorioDestino, $nombreArchivoFoto);
+        
+        $this->setFoto($nombreArchivoFoto);
+    }
+    */
 }

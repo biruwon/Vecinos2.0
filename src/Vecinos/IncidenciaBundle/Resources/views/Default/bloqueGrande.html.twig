@@ -1,3 +1,30 @@
+
+<section class="main-col">
+<article class="blog">
+           
+
+<div class="date"><time datetime="{{ incidencia.fecha|date('c') }}">{{ incidencia.fecha|date('l, F j, Y') }}</time></div>
+
+<div class="c12"><a>
+{{ incidencia.titulo }}
+</a></div>
+
+{#{% if incidencia.foto != 'sinfoto' %}
+<div class="grid_3 omega">
+  <IMG src="/uploads/images/{{ incidencia.foto }}">
+</div>
+{% endif %}#}
+
+<div class="snippet">
+   <p>{{ incidencia.descripcion | raw  }}</p>
+   <p>Continue leyendo...</p>
+</div>
+
+</article>
+</section>
+
+
+{#
 <div class="grid_2 alpha">
   {{ incidencia.hora |  date('H:i') }} - {{ incidencia.fecha|date('Y/m/d') }}
 </div>
@@ -20,8 +47,4 @@
   
   <IMG src="/uploads/images/{{ incidencia.foto }}">
 </div>
-{% endif %}
-
-
-
-____________________
+{% endif %} #}

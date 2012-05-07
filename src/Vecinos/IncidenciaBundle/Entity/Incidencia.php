@@ -42,12 +42,18 @@ class Incidencia
     
     /**
     *
-    * @ORM\Column(type="string")
+    * @var array
+    * @ORM\Column(name="archivos", type="array")
     *
-    * @Assert\Image(maxSize = "500k")
+    * 
     */
     
-    protected $foto;
+    protected $archivos;
+    
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    public $path;
 
     /**
      * @ORM\Column(type="time")
@@ -79,7 +85,7 @@ class Incidencia
     
     public function __construct()
     {
-        //$this->usuario = new ArrayCollection();
+        $this->archivos = new ArrayCollection();
     }
     
     public function __toString()
@@ -238,32 +244,32 @@ class Incidencia
         return $this->usuario;
     }
     /**
-     * Set foto
+     * Set archivos
      *
-     * @param string $foto
+     * @param string $archivos
      */
-    public function setFoto($foto)
+    public function setArchivos($archivos)
     {
-        $this->foto = $foto;
+        $this->archivos = $archivos;
     }
 
     /**
-     * Get foto
+     * Get archivos
      *
      * @return string 
      */
-    public function getFoto()
+    public function getArchivos()
     {
-        return $this->foto;
+        return $this->archivos;
     }
      
     /**
      * Sube la foto de la oferta copiándola en el directorio que se indica y
      * guardando en la entidad la ruta hasta la foto
      *
-     * @param string $directorioDestino Ruta completa del directorio al que se sube la foto
+     * @param string $directorioDestino 
      */
-    public function subirFoto($directorioDestino)
+   /* public function subirFoto($directorioDestino)
     {
         if (null === $this->foto) {
             return;
@@ -275,5 +281,85 @@ class Incidencia
         
         $this->setFoto($nombreArchivoFoto);
     }
+    */
+
+    /**
+     * Set path
+     *
+     * @param text $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+
+    /**
+     * Get path
+     *
+     * @return text 
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
     
+    
+    
+    
+     public function uploadVarios()
+    {        
+        $mypath = unserialize($this->path);
+
+        foreach ($this->archivos as $key => $value) {
+            
+            if ($value){
+            
+                //Definir un nombre valido para el archivo
+                //Gedmo es una de las extensiones de Doctrine para Sluggable, Timestampable, etc
+                $nombre = \Gedmo\Sluggable\Util\Urlizer::urlize($value->getClientOriginalName(), '-');
+
+                //Verificar la extension para guardar la imagen
+                $extension = $value->guessExtension();
+                
+                $extvalidas = array('JPG','JPEG','PNG','GIF','PDF');
+                
+                if ( !in_array(strtoupper($extension), $extvalidas)){
+                    return;
+                }
+                
+                
+                
+                //Quitar la extension del nombre generado
+                //caso contrario el nombre queda algo como:  miimagen-jpg
+                $nombre = str_replace('-'.$extension, '', $nombre);
+                
+                //Nombre final con extension
+                //Queda algo como: miimagen.jpg
+                $nombreFinal = $nombre.'.'.$extension;
+                
+                //Verificar si la imagen ya esta almacenada
+                if (@in_array($nombreFinal, $mypath)){
+                    //si la imagen ya esta almacenada, se continua con el siguiente item    
+                    continue;
+                }
+                
+                //Almacenar la imagen en el servidor
+                $value->move($this->getUploadRootDir(), $nombreFinal);
+                
+            //Agregar el nuevo nombre al final del Array
+                $mypath[]= $nombreFinal;
+            }
+        }
+        $this->path = serialize($mypath);
+        $this->archivos = array();
+    } 
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/images';
+    }
 }
