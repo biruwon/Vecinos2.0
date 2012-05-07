@@ -1,0 +1,2 @@
+Requirement:
+    liboauth-php

@@ -26,6 +26,16 @@ UsuarioBundle:
     resource: "@UsuarioBundle/Resources/config/routing.yml"
     prefix:   /usuario
 
+DropboxBundle:
+    #resource: "/opt/lampp/htdocs/Vecinos2.0/src/Symplex/DropboxBundle/Resources/config/routing.yml"
+    resource: "@SymplexDropboxBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# import routes from a controller directory
+#dropbox:
+#    resource: "@DropboxBundle/Controller"
+#    type:     annotation
+
 sonata:
    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
    prefix: /admin

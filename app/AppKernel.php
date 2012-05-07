@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new SimpleThings\EntityAudit\SimpleThingsEntityAuditBundle(),
+            new Symplex\DropboxBundle\SymplexDropboxBundle(),
             new jQuery\jQueryBundle\jQueryBundle(),
             new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),

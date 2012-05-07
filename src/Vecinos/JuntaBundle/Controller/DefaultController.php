@@ -23,8 +23,8 @@ class DefaultController extends Controller {
         //$path = $this->container->getParameter('vecinos.directorio.pdfs');
         //$junta->setPath('/Vecinos2.0/web/pdfs/' . $nombre_pdf);
         $junta->setPath($nombre_pdf);
-        $junta->setHora1(new \DateTime('now'));
-        $junta->setHora2(new \DateTime('now+30minutes'));
+        //$junta->setHora1(new \DateTime('now'));
+        //$junta->setHora2(new \DateTime('now+30minutes'));
 
         //Para pasarle todos los usuarios por defecto
         //$usuarios = $em->getRepository('UsuarioBundle:Usuario')->findTodosLosUsuarios();

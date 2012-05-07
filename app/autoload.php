@@ -22,6 +22,7 @@ $loader->registerNamespaces(array(
     'SimpleThings'      => __DIR__.'/../vendor/bundles',
     'WhiteOctober' => __DIR__.'/../vendor/bundles',
     'Stfalcon'                       => __DIR__.'/../vendor/bundles',
+    'Symplex' => __DIR__.'/../src',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

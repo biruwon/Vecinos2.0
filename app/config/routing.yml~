@@ -1,7 +1,3 @@
-BackendBundle:
-    resource: "@BackendBundle/Resources/config/routing.yml"
-    prefix:   /
-
 IncidenciaBundle:
     resource: "@IncidenciaBundle/Resources/config/routing.yml"
     prefix:   /
@@ -13,7 +9,7 @@ MensajeBundle:
 ReservaBundle:
     resource: "@ReservaBundle/Resources/config/routing.yml"
     prefix:   /
-
+    
 EspacioBundle:
     resource: "@EspacioBundle/Resources/config/routing.yml"
     prefix:   /
@@ -28,7 +24,17 @@ InmuebleBundle:
 
 UsuarioBundle:
     resource: "@UsuarioBundle/Resources/config/routing.yml"
+    prefix:   /usuario
+
+DropboxBundle:
+    #resource: "/opt/lampp/htdocs/Vecinos2.0/src/Symplex/DropboxBundle/Resources/config/routing.yml"
+    resource: "@DropboxBundle/Resources/config/routing.yml"
     prefix:   /
+
+# import routes from a controller directory
+#dropbox:
+#    resource: "@DropboxBundle/Controller"
+#    type:     annotation
 
 sonata:
    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
@@ -39,6 +45,19 @@ _sonata_admin:
    type: sonata_admin
    prefix: /admin
 
+# Rutas de las páginas estáticas del sitio
+estatica:
+    pattern:  /sitio/{pagina}
+    defaults: { _controller: EspacioBundle:Sitio:estatica }
+   
+# Ruta para mostrar el formulario de contacto
+contacto:
+    pattern:  /contacto
+    defaults: { _controller: EspacioBundle:Sitio:contacto }
+
+portada:
+   pattern: /
+   defaults: { _controller: EspacioBundle:Default:portada }
 
 
 

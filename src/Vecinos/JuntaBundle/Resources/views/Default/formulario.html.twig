@@ -11,6 +11,30 @@
 <h1>{{ block('title') }}</h1>
 {{ tinymce_init() }}
 
+<script type="text/javascript">
+    $(document).ready(function() {
+
+            //$('#{{ formulario.hora1.vars.id }}').timepicker({}); 
+            //$('#{{ formulario.hora2.vars.id }}').timepicker({});
+    });
+
+
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $('#nueva_junta_hora1').change(function(){
+        hora = $('#nueva_junta_hora1_hour').val();
+        //alert(hora);
+        minuto = parseInt($('#nueva_junta_hora1_minute').val());
+        minuto += 30;
+        $('#nueva_junta_hora2_hour').val(hora);
+        $('#nueva_junta_hora2_minute').val(minuto);
+    });
+});
+</script>
+
 <form action="{{ path('usuario_junta_nueva') }}" method="post" {{ form_enctype(formulario) }}>
     <div>
     {{ form_errors(formulario) }}
