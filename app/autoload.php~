@@ -21,6 +21,7 @@ $loader->registerNamespaces(array(
     'Knp\Menu'   => __DIR__.'/../vendor/knp/menu/src',
     'SimpleThings'      => __DIR__.'/../vendor/bundles',
     'WhiteOctober' => __DIR__.'/../vendor/bundles',
+    'Stfalcon'                       => __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

@@ -207,15 +207,15 @@ class DefaultController extends Controller {
         $usuario = $this->get('security.context')->getToken()->getUser();
 
         $juntas = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasJuntas($usuario->getId());
-        
+
         $formato = $this->get('request')->getRequestFormat();
 
-        return $this->render('UsuarioBundle:Default:juntas.'.$formato.'.twig', array(
+        return $this->render('UsuarioBundle:Default:juntas.' . $formato . '.twig', array(
                     'juntas' => $juntas
                 ));
     }
 
-    public function confirmacionAction($id) {
+    public function confirmacionAction($junta) {
         $pdf = $this->container->get("white_october.tcpdf")->create();
 
 //$pdf->SetCreator(PDF_CREATOR);
@@ -269,13 +269,13 @@ class DefaultController extends Controller {
         //$junta = $request->get('junta');
         //$junta = $session->get('prueba');
         //$peticion = $this->getRequest();
-        $em = $this->getDoctrine()->getEntityManager();
+        /* $em = $this->getDoctrine()->getEntityManager();
 
-        $junta = $em->getRepository('JuntaBundle:Junta')->findOneById($id);
-        if (!$junta) {
-            throw $this->createNotFoundException('La junta indicada no está disponible');
-        }
-        $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findAll();
+          $junta = $em->getRepository('JuntaBundle:Junta')->findOneById($id);
+          if (!$junta) {
+          throw $this->createNotFoundException('La junta indicada no está disponible');
+          }
+          $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findAll(); */
 
         $html = $this->renderView('JuntaBundle:Default:pdfjunta.html.twig', array('junta' => $junta));
 
@@ -301,21 +301,34 @@ class DefaultController extends Controller {
           ));
           return $response; */
         return $this->render('JuntaBundle:Default:confirmacion.html.twig', array(
-                    'junta' => $junta,
-                    'usuarios' => $usuarios
+                    'junta' => $junta
                 ));
     }
 
-    public function juntaVolverAction($id) {
+    public function juntaSiAction() {
 
+        /* $em = $this->getDoctrine()->getEntityManager();
+
+          $junta = $em->getRepository('JuntaBundle:Junta')->findOneById($id);
+          if (!$junta) {
+          throw $this->createNotFoundException('La junta indicada no está disponible');
+          }
+          $em->remove($junta);
+          $em->flush(); */
+
+        //$junta = $this->get('session')->getFlash('junta');
+        $session  = $this->get('session');
+        $junta = $session->get('junta');
+
+        
         $em = $this->getDoctrine()->getEntityManager();
-
-        $junta = $em->getRepository('JuntaBundle:Junta')->findOneById($id);
-        if (!$junta) {
-            throw $this->createNotFoundException('La junta indicada no está disponible');
-        }
-        $em->remove($junta);
+        $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findTodosLosUsuarios();
+        $junta->setUsuarios($usuarios);
+        
+        $em->persist($junta);
         $em->flush();
+        
+        $session->clear();
 
         return $this->redirect($this->generateUrl('usuario_juntas'));
     }

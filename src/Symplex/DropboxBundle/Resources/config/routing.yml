@@ -1,0 +1,4 @@
+# Rutas de las páginas estáticas del sitio
+dropbox:
+    pattern:  /dropbox
+    defaults: { _controller: SymplexDropboxBundle:Dropbox:index }

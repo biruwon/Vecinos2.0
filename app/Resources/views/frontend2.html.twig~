@@ -2,33 +2,30 @@
 
 
 {% block stylesheets %}
-{% stylesheets '@EspacioBundle/Resources/public/css/*'
+{% stylesheets '@EspacioBundle/Resources/public/css/normalizar.css'
+               '@EspacioBundle/Resources/public/css/comun.css'
+               '@EspacioBundle/Resources/public/css/frontend.css'
+               '@EspacioBundle/Resources/public/css/jquery-ui-1.8.19.custom.css'
                output='css/frontend.css' %}
 <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/smoothness/jquery-ui.css" type="text/css" media="all"/>
-
 {% endstylesheets %}
 {% endblock %}
-{##}
-    
+
 {% block javascripts %}
 {% javascripts '@EspacioBundle/Resources/public/js/*'
                output='js/frontend.js' %}
 <script src="{{ asset('bundles/espacio/js/frontend.js') }}" type="text/javascript"></script>
 <script src="{{ asset('bundles/jquery/js/jquery-1.7.2.js') }}" type="text/javascript"></script>
 <script src="{{ asset('bundles/jquery/js/jquery-ui-1.8.19.custom.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('bundles/jquery/js/jquery-ui-timepicker-addon.js') }}" type="text/javascript"></script>
 <script src="{{ asset('bundles/espacio/js/ini.js') }}" type="text/javascript"></script>
 <script src="{{ asset('bundles/espacio/js/date.js') }}" type="text/javascript"></script>
-{#<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>#}
-{#<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>#}
 {% endjavascripts %}
 {% endblock %}
 
-{% block header %}
-
-    <h1 class="grid_6"><a href="{{ path('portada')}}">Vecinos2.0 </a></h1>
-    <nav class="grid_10">
+{% block body %}
+<header>
+    <h1><a href="{{ path('portada')}}">Vecinos2.0 </a></h1>
+    <nav>
         <ul>
             <li><a>{{ "Un nuevo concepto de comunidad" | trans }}</a></li>
             <li><a href="#">{{ "Comunidades donde ya estamos" | trans }}</a></li>
@@ -36,17 +33,12 @@
             <li><a href="#">{{ "Ventajas" | trans }}</a></li>
         </ul>
     </nav>
+</header>
 
-{% endblock %}
-
-{% block body %}
 {% block anuncio %}{% endblock %}
-<article class="contenido">
+<article id="contenido">
     <section id="principal" class="grid_12">
       {% block article %}{% endblock %}
-    </section>
-     <section id="fprincipal" class="grid_12">
-      {% block farticle %}{% endblock %}
     </section>
 </article>
 <aside>
