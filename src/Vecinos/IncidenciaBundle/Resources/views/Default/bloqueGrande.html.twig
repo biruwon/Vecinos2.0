@@ -17,7 +17,7 @@
 
 <div class="snippet">
    <p>{{ incidencia.descripcion | raw  }}</p>
-   <p>Continue leyendo...</p>
+   <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Continue reading...</a></p>
 </div>
 
 </article>

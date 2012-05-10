@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Vecinos\IncidenciaBundle\Entity\IncidenciaRepository")
  */
-class Incidencia
+class Incidencia implements \Serializable
 {
     /**
      * @var integer $id
@@ -41,20 +41,20 @@ class Incidencia
     protected $fecha;
     
     /**
-    *
     * @var array
-    * @ORM\Column(name="archivos", type="array")
-    *
-    * 
     */
-    
     protected $archivos;
     
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    public $path;
+    protected $path;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $tags;
+    
     /**
      * @ORM\Column(type="time")
      */
@@ -63,10 +63,7 @@ class Incidencia
     /**
      * @ORM\Column(type="string")
      */
-   
-    
     private $gravedad;
-
 
     /**
      * @var boolean $resuelta
@@ -78,7 +75,6 @@ class Incidencia
     /**
      * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario")
      */
-    
     private $usuario;
 
     
@@ -317,7 +313,7 @@ class Incidencia
                 //Definir un nombre valido para el archivo
                 //Gedmo es una de las extensiones de Doctrine para Sluggable, Timestampable, etc
                 $nombre = \Gedmo\Sluggable\Util\Urlizer::urlize($value->getClientOriginalName(), '-');
-
+                
                 //Verificar la extension para guardar la imagen
                 $extension = $value->guessExtension();
                 
@@ -332,6 +328,7 @@ class Incidencia
                 //Quitar la extension del nombre generado
                 //caso contrario el nombre queda algo como:  miimagen-jpg
                 $nombre = str_replace('-'.$extension, '', $nombre);
+                //$nombreFinal = uniqid('vecinos-').'-foto.jpg';
                 
                 //Nombre final con extension
                 //Queda algo como: miimagen.jpg
@@ -345,7 +342,7 @@ class Incidencia
                 
                 //Almacenar la imagen en el servidor
                 $value->move($this->getUploadRootDir(), $nombreFinal);
-                
+                //$value->move(__DIR__.'/../../../../web/uploads/images', $nombreFinal);
             //Agregar el nuevo nombre al final del Array
                 $mypath[]= $nombreFinal;
             }
@@ -355,11 +352,41 @@ class Incidencia
     } 
     protected function getUploadRootDir()
     {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+       // return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../../web/uploads/images';
     }
 
     protected function getUploadDir()
     {
         return 'uploads/images';
+    }
+    public function serialize()
+    {
+        return serialize($this->getId());
+    }
+    
+    public function unserialize($data)
+    {
+        $this->id = unserialize($data);
+    }
+
+    /**
+     * Set tags
+     *
+     * @param text $tags
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return text 
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }

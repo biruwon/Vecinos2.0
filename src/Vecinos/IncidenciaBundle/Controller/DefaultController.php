@@ -2,7 +2,6 @@
 
 namespace Vecinos\IncidenciaBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Vecinos\IncidenciaBundle\Entity\Incidencia;
 use Vecinos\IncidenciaBundle\Form\Frontend\IncidenciaType;
 use Vecinos\UsuarioBundle\Entity\Usuario;
@@ -26,6 +25,7 @@ class DefaultController extends Controller
                 $incidencia->setResuelta(false);
                 $usuario = $this->get('security.context')->getToken()->getUser();
                 $incidencia->setUsuario($usuario);
+                $incidencia->setTags('jardin');
                 
                // $incidencia->subirFoto($this->container->getParameter('vecinos.directorio.imagenes'));
                 //if (null == $incidencia->getFoto()) {
@@ -41,7 +41,7 @@ class DefaultController extends Controller
                 
                 );
                 //kernel.root_dir apunta a /app
-               // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getFoto();
+               // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getPath();
                 
                 $message = \Swift_Message::newInstance()
   
@@ -50,6 +50,7 @@ class DefaultController extends Controller
                 ->setFrom('vecinos200@gmail.com')
                 ->setTo('ojosverdesdecristal@hotmail.com')
                 ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));
+               // ->attach(\Swift_Attachment::fromPath($documento));
                 //if ('sinfoto' != $incidencia->getFoto()) {
                // $message -> attach(\Swift_Attachment::fromPath($documento));
               //  }
