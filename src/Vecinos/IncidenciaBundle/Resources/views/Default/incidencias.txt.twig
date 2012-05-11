@@ -3,7 +3,7 @@ A las {{ incidencia.hora |  date('H:i') }} del {{ incidencia.fecha|date('d/m/Y')
 
 Titulo: {{ incidencia.titulo }}
 Gravedad: {{ incidencia.gravedad }}
-Descripción del problema: {{ incidencia.descripcion }}
+Descripción del problema: {{ incidencia.descripcion | striptags  }}
 
 
 Este mensaje se ha generado automáticamente. No responda a el directamente. Si tiene alguna 

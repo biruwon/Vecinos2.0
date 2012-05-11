@@ -1,11 +1,11 @@
-{% extends '::app.html.twig' %}
+{% extends '::frontend2.html.twig' %}
 
 {% block title %}Aplicacion{% endblock %}
 {% block id 'compras' %}
 {% block header %}
   <h1><a href="{{ path('portada')}}">Vecinos2.0 </a></h1>
 
-  <nav class="grid_101">
+  <nav>
   <ul>
     <li><a href="{{ path('usuario_reservas') }}">Reservas</a></li>
     <li><a href="{{ path('usuario_incidencias') }}">Incidencias</a></li>

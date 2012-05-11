@@ -179,12 +179,29 @@ class DefaultController extends Controller {
                 ));
     }
 
+    public function mostrarAction($id) {
+        
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $incidencia = $em->getRepository('IncidenciaBundle:Incidencia')->find($id);
+
+        if (!$incidencia) {
+            throw $this->createNotFoundException('Unable to find Blog post.');
+        }
+
+        return $this->render('IncidenciaBundle:Default:mostrar.html.twig', array(
+            'incidencia'      => $incidencia,
+        ));
+        
+    }
+    
+    
     public function incidenciasAction() {
         $em = $this->getDoctrine()->getEntityManager();
         //$usuario = $this->get('security.context')->getToken()->getUser();
 
 
-        $incidencias = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasIncidencias();
+       $incidencias = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasIncidencias();
 
         return $this->render('UsuarioBundle:Default:incidencias.html.twig', array(
                     'incidencias' => $incidencias

@@ -2,7 +2,6 @@
 
 namespace Vecinos\IncidenciaBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Vecinos\IncidenciaBundle\Entity\Incidencia;
 use Vecinos\IncidenciaBundle\Form\Frontend\IncidenciaType;
 use Vecinos\UsuarioBundle\Entity\Usuario;
@@ -15,6 +14,7 @@ class DefaultController extends Controller
         $peticion = $this->getRequest();
         
         $incidencia = new Incidencia();
+        $incidencia->setHora(new \DateTime('now'));
         
         $formulario = $this->createForm(new IncidenciaType(), $incidencia);
         
@@ -25,12 +25,14 @@ class DefaultController extends Controller
                 $incidencia->setResuelta(false);
                 $usuario = $this->get('security.context')->getToken()->getUser();
                 $incidencia->setUsuario($usuario);
+                $incidencia->setTags('jardin');
                 
-                $incidencia->subirFoto($this->container->getParameter('vecinos.directorio.imagenes'));
-                if (null == $incidencia->getFoto()) {
-                $incidencia->setFoto('sinfoto');
-                }
+               // $incidencia->subirFoto($this->container->getParameter('vecinos.directorio.imagenes'));
+                //if (null == $incidencia->getFoto()) {
+                //$incidencia->setFoto('sinfoto');
                 
+                $incidencia->uploadVarios();
+
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($incidencia);
                 $em->flush();
@@ -39,28 +41,31 @@ class DefaultController extends Controller
                 
                 );
                 //kernel.root_dir apunta a /app
-                $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getFoto();
+               // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getPath();
                 
                 $message = \Swift_Message::newInstance()
   
                 ->addBcc($usuario->getEmail())
+                ->setSubject($incidencia->getTitulo())
                 ->setFrom('vecinos200@gmail.com')
                 ->setTo('ojosverdesdecristal@hotmail.com')
                 ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));
-                if ('sinfoto' != $incidencia->getFoto()) {
-                $message -> attach(\Swift_Attachment::fromPath($documento));
-                }
+               // ->attach(\Swift_Attachment::fromPath($documento));
+                //if ('sinfoto' != $incidencia->getFoto()) {
+               // $message -> attach(\Swift_Attachment::fromPath($documento));
+              //  }
               
                 $this->get('mailer')->send($message);
             
+                //le pasa al controlador de usuario_incidencias, que es UsuarioBundle:Default:incidencias , el usuario que creo la incidencia
+                
                 return $this->redirect($this->generateUrl('usuario_incidencias'));
             }
+          
         }
         return $this->render('IncidenciaBundle:Default:formulario.html.twig',array(
             'accion' => 'crear',
-            'formulario' => $formulario->createView()
+            'formulario' => $formulario->createView(), 
         ));
-    }
-   
-}
+    }}
 ?>

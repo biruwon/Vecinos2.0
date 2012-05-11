@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Vecinos\IncidenciaBundle\Entity\IncidenciaRepository")
  */
-class Incidencia
+class Incidencia implements \Serializable
 {
     /**
      * @var integer $id
@@ -41,14 +41,20 @@ class Incidencia
     protected $fecha;
     
     /**
-    *
-    * @ORM\Column(type="string")
-    *
-    * @Assert\Image(maxSize = "500k")
+    * @var array
     */
+    protected $archivos;
     
-    protected $foto;
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $path;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $tags;
+    
     /**
      * @ORM\Column(type="time")
      */
@@ -57,10 +63,7 @@ class Incidencia
     /**
      * @ORM\Column(type="string")
      */
-   
-    
     private $gravedad;
-
 
     /**
      * @var boolean $resuelta
@@ -70,17 +73,15 @@ class Incidencia
     private $resuelta;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario", inversedBy="incidencias", cascade={"persist"})
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Vecinos\UsuarioBundle\Entity\Usuario")
      */
-    
     private $usuario;
 
     
     
     public function __construct()
     {
-        //$this->usuario = new ArrayCollection();
+        $this->archivos = new ArrayCollection();
     }
     
     public function __toString()
@@ -232,39 +233,39 @@ class Incidencia
     /**
      * Get usuario
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Vecinos\UsuarioBundle\Entity\Usuario 
      */
     public function getUsuario()
     {
         return $this->usuario;
     }
     /**
-     * Set foto
+     * Set archivos
      *
-     * @param string $foto
+     * @param string $archivos
      */
-    public function setFoto($foto)
+    public function setArchivos($archivos)
     {
-        $this->foto = $foto;
+        $this->archivos = $archivos;
     }
 
     /**
-     * Get foto
+     * Get archivos
      *
      * @return string 
      */
-    public function getFoto()
+    public function getArchivos()
     {
-        return $this->foto;
+        return $this->archivos;
     }
      
     /**
      * Sube la foto de la oferta copiándola en el directorio que se indica y
      * guardando en la entidad la ruta hasta la foto
      *
-     * @param string $directorioDestino Ruta completa del directorio al que se sube la foto
+     * @param string $directorioDestino 
      */
-    public function subirFoto($directorioDestino)
+   /* public function subirFoto($directorioDestino)
     {
         if (null === $this->foto) {
             return;
@@ -276,5 +277,116 @@ class Incidencia
         
         $this->setFoto($nombreArchivoFoto);
     }
+    */
+
+    /**
+     * Set path
+     *
+     * @param text $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+
+    /**
+     * Get path
+     *
+     * @return text 
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
     
+    
+    
+    
+     public function uploadVarios()
+    {        
+        $mypath = unserialize($this->path);
+
+        foreach ($this->archivos as $key => $value) {
+            
+            if ($value){
+            
+                //Definir un nombre valido para el archivo
+                //Gedmo es una de las extensiones de Doctrine para Sluggable, Timestampable, etc
+                $nombre = \Gedmo\Sluggable\Util\Urlizer::urlize($value->getClientOriginalName(), '-');
+                
+                //Verificar la extension para guardar la imagen
+                $extension = $value->guessExtension();
+                
+                $extvalidas = array('JPG','JPEG','PNG','GIF','PDF');
+                
+                if ( !in_array(strtoupper($extension), $extvalidas)){
+                    return;
+                }
+                
+                
+                
+                //Quitar la extension del nombre generado
+                //caso contrario el nombre queda algo como:  miimagen-jpg
+                $nombre = str_replace('-'.$extension, '', $nombre);
+                //$nombreFinal = uniqid('vecinos-').'-foto.jpg';
+                
+                //Nombre final con extension
+                //Queda algo como: miimagen.jpg
+                $nombreFinal = $nombre.'.'.$extension;
+                
+                //Verificar si la imagen ya esta almacenada
+                if (@in_array($nombreFinal, $mypath)){
+                    //si la imagen ya esta almacenada, se continua con el siguiente item    
+                    continue;
+                }
+                
+                //Almacenar la imagen en el servidor
+                $value->move($this->getUploadRootDir(), $nombreFinal);
+                //$value->move(__DIR__.'/../../../../web/uploads/images', $nombreFinal);
+            //Agregar el nuevo nombre al final del Array
+                $mypath[]= $nombreFinal;
+            }
+        }
+        $this->path = serialize($mypath);
+        $this->archivos = array();
+    } 
+    protected function getUploadRootDir()
+    {
+       // return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../../web/uploads/images';
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/images';
+    }
+    public function serialize()
+    {
+        return serialize($this->getId());
+    }
+    
+    public function unserialize($data)
+    {
+        $this->id = unserialize($data);
+    }
+
+    /**
+     * Set tags
+     *
+     * @param text $tags
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return text 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
 }

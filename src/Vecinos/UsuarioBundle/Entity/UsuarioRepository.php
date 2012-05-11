@@ -33,10 +33,21 @@ class UsuarioRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
         
-        $consulta = $em->createQuery('SELECT i FROM IncidenciaBundle:Incidencia i'); 
+        $consulta = $em->createQuery('SELECT i,u FROM IncidenciaBundle:Incidencia i JOIN i.usuario u '); 
+        //$consulta->setParameter('usuario', $usuario);
         
-        return $consulta->getArrayResult();
+        //return $consulta->getSingleResult();
+        return $consulta->getResult();
     }
+        
+       // $consulta = $em->createQuery('SELECT o, c, t FROM OfertaBundle:Oferta o JOIN o.ciudad c JOIN o.tienda t WHERE o.revisada = true AND o.fecha_publicacion < :fecha AND c.slug = :ciudad ORDER BY o.fecha_publicacion DESC');
+        
+        
+        
+    
+    
+    
+    
      /**
      * Encuentra todas las juntas del usuario indicado
      *

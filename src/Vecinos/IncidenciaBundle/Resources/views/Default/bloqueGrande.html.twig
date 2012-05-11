@@ -1,24 +1,50 @@
+
+<section class="main-col">
+<article class="blog">
+           
+
+<div class="date"><time datetime="{{ incidencia.fecha|date('c') }}">{{ incidencia.fecha|date('l, F j, Y') }}</time></div>
+
+<div class="c12"><a>
+{{ incidencia.titulo }}
+</a></div>
+
+{#{% if incidencia.foto != 'sinfoto' %}
+<div class="grid_3 omega">
+  <IMG src="/uploads/images/{{ incidencia.foto }}">
+</div>
+{% endif %}#}
+
+<div class="snippet">
+   <p>{{ incidencia.descripcion | raw  }}</p>
+   <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Continue reading...</a></p>
+</div>
+
+</article>
+</section>
+
+
+{#
 <div class="grid_2 alpha">
   {{ incidencia.hora |  date('H:i') }} - {{ incidencia.fecha|date('Y/m/d') }}
 </div>
 <div class="grid_10 omega">
   <p>Titulo: {{ incidencia.titulo }}</p>
 </div>
+<div class="grid_12 omega">
+    
+  <p>Autor: {{ incidencia.usuario }}  </p>
+</div>
 <div class="grid_3 omega">
   <p>Gravedad: {{ incidencia.gravedad }}</p>
 </div>
 <div class="grid_11 omega">
-  <p>Descripción: {{ incidencia.descripcion }}</p>
+  <p>Descripción: {{ incidencia.descripcion | raw }}</p>
 </div>
-<div class="grid_12 omega">
-  <p> </p>
-</div>
+
 {% if incidencia.foto != 'sinfoto' %}
 <div class="grid_3 omega">
   
-  <IMG src="/uploads/images/{{ incidencia.foto }}"> 
-  
+  <IMG src="/uploads/images/{{ incidencia.foto }}">
 </div>
-{% endif %}
-
-____________________
+{% endif %} #}
