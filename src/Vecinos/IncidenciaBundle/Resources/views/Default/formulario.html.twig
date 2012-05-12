@@ -11,10 +11,10 @@
 <h1>{{ block('title') }}</h1>
 {{ tinymce_init() }}
 
-<script type="text/javascript">
+{#<script type="text/javascript">
 $(document).ready(function() { 
     
-  $('.botono').click(function(e) {
+  $('#agregar_campo_file').click(function(e) {
         //alert('el documento está preparado'); 
         e.preventDefault();
         var files = $('#nueva_incidencia_archivos');
@@ -26,6 +26,31 @@ $(document).ready(function() {
     });
 
 }); 
+</script>#}
+
+<script type="text/javascript">
+    // realiza un seguimiento de cuántos campos de archivo se han pintado
+    var archivoCount = '{{ formulario.archivos | length }}';
+
+    jQuery(document).ready(function() {
+        jQuery('#agregar_campo_file').click(function() {
+            var archivoList = jQuery('#archivos-fields-list');
+
+            // graba la plantilla prototipo
+            var newWidget = archivoList.attr('data-prototype');
+            // sustituye el "__name__" usado en el id y name del prototipo con un
+            // número que es único en tus correos termina con el
+            // atributo name viéndose como name="contact[archivos][2]"
+            newWidget = newWidget.replace(/\$\$name\$\$/g, archivoCount);
+            archivoCount++;
+
+            // crea un nuevo elemento lista y lo añade a nuestra lista
+            var newLi = jQuery('<li></li>').html(newWidget);
+            newLi.appendTo(jQuery('#archivos-fields-list'));
+
+                return false;
+        });
+    })
 </script>
 
 
@@ -48,14 +73,25 @@ $(document).ready(function() {
         <p class="ayuda">Procure que sea una descripción lo más detalla posible.</p>
     </div>
     
-    <div>
+     {# almacena el prototipo en el atributo data-prototype #}
+    <ul id="archivos-fields-list" data-prototype="{{ form_widget(formulario.archivos.get('prototype')) | e }}">
+    {% for archivoField in formulario.archivos %}
+        <li>
+            {{ form_errors(archivoField) }}
+            {{ form_widget(archivoField) }}
+        </li>
+    {% endfor %}
+    </ul>
+
+    {#<a href="#" id="add-another-email">Add another email</a>#}
+    {#<div>
         {{ form_label(formulario.archivos, 'Archivos') }}
         {{ form_errors(formulario.archivos) }}
         {{ form_widget(formulario.archivos) }}
         
         <p class="ayuda">Tamaño máximo: 500 KB. Formato preferido: JPEG.</p>
-    </div>
-            <input class="botono" value="Agregar archivo" />
+    </div>#}
+            <input class="botono" id="agregar_campo_file" value="Agregar archivo" />
     <div>
         {{ form_label(formulario.fecha, 'Fecha') }}
         {{ form_errors(formulario.fecha) }}

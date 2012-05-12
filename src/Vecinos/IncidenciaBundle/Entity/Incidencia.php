@@ -43,12 +43,12 @@ class Incidencia implements \Serializable
     /**
     * @var array
     */
-    protected $archivos;
+    public $archivos;
     
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $path;
+    public $path;
 
     /**
      * @ORM\Column(type="text")
@@ -309,7 +309,7 @@ class Incidencia implements \Serializable
         foreach ($this->archivos as $key => $value) {
             
             if ($value){
-            
+                /*
                 //Definir un nombre valido para el archivo
                 //Gedmo es una de las extensiones de Doctrine para Sluggable, Timestampable, etc
                 $nombre = \Gedmo\Sluggable\Util\Urlizer::urlize($value->getClientOriginalName(), '-');
@@ -332,7 +332,8 @@ class Incidencia implements \Serializable
                 
                 //Nombre final con extension
                 //Queda algo como: miimagen.jpg
-                $nombreFinal = $nombre.'.'.$extension;
+                $nombreFinal = $nombre.'.'.$extension;*/
+                $nombreFinal = $value->getClientOriginalName();
                 
                 //Verificar si la imagen ya esta almacenada
                 if (@in_array($nombreFinal, $mypath)){
@@ -362,12 +363,12 @@ class Incidencia implements \Serializable
     }
     public function serialize()
     {
-        return serialize($this->getId());
+        return serialize($this->getPath());
     }
     
     public function unserialize($data)
     {
-        $this->id = unserialize($data);
+        $this->path = unserialize($data);
     }
 
     /**
