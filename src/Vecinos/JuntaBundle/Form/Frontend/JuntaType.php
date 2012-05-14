@@ -24,14 +24,16 @@ class JuntaType extends AbstractType
             ))
             ->add('lugar')
             ->add('fecha')
-            ->add('hora1', 'time', array(
+            ->add('hora1')
+            ->add('hora2')
+            /*->add('hora1', 'time', array(
                 'input' => 'string',
                 'widget' => 'choice',
-            ))
-            ->add('hora2', 'time', array(
+            ))*/
+            /*->add('hora2', 'time', array(
                 'input' => 'string',
                 'widget' => 'choice',
-            ))
+            ))*/
             //->add('usuarios', null, array('required' => false))
         ;
         

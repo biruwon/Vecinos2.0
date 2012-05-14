@@ -82,7 +82,7 @@ $(document).ready(function() {
         </li>
     {% endfor %}
     </ul>
-
+     <input class="botono" id="agregar_campo_file" value="Agregar archivo" />
     {#<a href="#" id="add-another-email">Add another email</a>#}
     {#<div>
         {{ form_label(formulario.archivos, 'Archivos') }}
@@ -91,7 +91,7 @@ $(document).ready(function() {
         
         <p class="ayuda">Tamaño máximo: 500 KB. Formato preferido: JPEG.</p>
     </div>#}
-            <input class="botono" id="agregar_campo_file" value="Agregar archivo" />
+
     <div>
         {{ form_label(formulario.fecha, 'Fecha') }}
         {{ form_errors(formulario.fecha) }}

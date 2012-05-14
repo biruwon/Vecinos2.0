@@ -203,7 +203,9 @@ class DefaultController extends Controller {
 
        $incidencias = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasIncidencias();
 
-        return $this->render('UsuarioBundle:Default:incidencias.html.twig', array(
+       $formato = $this->get('request')->getRequestFormat();
+
+       return $this->render('UsuarioBundle:Default:incidencias.' . $formato . '.twig', array(
                     'incidencias' => $incidencias
                 ));
     }
