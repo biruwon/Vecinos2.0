@@ -16,6 +16,12 @@
         <div>
             <p>{{ incidencia.descripcion }}</p>
         </div>
+        {% for imagen in arrayimagenes%}
+    <img 
+         src="/uploads/images/{{imagen}} " 
+         title="{{imagen}}">
+    
+    {% endfor %}    
     </article>
     
 {% endblock %}
