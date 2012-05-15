@@ -85,28 +85,28 @@ class DropboxController extends Controller {
         return $response;
     }
     
-     public function indexAction() {
+     public function pdfDropboxAction($nombre=null) {
 
         $dbmanager = $this->get('symplex_dropbox.manager');
 
         $urlComplete = $this->getRequest()->getUri();
 
         /* not mandatory */
-        $urlsuccess = $this->generateUrl('success');
+        //$urlsuccess = $this->generateUrl('success');
 
         /* not mandatory */
-        $urlfailure = $this->generateUrl('failure');
+        //$urlfailure = $this->generateUrl('failure');
 
 
 
         //put a file
         if ($dbmanager->isCredential()) {
-            if (!$dbmanager->put('/sd/toto21.txt', '/home/pascal/testmail.sh', 'sandbox')) {
+            if (!$dbmanager->put('/pdfs/'.$nombre, __DIR__ . '/../../../../web/pdfs/'.$nombre, 'sandbox')) {
                 throw new \Exception('Cannot put file');
             }
         } else {
             //redirect to dropbox web //and return to here
-            return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess, $urlfailure);
+            return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess=null, $urlfailure=null);
         }
 
 
@@ -118,57 +118,39 @@ class DropboxController extends Controller {
         } else {
             //redirect to dropbox web //and return to here
             return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess, $urlfailure);
-        }
+        }*/
 
         //move a file
-        if ($dbmanager->isCredential()) {
+        /*if ($dbmanager->isCredential()) {
             if (!$dbmanager->move('/sd/toto22.txt', '/sd/totomove.txt', 'sandbox')) {
                 throw new \Exception('Cannot move file');
             }
         } else {
             //redirect to dropbox web //and return to here
             return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess, $urlfailure);
-        }
+        }*/
 
         //create a folder
-        if ($dbmanager->isCredential()) {
-            if (!$dbmanager->createFolder('/sd/newfolder/', 'sandbox')) {
+        /*if ($dbmanager->isCredential()) {
+            if (!$dbmanager->createFolder('/pdfs/', 'sandbox')) {
                 throw new \Exception('Cannot create folder');
             }
         } else {
             //redirect to dropbox web //and return to here
-            return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess, $urlfailure);
-        }
+            return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess=null, $urlfailure=null);
+        }*/
 
         //delete a file
-        if ($dbmanager->isCredential()) {
+        /*if ($dbmanager->isCredential()) {
             if (!$dbmanager->delete('/sd/toto21.txt', 'sandbox')) {
                 throw new \Exception('Cannot delete file');
             }
         } else {
             //redirect to dropbox web //and return to here
             return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess, $urlfailure);
-        }
-
-        if ($dbmanager->isCredential()) {
-            if (!$dbmanager->delete('/sd/totomove.txt', 'sandbox')) {
-                throw new \Exception('Cannot delete file');
-            }
-        } else {
-            //redirect to dropbox web //and return to here
-            return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess, $urlfailure);
-        }
-
-        if ($dbmanager->isCredential()) {
-            if (!$dbmanager->delete('/sd/newfolder/', 'sandbox')) {
-                throw new \Exception('Cannot delete folder');
-            }
-        } else {
-            //redirect to dropbox web //and return to here
-            return $dbmanager->AskForAuthentication($urlComplete, $urlsuccess, $urlfailure);
         }*/
 
-        return array('name' => 'toto');
+        return $this->redirect($this->generateUrl('usuario_juntas'));
     }
 
 
