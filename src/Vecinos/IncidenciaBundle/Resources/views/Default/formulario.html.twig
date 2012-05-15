@@ -73,15 +73,6 @@ $(document).ready(function() {
         <p class="ayuda">Procure que sea una descripción lo más detalla posible.</p>
     </div>
     
-     {# almacena el prototipo en el atributo data-prototype #}
-    <ul id="archivos-fields-list" data-prototype="{{ form_widget(formulario.archivos.get('prototype')) | e }}">
-    {% for archivoField in formulario.archivos %}
-        <li>
-            {{ form_errors(archivoField) }}
-            {{ form_widget(archivoField) }}
-        </li>
-    {% endfor %}
-    </ul>
 
     {#<a href="#" id="add-another-email">Add another email</a>#}
     {#<div>
@@ -91,26 +82,44 @@ $(document).ready(function() {
         
         <p class="ayuda">Tamaño máximo: 500 KB. Formato preferido: JPEG.</p>
     </div>#}
-            <input class="botono" id="agregar_campo_file" value="Agregar archivo" />
+
     <div>
         {{ form_label(formulario.fecha, 'Fecha') }}
         {{ form_errors(formulario.fecha) }}
         {{ form_widget(formulario.fecha, { 'attr': { 'class': 'date' } }) }}
         
     </div>
+         {{ form_row(formulario.fecha) }}
             
-            
-    {{ form_row(formulario.fecha) }}
     <div>
         {{ form_label(formulario.hora, 'Hora') }}
         {{ form_errors(formulario.hora) }}
         {{ form_widget(formulario.hora, { 'attr': { 'class': 'corto' } }) }}
         
     </div>
+     <div>
+        {{ form_label(formulario.gravedad, 'Gravedad') }}
+        {{ form_errors(formulario.gravedad) }}
+        {{ form_widget(formulario.gravedad) }}
+        
+    </div>       
+            
     
+         {# almacena el prototipo en el atributo data-prototype #}
+    <ul id="archivos-fields-list" data-prototype="{{ form_widget(formulario.archivos.get('prototype')) | e }}">
+    {% for archivoField in formulario.archivos %}
+        <li>
+            {{ form_errors(archivoField) }}
+            {{ form_widget(archivoField) }}
+        </li>
+    {% endfor %}
+    </ul>
+     <input class="botono" id="agregar_campo_file" value="Agregar archivo" />       
     {{ form_rest(formulario) }} 
+
     
-    <input class="boton" type="submit" value="{{ accion == 'crear' ? 'Crear incidencia' : 'Guardar cambios' }}" />
+    <div>
+     <input class="boton" type="submit" value="{{ accion == 'crear' ? 'Crear incidencia' : 'Guardar cambios' }}" />
     </div>
 </form>
 {% endblock %}

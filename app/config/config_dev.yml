@@ -11,16 +11,16 @@ web_profiler:
 
 swiftmailer:
     transport: gmail
+    #port: 25
     #spool:
     #    type: file
     #   path: %kernel.cache_dir%/swiftmailer/spool
-
-    #delivery_address:  vecinos200@gmail.com
     #encryption: ssl
     #host:      smtp.gmail.com
     #auth_mode: login
     username: vecinos200@gmail.com
     password: vecinos200
+    #delivery_address:  ajesus.etsii@gmail.com
     #disable_delivery: true
 
 

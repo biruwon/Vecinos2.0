@@ -3,6 +3,9 @@
 {% block title %}Incidencias de la comunidad{% endblock %}
 {% block id 'incidencias' %}
 
+{% block rss %}
+<link rel="alternate" type="application/rss+xml" title="RSS de las incidencias" href="{{ path('usuario_incidencias', { '_format': 'rss' }) }}" />
+{% endblock %}
 
 {% block article %}
     <h1>{{ block('title') }}</h1>

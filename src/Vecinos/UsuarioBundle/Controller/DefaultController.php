@@ -203,7 +203,9 @@ class DefaultController extends Controller {
 
        $incidencias = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasIncidencias();
 
-        return $this->render('UsuarioBundle:Default:incidencias.html.twig', array(
+       $formato = $this->get('request')->getRequestFormat();
+
+       return $this->render('UsuarioBundle:Default:incidencias.' . $formato . '.twig', array(
                     'incidencias' => $incidencias
                 ));
     }
@@ -286,14 +288,16 @@ class DefaultController extends Controller {
         //$junta = $request->get('junta');
         //$junta = $session->get('prueba');
         //$peticion = $this->getRequest();
-        /* $em = $this->getDoctrine()->getEntityManager();
 
-          $junta = $em->getRepository('JuntaBundle:Junta')->findOneById($id);
+          /*$junta = $em->getRepository('JuntaBundle:Junta')->findOneById($id);
           if (!$junta) {
           throw $this->createNotFoundException('La junta indicada no está disponible');
-          }
-          $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findAll(); */
+          }*/
+          
+          $em = $this->getDoctrine()->getEntityManager();
+          $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findAll(); 
 
+          
         $html = $this->renderView('JuntaBundle:Default:pdfjunta.html.twig', array('junta' => $junta));
 
 // Print text using writeHTMLCell()
@@ -318,7 +322,8 @@ class DefaultController extends Controller {
           ));
           return $response; */
         return $this->render('JuntaBundle:Default:confirmacion.html.twig', array(
-                    'junta' => $junta
+                    'junta' => $junta,
+                    'usuarios' => $usuarios
                 ));
     }
 
