@@ -23,7 +23,13 @@ class JuntaType extends AbstractType
             )
             ))
             ->add('lugar')
-            ->add('fecha')
+            //->add('fecha')
+            ->add('fecha', 'date', array(
+                'attr' => array('class' => 'date'),
+                'widget' => 'single_text',
+                'input' => 'string',
+                'format' => 'dd/MM/yyyy', //\IntlDateFormatter::FULL
+            ))
             ->add('hora1')
             ->add('hora2')
             /*->add('hora1', 'time', array(

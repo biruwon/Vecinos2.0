@@ -44,7 +44,7 @@ class DefaultController extends Controller
                 //kernel.root_dir apunta a /app
                // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getPath();
                 
-                $message = \Swift_Message::newInstance()
+                /*$message = \Swift_Message::newInstance()
   
                 ->addBcc($usuario->getEmail())
                 ->setSubject($incidencia->getTitulo())
@@ -56,7 +56,7 @@ class DefaultController extends Controller
                // $message -> attach(\Swift_Attachment::fromPath($documento));
               //  }
               
-                $this->get('mailer')->send($message);
+                $this->get('mailer')->send($message);*/
             
                 //le pasa al controlador de usuario_incidencias, que es UsuarioBundle:Default:incidencias , el usuario que creo la incidencia
                 

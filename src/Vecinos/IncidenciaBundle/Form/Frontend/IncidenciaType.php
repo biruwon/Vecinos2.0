@@ -34,7 +34,7 @@ class IncidenciaType extends AbstractType
                 'attr' => array('class' => 'date'),
                 'widget' => 'single_text',
                 'input' => 'string',
-                'format' => 'dd/mm/yyyy', //\IntlDateFormatter::FULL
+                'format' => 'dd/MM/yyyy', //\IntlDateFormatter::FULL
             ))
          
                     

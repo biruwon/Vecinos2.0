@@ -15,8 +15,8 @@ Se va a generar el siguiente pdf: ¿Desea continuar?
 <section id="faq">
     <h2>Vecinos a los que será enviado el pdf:</h2>
     
-    {#{% for usuario in usuarios %}
+    {% for usuario in usuarios %}
             <p>{{ usuario }}</p>
-    {% endfor %}#}
+    {% endfor %}
 </section>
 {% endblock %}
