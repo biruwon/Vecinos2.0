@@ -346,6 +346,7 @@ class DefaultController extends Controller {
         $em = $this->getDoctrine()->getEntityManager();
         $usuarios = $em->getRepository('UsuarioBundle:Usuario')->findTodosLosUsuarios();
         $junta->setUsuarios($usuarios);
+        $nombre = $junta->getPath();
         
         $em->persist($junta);
         $em->flush();
@@ -368,7 +369,12 @@ class DefaultController extends Controller {
         //}
         $session->clear();
 
-        return $this->redirect($this->generateUrl('usuario_juntas'));
+        //return $this->redirect($this->generateUrl('usuario_juntas'));
+        
+        $response = $this->forward('SymplexDropboxBundle:Dropbox:pdfDropbox', array(
+                    'nombre' => $nombre
+                        ));
+        return $response;
     }
 
 }

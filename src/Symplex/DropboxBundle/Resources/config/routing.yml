@@ -1,4 +1,15 @@
-# Rutas de las páginas estáticas del sitio
 dropbox:
     pattern:  /dropbox
-    defaults: { _controller: SymplexDropboxBundle:Dropbox:index }
+    defaults: { _controller: SymplexDropboxBundle:Dropbox:pdfDropbox }
+    
+__dropboxmanager_init:
+    pattern:  /init
+    defaults: { _controller: SymplexDropboxBundle:Dropbox:init }
+
+__dropboxmanager_validation_back:
+    pattern:  /back
+    defaults: { _controller: SymplexDropboxBundle:Dropbox:back }
+
+__dropboxmanager_ask_credential:
+    pattern:  /credential
+    defaults: { _controller: SymplexDropboxBundle:Dropbox:askcredential }
