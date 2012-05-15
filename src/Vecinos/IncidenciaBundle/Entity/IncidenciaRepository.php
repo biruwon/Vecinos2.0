@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class IncidenciaRepository extends EntityRepository
 {
+    
+    public function findTodasLasIncidencias($id)
+  {
+      $em = $this->getEntityManager();
+      $consulta = $em->createQuery('SELECT u FROM IncidenciaBundle:Incidencia u');
+      $consulta->setParameter('id', $id);
+      
+                
+      return $consulta->getResult();
+
+  }
 }

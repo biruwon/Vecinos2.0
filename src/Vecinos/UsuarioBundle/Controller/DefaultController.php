@@ -345,6 +345,24 @@ class DefaultController extends Controller {
         $em->persist($junta);
         $em->flush();
         
+        
+        //kernel.root_dir apunta a /app
+        // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getPath();
+       /* for ($i = 0; $i < sizeof($usuarios); ++$i) {
+        $message = \Swift_Message::newInstance()
+  
+           ->addBcc($usuario->getEmail())
+           ->setSubject($incidencia->getTitulo())
+           ->setFrom('vecinos200@gmail.com')
+           ->setTo('ojosverdesdecristal@hotmail.com')
+           ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));
+           // ->attach(\Swift_Attachment::fromPath($documento));
+           //if ('sinfoto' != $incidencia->getFoto()) {
+           // $message -> attach(\Swift_Attachment::fromPath($documento));
+           //  }
+              
+                $this->get('mailer')->send($message);
+        }*/
         $session->clear();
 
         return $this->redirect($this->generateUrl('usuario_juntas'));

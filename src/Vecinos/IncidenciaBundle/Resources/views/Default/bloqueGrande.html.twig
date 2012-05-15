@@ -3,10 +3,17 @@
 <article class="blog">
            
 
-<div class="date"><time datetime="{{ incidencia.fecha|date('c') }}">{{ incidencia.fecha|date('l, F j, Y') }}</time></div>
+<div class="date"><time datetime="{{ incidencia.fecha|date('c') }}">{{ incidencia.fecha|date('d/m/Y') }}</time></div>
 
 <div class="c12"><a>
 {{ incidencia.titulo }}
+                
+{#{% for imagen in arrayimagenes%}
+    <img 
+         src="/uploads/images/{{imagen}} " 
+         title="{{imagen}}">
+    
+    {% endfor %} #}
 </a></div>
 
 {#{% if incidencia.foto != 'sinfoto' %}
@@ -17,7 +24,7 @@
 
 <div class="snippet">
    <p>{{ incidencia.descripcion | raw  }}</p>
-   <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Continue reading...</a></p>
+   <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Leer más ...</a></p>
 </div>
 
 </article>
