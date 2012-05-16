@@ -48,6 +48,7 @@ class IncidenciaType extends AbstractType
                     'attr'  => array('class' => 'unidades'),
                 )))    */
             ->add('hora')
+            ->add('tags')
         ;
      
      }

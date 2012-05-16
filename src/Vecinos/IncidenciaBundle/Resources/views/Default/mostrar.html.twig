@@ -25,7 +25,13 @@
     </article>
     
 {% endblock %}
-    
+
+{% block aside %}
+    {{ parent() }}
+
+    {% render "IncidenciaBundle:Default:sidebar" %}
+
+{% endblock %}
 
 
     

@@ -18,6 +18,7 @@
 <div class="snippet">
    <p>{{ incidencia.descripcion | raw  }}</p>
    <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Continue reading...</a></p>
+   <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>
 </div>
 
 </article>

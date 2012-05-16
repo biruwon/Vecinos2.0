@@ -31,11 +31,11 @@ class Incidencias extends AbstractFixture implements OrderedFixtureInterface
 
 	$incidencias = array(
 	  array('usuario' => $usuarios[11], 'titulo' => 'Depuradora no funciona', 'resuelta' => 'true', 'descripcion' => 'La piscina no funciona debido a ...', 'fecha' => '2011-10-12',
-          'hora' => new \DateTime('7:45:50'),'tags' => 'jardineria','gravedad' => 'media','archivos' => array(null)),
+          'hora' => new \DateTime('7:45:50'),'tags' => 'jardineria, piscina, ascensor','gravedad' => 'media','archivos' => array(null)),
           array('usuario' => $usuarios[11], 'titulo' => 'Ascensor no funciona', 'resuelta' => 'false', 'descripcion' => 'No funciona desde el Viernes pasado', 'fecha' => '2011-02-23',
           'hora' => new \DateTime('17:45:50'),'tags' => 'jardineria','gravedad' => 'media','archivos' => array(null)),
           array('usuario' => $usuarios[11], 'titulo' => 'Las luces de los pasillos no estan reguladas', 'resuelta' => 'false', 'descripcion' => ' ...', 'fecha' => '2011-03-10',
-          'hora' => new \DateTime('20:45:50'),'tags' => 'jardineria','gravedad' => 'media','archivos' => array(null)),
+          'hora' => new \DateTime('20:45:50'),'tags' => 'jardineria, piscina','gravedad' => 'media','archivos' => array(null)),
           array('usuario' => $usuarios[11], 'titulo' => 'Se ha roto la red de pádel de la pista 3', 'resuelta' => 'true', 'descripcion' => 'Red rota', 'fecha' => '2011-06-07',
           'hora' => new \DateTime('5:45:50'),'tags' => 'jardineria','gravedad' => 'media','archivos' => array(null))
             );
