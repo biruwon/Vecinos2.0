@@ -51,7 +51,7 @@ class Incidencia implements \Serializable
     public $path;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
     protected $tags;
     
@@ -374,7 +374,7 @@ class Incidencia implements \Serializable
     /**
      * Set tags
      *
-     * @param text $tags
+     * @param string $tags
      */
     public function setTags($tags)
     {
@@ -384,7 +384,7 @@ class Incidencia implements \Serializable
     /**
      * Get tags
      *
-     * @return text 
+     * @return string 
      */
     public function getTags()
     {

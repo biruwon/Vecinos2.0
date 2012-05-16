@@ -72,6 +72,14 @@ $(document).ready(function() {
         
         <p class="ayuda">Procure que sea una descripción lo más detalla posible.</p>
     </div>
+            
+    <div>
+        {{ form_label(formulario.tags, 'Tags') }}
+        {{ form_errors(formulario.tags) }}
+        {{ form_widget(formulario.tags) }}
+        
+        <p class="ayuda">Añade los tags separados por comas. Ejemplo: luz, cesped, ascensor</p>
+    </div>        
     
 
     {#<a href="#" id="add-another-email">Add another email</a>#}
