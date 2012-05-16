@@ -186,11 +186,12 @@ class DefaultController extends Controller {
         $incidencia = $em->getRepository('IncidenciaBundle:Incidencia')->find($id);
 
         if (!$incidencia) {
-            throw $this->createNotFoundException('Unable to find Blog post.');
+            throw $this->createNotFoundException('No se ha encontrado la incidencia');
         }
 
         return $this->render('IncidenciaBundle:Default:mostrar.html.twig', array(
             'incidencia'      => $incidencia,
+            'arrayimagenes' => unserialize($incidencia->getPath()),
         ));
         
     }
