@@ -7,26 +7,17 @@
 
 <div class="c12"><a>
 {{ incidencia.titulo }}
-                
-{#{% for imagen in arrayimagenes%}
-    <img 
-         src="/uploads/images/{{imagen}} " 
-         title="{{imagen}}">
-    
-    {% endfor %} #}
 </a></div>
-
-{#{% if incidencia.foto != 'sinfoto' %}
-<div class="grid_3 omega">
-  <IMG src="/uploads/images/{{ incidencia.foto }}">
-</div>
-{% endif %}#}
-
 <div class="snippet">
    <p>{{ incidencia.descripcion | raw  }}</p>
 
    <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Leer más...</a></p>
    <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>
+   
+</div>
+<div class="grid_12 omega">
+    
+  <p>Creada por {{ incidencia.usuario }} a las {{incidencia.hora |date('h:m')}} </p>
 </div>
 
 </article>

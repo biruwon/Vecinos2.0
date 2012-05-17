@@ -6,8 +6,8 @@ aside ul li { line-height: 1.5em }
 aside .small { font-size: 12px; }
 aside .comment p { margin-bottom: 5px; }
 aside .comment { margin-bottom: 10px; padding-bottom: 10px; }
-aside .tags { font-weight: bold; }
-aside .tags span { color: #000; font-size: 12px; }
+aside .tags { font-weight: bold;margin-top: 14px; }
+aside .tags span { color: #105089; font-size: 12px; }
 aside .tags .weight-1 { font-size: 12px; }
 aside .tags .weight-2 { font-size: 15px; }
 aside .tags .weight-3 { font-size: 18px; }

@@ -6,7 +6,7 @@ body { line-height: 1;font-family: Arial, Helvetica, sans-serif;font-size: 12px;
 #wrapper a { text-decoration: none; color: #F48A00; }
 #wrapper span.highlight { color: #F48A00; }
 
-#header { border-bottom: 1px solid #ccc; margin-bottom: 20px; }
+#header { border-bottom: 3px solid #005500; margin-bottom: 20px; }
 #header .top { border-bottom: 1px solid #ccc; margin-bottom: 10px; }
 #header ul.navigation { list-style: none; text-align: right; }
 #header .navigation li { display: inline }
@@ -21,7 +21,7 @@ body { line-height: 1;font-family: Arial, Helvetica, sans-serif;font-size: 12px;
 .main-col a { color: #F48A00; }
 .main-col h1,  
 .c12
-    { line-height: 1.2em; font-size: 32px; margin-bottom: 10px; font-weight: normal; color: #F48A00; }
+    { line-height: 1.2em; font-size: 26px; margin-bottom: 10px; font-weight: normal; color: #F48A00; }
 .main-col p { line-height: 1.5em; margin-bottom: 20px; }
 
 #footer { border-top: 1px solid #ccc; clear: both; text-align: center; padding: 10px; color: #aaa; }
