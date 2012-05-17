@@ -163,6 +163,57 @@ class DefaultController extends Controller {
                     'formulario' => $formulario->createView()
                 ));
     }
+    
+    
+    /**
+     *
+     * Perfil del usuario que crea la incidencia 
+     */
+    public function perfilIncidenciaAction($id) {
+        $peticion = $this->getRequest();
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $usuario = $em->getRepository('UsuarioBundle:Usuario')->find($id);
+        if (!$usuario) {
+            throw $this->createNotFoundException('No se ha encontrado el usuario');
+        }
+        
+        $formulario = $this->createForm(new UsuarioType(), $usuario);
+
+        if ($peticion->getMethod() == 'POST') {
+            $passwordOriginal = $formulario->getData()->getPassword();
+
+            $formulario->bindRequest($peticion);
+
+            if ($formulario->isValid()) {
+                // Si el usuario no ha cambiado el password, su valor es null después
+                // de hacer el ->bindRequest(), por lo que hay que recuperar el valor original
+                if (null == $usuario->getPassword()) {
+                    $usuario->setPassword($passwordOriginal);
+                }
+                // Si el usuario ha cambiado su password, hay que codificarlo antes de guardarlo
+                else {
+                    $encoder = $this->get('security.encoder_factory')->getEncoder($usuario);
+                    $passwordCodificado = $encoder->encodePassword(
+                            $usuario->getPassword(), $usuario->getSalt()
+                    );
+                    $usuario->setPassword($passwordCodificado);
+                }
+
+                $em->persist($usuario);
+                $em->flush();
+
+                $this->get('session')->setFlash('info', 'Los datos de tu perfil se han actualizado correctamente'
+                );
+                return $this->redirect($this->generateUrl('usuario_perfil'));
+            }
+        }
+
+        return $this->render('UsuarioBundle:Default:perfil.html.twig', array(
+                    'usuario' => $usuario,
+                    'formulario' => $formulario->createView()
+                ));
+    }
 
     /**
      * Muestra todas las reservas del usuario logueado
@@ -208,6 +259,16 @@ class DefaultController extends Controller {
 
        return $this->render('UsuarioBundle:Default:incidencias.' . $formato . '.twig', array(
                     'incidencias' => $incidencias
+                ));
+    }
+    
+    public function tagsAction($tag) {
+        
+        $em = $this->getDoctrine()->getEntityManager();
+        $incidencias = $em->getRepository('IncidenciaBundle:Incidencia')->findIncidenciasByTag($tag);
+
+        return $this->render('IncidenciaBundle:Default:sidebar.html.twig', array(
+                    'tags' => $tagWeights
                 ));
     }
 

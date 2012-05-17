@@ -53,5 +53,17 @@ class IncidenciaRepository extends EntityRepository {
 
         return $tagWeights;
     }
+    
+    public function findIncidenciasByTag($tag)
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('SELECT i FROM IncideniaBundle:Incidencia i INNER JOIN i.tags t
+                                                                              WHERE t = :tag');
+        $consulta->setParameter('tag', $tag); 
+        
+        return $consulta->getResult();
+
+    }
 
 }

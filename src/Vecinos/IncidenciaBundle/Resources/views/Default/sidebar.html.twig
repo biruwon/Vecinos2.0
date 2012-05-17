@@ -1,12 +1,12 @@
 <section class="section">
     <header>
-        <h3>Tag Cloud</h3>
+        <h4>Tag Cloud</h4>
     </header>
     <p class="tags">
         {% for tag, weight in tags %}
-            <span class="weight-{{ weight }}">{{ tag }}</span>
+            <a href="{{ path('usuario_incidencias') }}"><span class="weight-{{ weight }}">{{ tag }}</span></a>
         {% else %}
-            <p>There are no tags</p>
+            <p>No existen tags</p>
         {% endfor %}
     </p>
 </section>

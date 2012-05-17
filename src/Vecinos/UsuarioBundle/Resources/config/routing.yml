@@ -8,6 +8,14 @@ usuario_perfil:
     pattern:  /perfil
     defaults: { _controller: UsuarioBundle:Default:perfil }
 
+# Ruta para mostrar el perfil del usuario que creó la incidencia
+usuario_perfil_incidencia:
+    pattern:  /perfil/{id}
+    defaults: { _controller: UsuarioBundle:Default:perfilIncidencia }
+    requirements:
+        _method:  GET
+        id: \d+
+
 # Ruta para ver todas las reservas del usuario logueado
 usuario_reservas:
     pattern:  /reservas
@@ -16,6 +24,10 @@ usuario_reservas:
 # Ruta para ver todas las incidencias del usuario logueado
 usuario_incidencias:
     pattern:  /incidencias
+    defaults: { _controller: UsuarioBundle:Default:incidencias}
+
+usuario_incidencias_tags:
+    pattern:  /incidencias{tag}
     defaults: { _controller: UsuarioBundle:Default:incidencias}
 
 # Ruta para ver una incidencia concreta
