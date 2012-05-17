@@ -13,3 +13,23 @@ aside .tags .weight-2 { font-size: 15px; }
 aside .tags .weight-3 { font-size: 18px; }
 aside .tags .weight-4 { font-size: 21px; }
 aside .tags .weight-5 { font-size: 24px; }
+
+/* ===========================================================================
+   Paginador
+   ======================================================================== */
+article ul.paginador {
+    background: #DCDCDC;
+    list-style: none;
+    margin: 0 0 1em 0;
+    padding: .5em;
+    text-align: center;
+}
+
+article ul.paginador li {
+    display: inline;
+    margin: 0;
+    padding: 0 1em;
+}
+article ul.paginador li.actual {
+    font-weight: bold;
+}
