@@ -9,6 +9,21 @@
 
 
 {% block article %}
+
+{{ simple_paginator_render('usuario_juntas', null, {
+'container_class': 'paginador',
+'previousPageText': 'Anterior',
+'nextPageText':
+'Siguiente',
+'currentClass':
+'actual',
+'firstPageText':
+'Primera',
+'lastPageText':
+'Última'
+}) }}
+
+
 <h1>{{ block('title') }}</h1>
 
     {% if is_granted('ROLE_ADMIN') %}

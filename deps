@@ -120,3 +120,11 @@
 [TinymceBundle]
     git=git://github.com/stfalcon/TinymceBundle.git
     target=/bundles/Stfalcon/Bundle/TinymceBundle
+
+[doctrine-extensions]
+    git=https://github.com/beberlei/DoctrineExtensions.git
+
+[IdeupSimplePaginatorBundle]
+    git=https://github.com/javiacei/IdeupSimplePaginatorBundle
+    target=/bundles/Ideup/SimplePaginatorBundle
+

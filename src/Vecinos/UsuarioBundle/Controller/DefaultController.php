@@ -286,13 +286,20 @@ class DefaultController extends Controller {
     public function juntasAction() {
         $em = $this->getDoctrine()->getEntityManager();
         $usuario = $this->get('security.context')->getToken()->getUser();
+        
+        $paginador = $this->get('ideup.simple_paginator');
+        
+        $paginador->setItemsPerPage(5);
 
-        $juntas = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasJuntas($usuario->getId());
+        $juntas = $paginador->paginate(
+                    $em->getRepository('UsuarioBundle:Usuario')->queryTodasLasJuntas($usuario->getId())
+                    )->getResult();
 
         $formato = $this->get('request')->getRequestFormat();
 
         return $this->render('UsuarioBundle:Default:juntas.' . $formato . '.twig', array(
-                    'juntas' => $juntas
+                    'juntas' => $juntas,
+                    'paginador' => $paginador
                 ));
     }
 
