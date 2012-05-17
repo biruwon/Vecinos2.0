@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             new jQuery\jQueryBundle\jQueryBundle(),
             new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new Ideup\SimplePaginatorBundle\IdeupSimplePaginatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

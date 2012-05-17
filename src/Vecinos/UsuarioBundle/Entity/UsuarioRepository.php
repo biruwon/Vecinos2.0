@@ -46,14 +46,7 @@ class UsuarioRepository extends EntityRepository
         
     
     
-    
-    
-     /**
-     * Encuentra todas las juntas del usuario indicado
-     *
-     * @param string $usuario El id del usuario
-     */
-    public function findTodasLasJuntas($usuario)
+    public function queryTodasLasJuntas($usuario)
     {
         $em = $this->getEntityManager();
         
@@ -62,8 +55,19 @@ class UsuarioRepository extends EntityRepository
                                                                               ORDER BY j.fecha DESC');
         $consulta->setParameter('id', $usuario); 
         
-        return $consulta->getResult();
-
+        return $consulta;
+    }
+    
+     /**
+     * Encuentra todas las juntas del usuario indicado
+     *
+     * @param string $usuario El id del usuario
+     */
+    public function findTodasLasJuntas($usuario)
+    {
+        
+        return $this->queryTodasLasJuntas($usuario)->getResult();
+        
     }
     
     /**

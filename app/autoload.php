@@ -23,6 +23,8 @@ $loader->registerNamespaces(array(
     'WhiteOctober' => __DIR__.'/../vendor/bundles',
     'Stfalcon'                       => __DIR__.'/../vendor/bundles',
     'Symplex' => __DIR__.'/../src',
+    'DoctrineExtensions' => __DIR__.'/../vendor/doctrine-extensions/lib',
+    'Ideup' => __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

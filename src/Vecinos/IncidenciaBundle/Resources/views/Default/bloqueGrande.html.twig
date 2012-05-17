@@ -13,11 +13,13 @@
 
    <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Leer más...</a></p>
    <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>
+<<<<<<< HEAD
    
 </div>
 <div class="grid_12 omega">
     
-  <p>Creada por {{ incidencia.usuario }} a las {{incidencia.hora |date('h:m')}} </p>
+  <p></p>
+   <a href="{{ path('usuario_perfil_incidencia', { 'id': incidencia.usuario.id}) }}" target="_blank"><p>Creada por {{ incidencia.usuario }} a las {{incidencia.hora |date('h:m')}}   </p></a>
 </div>
 
 </article>

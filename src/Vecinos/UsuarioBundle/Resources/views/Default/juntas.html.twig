@@ -9,6 +9,7 @@
 
 
 {% block article %}
+
 <h1>{{ block('title') }}</h1>
 
     {% if is_granted('ROLE_ADMIN') %}
@@ -16,6 +17,16 @@
 <div id="anuncio"><a class="boton" href="{{ path('usuario_junta_nueva') }}">{{ "Nueva junta" | trans }}</a></div>
 
     {% endif %}
+
+
+{{ simple_paginator_render('usuario_juntas', null, {
+'container_class': 'paginador',
+'previousPageText': 'Anterior',
+'nextPageText': 'Siguiente',
+'currentClass': 'actual',
+'firstPageText': 'Primera',
+'lastPageText': 'Última'
+}) }}
 
     {% for junta in juntas %}
          {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
