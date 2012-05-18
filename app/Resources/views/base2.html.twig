@@ -11,11 +11,15 @@
 </head>
 
 <body id="{% block id '' %}"><div id="contenedor">
+    {% block header1 %}
     <header id="header">
     <div class="container_16">
-    {% block header %}{% endblock %}
+    {% endblock %}
+    {% block header %}
+    {% endblock %}
     </div>
     </header>
+    
     {% block body %}{% endblock %}
     <div class="container_16">
     <footer>

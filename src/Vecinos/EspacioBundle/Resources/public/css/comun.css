@@ -228,25 +228,69 @@ form label + ul li + li {
 .contenido  #fprincipal img{
     width: 900px;
 }
+#contenedor .contenido  {
+    
+}
+
 
 #header .container_16{
     margin-left: auto;
     margin-right: auto;
     width: 960px;
 }
-header nav ul li {
+#contenedor .container_16{
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#header1 .container_foto{
+    width: 200px;
+}
+
+#header1 .container_foto img {
+    margin-left: 27px;
+    margin-top: 3px;
+    vertical-align: middle;
+    width: 169px;
+}
+
+#header1 .container_169{
+    display: table-caption;
+    height: 64px;
+    margin-left: 267px;
+    margin-top: -12px;
+    position: relative;
+    width: 1350px;
+}
+.contenido #principal img{
+    border: 0 none;
+    vertical-align: middle;
+    outline: 3px none #E6E2DF; 
+}
+
+
+.container_169 ul li{
+
+}
+#header nav ul li {
     float: left;
     text-transform: capitalize;
 }
-header nav ul li a {
+#header nav ul li a {
     line-height: 50px;
     text-decoration: none;
 }
 
-header a {
+#header a {
     color: #E4F0F6;
     display: block;
     font-size: 18px;
+}
+#header1 a {
+    color: #E4F0F6;
+    display: block;
+    font-size: 20px;
 }
 
 #header .grid_101{
@@ -257,14 +301,6 @@ display: inline;
     width: 580px;
 }
 
-body#incidencias header a[href*="incidencias"], 
-body#juntas header a[href*="juntas"], 
-body#perfil header a[href*="perfil"],
-body#reservas header a[href*="reservas"]{
-    background: none repeat scroll 0 0 #006400;
-    color: #F7B800;
-    width: 100px;
-}
 
 
 /* Botón click-to-action */
@@ -313,6 +349,7 @@ body#reservas header a[href*="reservas"]{
 #contenedor > article {
     min-height: 500px;
     margin-left:96px;
+    position: relative;
 }
 
 footer {
@@ -322,7 +359,7 @@ footer {
 /* ===========================================================================
    Cabecera y menú de navegación
    ======================================================================== */
-header {
+#header {
     
     overflow: hidden;
     position: relative;
@@ -332,19 +369,33 @@ header {
     height: 50px;
     margin-bottom: 1em;
 }
-header a, header a:visited {
+#header1 {
+    
+    background: none repeat scroll 0 0 #8B0000;
+    border-bottom: 3px solid #006400;
+    color: #FFFFFF;
+    display: -moz-stack;
+    height: 64px;
+    margin-bottom: 1em;
+    position: relative;
+    
+}
+
+
+
+#header a, header a:visited {
     border-bottom: 1px solid;
     text-decoration: none;
 }
 
 
-header h1 {
+#header h1 {
     position: absolute;
     left: 20px;
     line-height: 60px;
     margin: 0 0 0 100px;
 }
-header h1 a {
+#header h1 a {
     border: none;
     color: #FFFFFF !important;
     font-size: 28px;
