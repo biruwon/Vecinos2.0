@@ -27,8 +27,8 @@ usuario_incidencias:
     defaults: { _controller: UsuarioBundle:Default:incidencias}
 
 usuario_incidencias_tags:
-    pattern:  /incidencias{tag}
-    defaults: { _controller: UsuarioBundle:Default:incidencias}
+    pattern:  /incidencias/filtro/{tag}
+    defaults: { _controller: UsuarioBundle:Default:tags}
 
 # Ruta para ver una incidencia concreta
 usuario_incidencias_id:

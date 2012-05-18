@@ -1,0 +1,30 @@
+{% extends '::app.html.twig' %}
+
+{% block title %}Incidencias de la comunidad{% endblock %}
+{% block id 'incidencias' %}
+
+{% block article %}
+   
+    {% for incidencia in incidencias %}
+    {% if incidencia.resuelta == '0' %} {# te muestra solo las incidencias no resueltas #}
+    
+    <div>
+           {% include 'IncidenciaBundle:Default:bloqueGrande.html.twig' %}
+    </div>
+
+        
+    <br>
+    {% endif%}
+        {% endfor %}
+  
+{% endblock %}
+    
+
+
+
+{% block aside %}
+    {{ parent() }}
+
+    {% render "IncidenciaBundle:Default:sidebar" %}
+   
+{% endblock %}

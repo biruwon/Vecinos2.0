@@ -58,9 +58,13 @@ class IncidenciaRepository extends EntityRepository {
     {
         $em = $this->getEntityManager();
         
-        $consulta = $em->createQuery('SELECT i FROM IncideniaBundle:Incidencia i INNER JOIN i.tags t
+        /*$consulta = $em->createQuery('SELECT i FROM IncideniaBundle:Incidencia i INNER JOIN i.tags t
                                                                               WHERE t = :tag');
-        $consulta->setParameter('tag', $tag); 
+        $consulta->setParameter('tag', $tag); */
+        
+        $consulta = $em->createQuery("SELECT i FROM IncidenciaBundle:Incidencia i WHERE i.tags LIKE :tag");
+        
+        $consulta->setParameter('tag', "%$tag%");
         
         return $consulta->getResult();
 

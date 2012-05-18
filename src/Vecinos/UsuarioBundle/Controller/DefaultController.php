@@ -267,8 +267,8 @@ class DefaultController extends Controller {
         $em = $this->getDoctrine()->getEntityManager();
         $incidencias = $em->getRepository('IncidenciaBundle:Incidencia')->findIncidenciasByTag($tag);
 
-        return $this->render('IncidenciaBundle:Default:sidebar.html.twig', array(
-                    'tags' => $tagWeights
+        return $this->render('IncidenciaBundle:Default:incidenciasTag.html.twig', array(
+                    'incidencias' => $incidencias
                 ));
     }
 
