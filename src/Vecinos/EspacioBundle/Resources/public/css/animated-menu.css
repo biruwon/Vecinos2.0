@@ -1,14 +1,14 @@
-body{  
+header body{  
     font-family:"Lucida Grande", arial, sans-serif;  
     background:#F3F3F3;  
 }  
   
-ul{  
+header ul{  
     margin:0;  
     padding:0;  
 }  
   
-li{  
+header li{  
     width:125px;  
     height:50px;  
     float:left;  
@@ -18,12 +18,12 @@ li{
     
 }  
   
-a{  
+header a{  
     color:#FFF;  
     text-decoration:none;  
 }  
   
-p{  
+header p{  
     padding:0px 5px;  
     
 }  
