@@ -1,7 +1,8 @@
 <section class="section">
-    <header>
-        <h4>Tag Cloud</h4>
-    </header>
+
+    <h1>
+        <h2>Tag Cloud</h2>
+    </h1>
     <p class="tags">
         {% for tag, weight in tags %}
             <a href="{{ path('usuario_incidencias_tags', { 'tag': tag }) }}"><span class="weight-{{ weight }}">{{ tag }}</span></a>

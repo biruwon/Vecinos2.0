@@ -1,29 +1,10 @@
 {% extends '::app.html.twig' %}
-
+   
 {% block title %}Aplicacion{% endblock %}
 {% block id 'compras' %}
-{% block header %}
-  <h1><a href="{{ path('portada')}}">Vecinos2.0 </a></h1>
-
-  <nav class="grid_101">
-  <ul>
-    <li><a href="{{ path('usuario_reservas') }}">Reservas</a></li>
-    <li><a href="{{ path('usuario_incidencias') }}">Incidencias</a></li>
-
-   
-    <li><a href="{{ path('usuario_perfil') }}">Perfil</a></li>
-   
-
-    <li><a href="{{ path('usuario_juntas') }}">Juntas</a></li>
-
-    {% if app.user %}
-    <li><a href="{{ path('usuario_logout') }}">Salir</a></li>
-    {% endif %}
-  </ul>
-  </nav>
-{% endblock %}
 
 {% block article %}
+            <IMG src="/bundles/espacio/images/Menu.png">
 {% endblock %}
 
 {% block aside %}

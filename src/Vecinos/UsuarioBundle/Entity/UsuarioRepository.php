@@ -33,7 +33,7 @@ class UsuarioRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
         
-        $consulta = $em->createQuery('SELECT i,u FROM IncidenciaBundle:Incidencia i JOIN i.usuario u '); 
+        $consulta = $em->createQuery('SELECT i,u FROM IncidenciaBundle:Incidencia i JOIN i.usuario u ORDER BY i.fecha DESC '); 
         //$consulta->setParameter('usuario', $usuario);
         
         //return $consulta->getSingleResult();

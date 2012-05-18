@@ -2,25 +2,41 @@
 
 {% block title %}Aplicacion{% endblock %}
 {% block id 'compras' %}
-{% block header %}
-  <h1><a href="{{ path('portada')}}">Vecinos2.0 </a></h1>
+{% block header1 %}{% endblock %}
+{% block header %} 
 
-  <nav>
-  <ul>
-    <li><a href="{{ path('usuario_reservas') }}">Reservas</a></li>
-    <li><a href="{{ path('usuario_incidencias') }}">Incidencias</a></li>
-
-   
-    <li><a href="{{ path('usuario_perfil') }}">Perfil</a></li>
-   
-
-    <li><a href="{{ path('usuario_juntas') }}">Juntas</a></li>
-
-    {% if app.user %}
-    <li><a href="{{ path('usuario_logout') }}">Salir</a></li>
-    {% endif %}
-  </ul>
-  </nav>
+<header id="header1">
+    
+    <div class="container_foto">
+       <IMG src="/bundles/espacio/images/IconoV.png">
+    </div>
+    <div class="container_169">
+    <ul>  
+        <li class="green">  
+            <p><a href="{{ path('usuario_aplicacion')}}">Inicio</a></p>  
+            <p class="subtext">Página Principal</p>  
+        </li>  
+        <li class="yellow">  
+            <p><a href="{{ path('usuario_perfil') }}">Perfil</a></p>  
+            <p class="subtext">Consulta tus datos</p>  
+        </li>  
+        <li class="red">  
+            <p><a href="{{ path('usuario_reservas') }}">Reservas</a></p>  
+            <p class="subtext">Espacios Alquilados</p>  
+        </li>  
+        <li class="blue">  
+            <p><a href="{{ path('usuario_incidencias') }}">Incidencias</a></p>  
+            <p class="subtext">¿Hay algún problema?</p>  
+        </li>  
+        <li class="purple">  
+            <p><a href="{{ path('usuario_juntas') }}">Juntas</a></p>  
+            <p class="subtext">Próximas convocatorias</p>  
+        </li>  
+        <li class="rosa">  
+            <p><a href="{{ path('usuario_logout') }}">Salir</a></p>  
+            <p class="subtext">Cerrar sesión</p>  
+        </li>
+    </ul>  
 {% endblock %}
 
 {% block article %}
@@ -29,9 +45,6 @@
 {% block aside %}
     {{ parent() }}
 
-    <section id="nosotros">
-        <h2>Sobre nosotros</h2>
-         <p>Somos una empresa joven y dinámica, que apuesta por la implantación de las nuevas tecnologías en la vida diaria de las personas, para favorecer todas las tareas cotidianas que surgen en ella y responder de una forma más rápida y eficaz .</p>
-        <p>Creemos firmemente que si controlamos de una forma óptima toda la información que nos llega, podremos reducir en tiempo, dinero y esfuerzo.</p>
-    </section>
 {% endblock %}
+            
+ 

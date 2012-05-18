@@ -1,0 +1,42 @@
+body{  
+    font-family:"Lucida Grande", arial, sans-serif;  
+    background:#F3F3F3;  
+}  
+  
+ul{  
+    margin:0;  
+    padding:0;  
+}  
+  
+li{  
+    width:125px;  
+    height:50px;  
+    float:left;  
+    color:#191919;  
+    text-align:center;  
+    overflow:hidden;  
+    
+}  
+  
+a{  
+    color:#FFF;  
+    text-decoration:none;  
+}  
+  
+p{  
+    padding:0px 5px;  
+    
+}  
+  
+    .subtext{  
+        padding-top:15px;    
+    }  
+  
+/*Menu Color Classes*/  
+.green{background:#6AA63B url(http://buildinternet.com/live/smoothmenu/images/green-item-bg.jpg) top left repeat;}
+.yellow{background:#FBC700 url(http://buildinternet.com/live/smoothmenu/images/yellow-item-bg.jpg) top left repeat;}
+.red{background:#D52100 url(http://buildinternet.com/live/smoothmenu/images/red-item-bg.jpg) top left repeat;}
+.purple{background:#5122B4 url(http://buildinternet.com/live/smoothmenu/images/purple-item-bg.jpg) top left repeat;}
+.blue{background:#0292C0 url(http://buildinternet.com/live/smoothmenu/images/blue-item-bg.jpg) top left repeat;}
+.rosa{background:#DC143C;} 
+.gris{background:#696969;} 

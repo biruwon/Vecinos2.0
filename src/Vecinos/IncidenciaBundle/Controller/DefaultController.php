@@ -3,13 +3,17 @@
 namespace Vecinos\IncidenciaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\Common\Collections\ArrayCollection;
 use Vecinos\IncidenciaBundle\Entity\Incidencia;
 use Vecinos\IncidenciaBundle\Form\Frontend\IncidenciaType;
 use Vecinos\UsuarioBundle\Entity\Usuario;
 
-class DefaultController extends Controller {
+class DefaultController  extends Controller 
+{
+    
+    public function incidenciaNuevaAction()
+    {
 
-    public function incidenciaNuevaAction() {
         $peticion = $this->getRequest();
 
         $incidencia = new Incidencia();
@@ -55,9 +59,11 @@ class DefaultController extends Controller {
 
                 //le pasa al controlador de usuario_incidencias, que es UsuarioBundle:Default:incidencias , el usuario que creo la incidencia
 
+
                 return $this->redirect($this->generateUrl('usuario_incidencias'));
             }
         }
+
         return $this->render('IncidenciaBundle:Default:formulario.html.twig', array(
                     'accion' => 'crear',
                     'formulario' => $formulario->createView(),

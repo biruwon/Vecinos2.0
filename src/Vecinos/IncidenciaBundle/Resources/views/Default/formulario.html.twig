@@ -11,23 +11,6 @@
 <h1>{{ block('title') }}</h1>
 {{ tinymce_init() }}
 
-{#<script type="text/javascript">
-$(document).ready(function() { 
-    
-  $('#agregar_campo_file').click(function(e) {
-        //alert('el documento está preparado'); 
-        e.preventDefault();
-        var files = $('#nueva_incidencia_archivos');
-        var newWidget = files.attr('data-prototype');
-        newWidget = newWidget.replace(/\$\$name\$\$/g, files);
-        $('#nueva_incidencia_archivos').append(newWidget);
-        files++;
-        return false;
-    });
-
-}); 
-</script>#}
-
 <script type="text/javascript">
     // realiza un seguimiento de cuántos campos de archivo se han pintado
     var archivoCount = '{{ formulario.archivos | length }}';

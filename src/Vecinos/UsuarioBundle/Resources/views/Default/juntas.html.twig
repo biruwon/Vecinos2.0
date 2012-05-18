@@ -18,7 +18,11 @@
 
     {% endif %}
 
+    {% for junta in juntas %}
+         {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
+        {% include 'JuntaBundle:Default:bloqueGrande2.html.twig' %}
 
+    {% endfor %}
 {{ simple_paginator_render('usuario_juntas', null, {
 'container_class': 'paginador',
 'previousPageText': 'Anterior',
@@ -28,11 +32,6 @@
 'lastPageText': 'Última'
 }) }}
 
-    {% for junta in juntas %}
-         {# Es obligatorio añadir el filtro date para que twig pueda convertir las fechas/horas a string #}
-        {% include 'JuntaBundle:Default:bloqueGrande2.html.twig' %}
-
-    {% endfor %}
 {% endblock %}
 {% block aside %}
     {{ parent() }}

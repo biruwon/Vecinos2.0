@@ -420,6 +420,22 @@ class DefaultController extends Controller {
         $em->persist($junta);
         $em->flush();
         
+        
+        //kernel.root_dir apunta a /app
+        $documento = $this->container->getParameter('kernel.root_dir').'/../web/pdfs/'.$junta->getPath();
+      //  for ($i = 0; $i < sizeof($usuarios); ++$i) {
+        $message = \Swift_Message::newInstance()
+  
+           //->addBcc($usuario->getEmail())
+           ->setSubject($junta->getTitulo())
+           ->setFrom('vecinos200@gmail.com')
+           ->setTo('vecinos200@googlegroups.com') //el usuario debería estar subscrito a esa lista
+           ->setBody('Nueva junta')
+           ->attach(\Swift_Attachment::fromPath($documento));
+           
+              
+                $this->get('mailer')->send($message);
+        //}
         $session->clear();
 
         //return $this->redirect($this->generateUrl('usuario_juntas'));

@@ -3,23 +3,22 @@
 <article class="blog">
            
 
-<div class="date"><time datetime="{{ incidencia.fecha|date('c') }}">{{ incidencia.fecha|date('l, F j, Y') }}</time></div>
+<div class="date"><time datetime="{{ incidencia.fecha|date('c') }}">{{ incidencia.fecha|date('d/m/Y') }}</time></div>
 
 <div class="c12"><a>
 {{ incidencia.titulo }}
 </a></div>
-
-{#{% if incidencia.foto != 'sinfoto' %}
-<div class="grid_3 omega">
-  <IMG src="/uploads/images/{{ incidencia.foto }}">
-</div>
-{% endif %}#}
-
 <div class="snippet">
    <p>{{ incidencia.descripcion | raw  }}</p>
-   <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Continue reading...</a></p>
+
+   <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Leer más...</a></p>
    <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>
-   <a href="{{ path('usuario_perfil_incidencia', { 'id': incidencia.usuario.id}) }}" target="_blank"><p>Autor: {{ incidencia.usuario }}  </p></a>
+
+   
+</div>
+<div class="grid_12 omega">
+    
+   Creada por <a href="{{ path('usuario_perfil_incidencia', { 'id': incidencia.usuario.id}) }}" target="_blank">{{ incidencia.usuario.nombre }}</a> a las {{incidencia.hora |date('h:m')}}
 </div>
 
 </article>
