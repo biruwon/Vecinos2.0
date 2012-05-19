@@ -58,7 +58,7 @@ dl dd {
     margin-left: .5em;
 }
 
-h1 { font-size: 21px; margin-top: 0; }
+h1 { font-size: 25px; margin-top: 0; }
 h2 { font-size: 18px; margin-top: 0; color: #C06; }
 h3 { font-size: 16px; margin-top: 0; }
 h4 { font-size: 13px; margin-top: 0; }
@@ -68,7 +68,12 @@ p {
 }
 
 img {
-    outline: 3px solid #E6E2DF;
+   /* outline: 3px solid #E6E2DF;*/
+}
+
+.contenido #principal img{
+    margin-left: 12px;
+    margin-top: 41px;
 }
 
 span.si { color: #060; }
@@ -281,10 +286,13 @@ form label + ul li + li {
     line-height: 79px;
     width: 316px;
 }
-.contenido #principal img{
-    border: 0 none;
+.contenido #principal .blog img{
+    border: 1px solid #CCCCCC;
+    margin-left: 105px;
+    margin-top: 12px;
+    outline: 3px none #E6E2DF;
     vertical-align: middle;
-    outline: 3px none #E6E2DF; 
+    width: 435px;
 }
 
 
