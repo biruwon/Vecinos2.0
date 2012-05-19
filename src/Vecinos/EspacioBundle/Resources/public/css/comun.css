@@ -198,7 +198,7 @@ form label + ul li + li {
    ======================================================================== */
 /* Botón normal */
 .boton, .boton:visited {
-    background: #000000;
+    background: #32CD32;
     border-bottom: 1px solid rgba(0,0,0, 0.25);
     color: #FFF;
     cursor: pointer;
@@ -254,6 +254,10 @@ form label + ul li + li {
     vertical-align: middle;
     width: 169px;
 }
+#header1 .container_169 .grid_10 a{
+    width: 25px;
+}
+
 
 #header1 .container_169{
     display: table-caption;
@@ -261,7 +265,21 @@ form label + ul li + li {
     margin-left: 267px;
     margin-top: -12px;
     position: relative;
-    width: 1350px;
+    width: 1083px;
+}
+#header1 .container_167{
+    height: 64px;
+    margin-left: 267px;
+    margin-top: -12px;
+    width: 1083px;
+} 
+#header1 .container_167 .grid_10 ul{
+    left:200px;
+}
+
+#header1 .container_167 nav ul li{
+    line-height: 79px;
+    width: 316px;
 }
 .contenido #principal img{
     border: 0 none;

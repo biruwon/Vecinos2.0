@@ -390,12 +390,13 @@ aside #condiciones, aside #nosotros {
 #portada #anuncio {
     background-color: #CCDAFF;
     font-size: 18px;
-    padding: .5em 1em;
+    padding: .5em 7em;
     position: relative;
     top: -1em;
+    margin-top: 12px;
 }
 #portada #anuncio .boton {
-    background-color: #FF4500;
+    background-color: #32CD32;
     margin-left: 1.5em;
     text-shadow: none;
 }
