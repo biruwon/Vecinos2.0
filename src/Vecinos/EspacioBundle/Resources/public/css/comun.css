@@ -72,8 +72,9 @@ img {
 }
 
 .contenido #principal img{
-    margin-left: 12px;
+    margin-left: -29px;
     margin-top: 41px;
+    width: 947px;
 }
 
 span.si { color: #060; }
