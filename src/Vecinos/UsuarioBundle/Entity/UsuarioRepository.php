@@ -28,23 +28,21 @@ class UsuarioRepository extends EntityRepository
         return $consulta->getResult();
     }
     
-
-    public function findTodasLasIncidencias()
+    public function queryTodasLasIncidencias()
     {
         $em = $this->getEntityManager();
         
-        $consulta = $em->createQuery('SELECT i,u FROM IncidenciaBundle:Incidencia i JOIN i.usuario u ORDER BY i.fecha DESC '); 
-        //$consulta->setParameter('usuario', $usuario);
+        $consulta = $em->createQuery('SELECT i FROM IncidenciaBundle:Incidencia i
+                                                                              ORDER BY i.fecha DESC');
         
-        //return $consulta->getSingleResult();
-        return $consulta->getResult();
+        return $consulta;
     }
-        
-       // $consulta = $em->createQuery('SELECT o, c, t FROM OfertaBundle:Oferta o JOIN o.ciudad c JOIN o.tienda t WHERE o.revisada = true AND o.fecha_publicacion < :fecha AND c.slug = :ciudad ORDER BY o.fecha_publicacion DESC');
-        
-        
-        
     
+
+    public function findTodasLasIncidencias()
+    {
+          return $this->queryTodasLasIncidencias()->getResult();
+    }
     
     public function queryTodasLasJuntas($usuario)
     {

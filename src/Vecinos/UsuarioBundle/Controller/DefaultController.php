@@ -250,15 +250,20 @@ class DefaultController extends Controller {
     
     public function incidenciasAction() {
         $em = $this->getDoctrine()->getEntityManager();
-        //$usuario = $this->get('security.context')->getToken()->getUser();
 
+        $paginador = $this->get('ideup.simple_paginator');
+        
+        $paginador->setItemsPerPage(5);
 
-       $incidencias = $em->getRepository('UsuarioBundle:Usuario')->findTodasLasIncidencias();
+        $incidencias = $paginador->paginate(
+                    $em->getRepository('UsuarioBundle:Usuario')->queryTodasLasIncidencias()
+                    )->getResult();
 
        $formato = $this->get('request')->getRequestFormat();
 
        return $this->render('UsuarioBundle:Default:incidencias.' . $formato . '.twig', array(
-                    'incidencias' => $incidencias
+                    'incidencias' => $incidencias,
+                    'paginador' => $paginador
                 ));
     }
     
