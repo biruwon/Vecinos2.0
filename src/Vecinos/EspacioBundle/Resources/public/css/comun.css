@@ -71,7 +71,7 @@ img {
    /* outline: 3px solid #E6E2DF;*/
 }
 
-.contenido #principal img{
+.contenido #principal .ia img{
     margin-left: -29px;
     margin-top: 41px;
     width: 947px;

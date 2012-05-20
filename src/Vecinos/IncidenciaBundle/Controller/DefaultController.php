@@ -41,16 +41,24 @@ class DefaultController  extends Controller
                 $this->get('session')->setFlash('incidencia', 'Nueva incidencia creada con éxito, se intentará resolver en las próximas horas.'
                 );
                 //kernel.root_dir apunta a /app
-                // $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getPath();
+                
+                
+                
+                 //$documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$incidencia->getPath();
 
+                 $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/ventana-rota.jpg';
+                 $documento1 = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/pared.jpg';
+                 
                  $message = \Swift_Message::newInstance()
 
                   ->addBcc($usuario->getEmail())
                   ->setSubject($incidencia->getTitulo())
                   ->setFrom('vecinos200@gmail.com')
                   ->setTo('ojosverdesdecristal@hotmail.com')
-                  ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));
-                  // ->attach(\Swift_Attachment::fromPath($documento));
+                  ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)))
+                  //->attach(\Swift_Attachment::fromPath($documento))
+                  ->attach(\Swift_Attachment::fromPath($documento1));
+                  
                   //if ('sinfoto' != $incidencia->getFoto()) {
                   // $message -> attach(\Swift_Attachment::fromPath($documento));
                   //  }

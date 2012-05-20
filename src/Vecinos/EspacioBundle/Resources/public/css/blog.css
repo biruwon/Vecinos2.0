@@ -9,7 +9,7 @@ form.blogger textarea { width: 500px; height: 150px; line-height: 26px; font-siz
 form.blogger input[type="submit"] { margin-left: 110px; width: 508px; line-height: 26px; font-size: 20px; min-height: 26px; }
 form.blogger ul li { color: #ff0000; margin-bottom: 5px; }
 
-.date { margin-bottom: 20px; border-bottom: 1px solid #ccc; font-size: 24px; color: #666; line-height: 30px }
+.date1 { margin-bottom: 20px; border-bottom: 1px solid #ccc; font-size: 24px; color: #666; line-height: 30px }
 .blog { margin-bottom: 20px; }
 .blog img { width: 190px; float: left; padding: 5px; border: 1px solid #ccc; margin: 0 10px 10px 0; }
 .blog .meta { clear: left; margin-bottom: 20px; }

@@ -4,7 +4,7 @@ A las {{ incidencia.hora |  date('H:i') }} del {{ incidencia.fecha|date('d/m/Y')
 Titulo: {{ incidencia.titulo }}
 Gravedad: {{ incidencia.gravedad }}
 Descripción del problema: {{ incidencia.descripcion | striptags  }}
-
+Descripción del problema: {{ incidencia.descripcion | raw  }}
 
 Este mensaje se ha generado automáticamente. No responda a el directamente. Si tiene alguna 
 duda sobre el servicio pongáse en contacto con el administrador de la aplicación en 
