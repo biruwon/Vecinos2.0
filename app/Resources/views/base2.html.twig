@@ -11,13 +11,13 @@
 </head>
 
 <body id="{% block id '' %}"><div id="contenedor">
-    {% block header1 %}
-    <header id="header">
-    <div class="container_16">
-    {% endblock %}
+    
+    <header id="header1">
+    <div class="container_foto">
+        <a href="{{ path('portada')}}"><IMG src="/bundles/espacio/images/IconoV.png"></a>
+    </div>
     {% block header %}
     {% endblock %}
-    </div>
     </header>
     
     {% block body %}{% endblock %}

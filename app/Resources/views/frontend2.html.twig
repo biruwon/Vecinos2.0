@@ -27,8 +27,7 @@
 {% endjavascripts %}
 {% endblock %}
 {% block header %}
-
-    <h1 class="grid_6"><a href="{{ path('portada')}}">Vecinos2.0 </a></h1>
+<div class="container_167">
     <nav class="grid_10">
         <ul>
             <li><a>{{ "Un nuevo concepto de comunidad" | trans }}</a></li>
@@ -36,11 +35,10 @@
             <li><a href="#">{{ "Ventajas" | trans }}</a></li>
         </ul>
     </nav>
-
+</div>
 {% endblock %}
 
 {% block body %}
-{% block animacion %}{% endblock %}
 {% block anuncio %}{% endblock %}
 <article class="contenido">
     <section id="principal" class="grid_12">

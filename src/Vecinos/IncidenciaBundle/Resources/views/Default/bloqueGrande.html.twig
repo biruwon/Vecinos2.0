@@ -9,18 +9,16 @@
 {{ incidencia.titulo }}
 </a></div>
 <div class="snippet">
-   <p>{{ incidencia.descripcion | raw  }}</p>
+   <p>{{ incidencia.descripcion(50) |raw }}</p>
 
    <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Leer más...</a></p>
+  {# <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>#}
+</div>
+
+<footer class="meta">
+   <p>Creada por <span class="highlight"><a href="{{ path('usuario_perfil_incidencia', { 'id': incidencia.usuario.id}) }}" target="_blank">{{ incidencia.usuario.nombre }}</span></a> a las {{incidencia.hora |date('h:m')}}</p>
    <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>
-
-   
-</div>
-<div class="grid_12 omega">
-    
-   Creada por <a href="{{ path('usuario_perfil_incidencia', { 'id': incidencia.usuario.id}) }}" target="_blank">{{ incidencia.usuario.nombre }}</a> a las {{incidencia.hora |date('h:m')}}
-</div>
-
+</footer>
 </article>
 </section>
 
