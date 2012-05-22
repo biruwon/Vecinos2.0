@@ -1,4 +1,4 @@
-
+{#
 <section class="main-col">
 <article class="blog">
            
@@ -12,7 +12,7 @@
    <p>{{ incidencia.descripcion(50) |raw }}</p>
 
    <p class="continue"><a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Leer más...</a></p>
-  {# <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>#}
+  {# <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>
 </div>
 
 <footer class="meta">
@@ -20,4 +20,17 @@
    <p>Tags: <span class="highlight">{{ incidencia.tags }}</span></p>
 </footer>
 </article>
-</section>
+</section>#}
+
+
+<div class="grid_10 omega">
+  {{ incidencia.titulo }}
+  <time datetime="{{ incidencia.fecha|date('c') }}">{{ incidencia.fecha|date('d/m/Y') }}</time>
+</div>
+<div class="grid_3 omega">
+   <br>{{ incidencia.descripcion(50) | raw }} <a href="{{ path('usuario_incidencias_id', { 'id': incidencia.id}) }}">Leer más...</a>
+</div>
+<footer class="meta">
+   Creada por <span class="highlight"><a href="{{ path('usuario_perfil_incidencia', { 'id': incidencia.usuario.id}) }}" target="_blank">{{ incidencia.usuario.nombre }}</span></a> a las {{incidencia.hora |date('h:m')}}
+   Tags: <span class="highlight">{{ incidencia.tags }}</span>
+</footer>

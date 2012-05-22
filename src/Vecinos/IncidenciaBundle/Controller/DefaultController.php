@@ -53,11 +53,13 @@ class DefaultController  extends Controller
                   ->setTo('ojosverdesdecristal@hotmail.com')
                   ->setBody($this->renderView('IncidenciaBundle:Default:incidencias.txt.twig', array('incidencia' => $incidencia)));
                  
+                 if( $archivos != null ){
                  foreach($archivos as $archivo) {     
                        
                   $documento = $this->container->getParameter('kernel.root_dir').'/../web/uploads/images/'.$archivo;    
                   $message->attach(\Swift_Attachment::fromPath($documento));  
                   }
+                 }
                   //if ('sinfoto' != $incidencia->getFoto()) {
                   // $message -> attach(\Swift_Attachment::fromPath($documento));
                   //  }

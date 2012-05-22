@@ -17,9 +17,11 @@
             <p>{{ incidencia.descripcion |raw }}</p>
         </div>
         {% for imagen in arrayimagenes%}
-    <img 
+    {#<img  
          src="/uploads/images/{{imagen}} " 
-         title="{{imagen}}">
+         title="{{imagen}}">#}
+            {#<object data="/uploads/images/{{imagen}} " type="" title="{{imagen}}" width="800" height="800"></object>#}
+            <embed src="/uploads/images/{{imagen}} " title="{{imagen}}" width="800" height="800">
     
     {% endfor %}    
     </article>
