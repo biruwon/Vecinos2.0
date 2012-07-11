@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class DefaultControllerTest extends WebTestCase
 {
      /** @test */
-    public function laPortadaSimpleRedirigeAUnaCiudad()
+    public function laPortadaSeGeneraCorrectamente()
     {
         $client = static::createClient();
         //SUT
